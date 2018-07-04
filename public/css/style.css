@@ -1,0 +1,45 @@
+/* commons */
+h1, a {
+    font-family: 'Cherry Swash', cursive;
+}
+
+/* cover */
+.cover {
+padding-top: 100px;
+margin-bottom: 20px;
+width: 100%;
+background: url("") center center no-repeat;
+background-size: cover;
+}
+
+.cover .cover-inner {
+height: 100%;
+margin: 0 auto;
+display: table;
+
+}
+
+.cover .cover-inner .cover-contents {
+display: table-cell;
+vertical-align: middle;
+text-align: center;
+position: relative;
+}
+
+.btn-ghost {
+    background: transparent;
+}
+
+.cover-contents h1 {
+    font-size: 100px;
+}
+
+.panel-default {
+    font-family: 'Cherry Swash', cursive;
+    margin-top: 100px;
+}
+
+.seat{
+    font-size: 80px;
+}
+
