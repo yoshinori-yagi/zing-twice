@@ -1,5 +1,5 @@
 @extends('layouts.app')
-/
+
 @section('cover')
     <div class="cover">
         <div class="cover-inner">
