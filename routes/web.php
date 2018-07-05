@@ -23,6 +23,7 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::resource('seats', 'SeatsController',['only'=> ['index']]);
+Route::get('seats/update', 'SeatsController@update')->name('seat.update');
 
 Route::group(['middleware' => ['auth']], function () {
      Route::group(['prefix' => 'seats/{id}'], function () {
@@ -31,3 +32,5 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::get('games', 'GamesController@index')->name('game.index');
+Route::get('games/game', 'GamesController@show')->name('game.show');
+Route::get('games/game/result', 'GamesController@result')->name('game.result');
