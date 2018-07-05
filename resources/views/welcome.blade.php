@@ -9,7 +9,12 @@
                 <a href="{{ route('signup.get') }}" class="btn btn-default btn-ghost btn-lg">Sign Up</a>
                 @else
                     @foreach($seats as $seat)
-                    <a href="" class="btn btn-default btn-ghost btn-md seat seat{!! $seat->id !!}">{!! ($seat->id) !!}</a>
+                    <a href="#" class="btn btn-default btn-ghost btn-md seat">{!! ($seat->id) !!}</a>
+                    <div class = "offence">
+                        <h1>team nameを攻める！！</h1>
+                        <h2>Profile</h2>
+                        <img src=""></img>
+                    </div>
                     @endforeach
                 @endif
             </div>

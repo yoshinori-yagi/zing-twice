@@ -24,3 +24,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::resource('seats', 'SeatsController',['only'=> ['index']]);
 
+Route::group(['middleware' => ['auth']], function () {
+     Route::group(['prefix' => 'seats/{id}'], function () {
+        Route::get('offence', 'SeatsController@show')->name('offence');
+     });
+});
