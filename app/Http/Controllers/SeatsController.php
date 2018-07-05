@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -30,26 +29,15 @@ class SeatsController extends Controller
     
     }
     
-    public function show($id) 
+   
+    public function update()
     {
-        $data = [];
         if (\Auth::check()) {
-            
-            $user = \Auth::user();
-            $seats = Seat::All('id');
-          
-
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                
-            ];
-            
-            return view('offence.offence', $data);
+            return view ('seat.update');
         }
         else {
             return redirect('welcome');  
         }
-        
     }
+    
 } 
