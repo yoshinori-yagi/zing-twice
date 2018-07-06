@@ -19,21 +19,10 @@
                             <th><a href="#" class="btn btn-default btn-ghost btn-md seat seat3">3</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat6">6</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat9">9</a></th><th>    </th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat12">12</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat15">15</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat18">18</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat21">21</a></th><th>    </th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat24">24</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat27">27</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat30">30</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat33">33</a></th><th>    </th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat36">36</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat39">39</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat42">42</a></th><th><a href="#" class="btn btn-default btn-ghost btn-md seat seat45">45</a></th>
                         </tr>
                     </table>
-                    <div class = "row offence col-md-8">
-                        <div class = "panel panel-default">
-                            <div class = "panel-heading">
-                                <h2>team nameを攻める！！</h1>
-                            </div>
-                            <div class = "panel-body">
-                                <aside = "col-md-4">
-                                    <img class="media-object img-rounded img-responsive" src="" alt="">
-                                </aside>
-                                <div>
-                                    <a href="" class="btn btn-default btn-ghost btn-lg game_choice">Profile</a>
-                                    <a href="{{ route('game.index') }}" class="btn btn-default btn-ghost btn-lg game_choice">Gameを選ぶ</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class = "offence">
+                        <h1>team nameを攻める！！</h1>
+                        <a href="" class="btn btn-default btn-ghost btn-lg game_choice">Profile</a>
+                        <a href="{{ route('game.index') }}" class="btn btn-default btn-ghost btn-lg game_choice">Gameを選ぶ</a>
                     </div>
                     
                 @endif
