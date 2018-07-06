@@ -20,7 +20,7 @@ class CreateGamesTable extends Migration
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('team_id')->references('team_id')->on('seats')->onDelete('cascade');
+            $table->foreign('team_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

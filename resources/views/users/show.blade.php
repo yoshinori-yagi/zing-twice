@@ -41,9 +41,9 @@
             </div>
         
         </div>
-        @if (Auth::user()->id != $user->id)
+        
         <a href="{{ route('add.info') }}" class="btn btn-default btn-ghost btn-lg">攻める！！</a>
-        @endif
+      
     </div>
     
 @endsection

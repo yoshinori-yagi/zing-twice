@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 class GamesController extends Controller
 {
     /**
@@ -14,6 +16,7 @@ class GamesController extends Controller
     public function index()
     {
         if (\Auth::check()) {
+            
             return view ('games.index');
         }
         else {

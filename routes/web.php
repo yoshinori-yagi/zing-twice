@@ -22,7 +22,7 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
-Route::resource('seats', 'SeatsController',['only'=> ['index']]);
+Route::get('seats', 'SeatsController@index')->name('seat');
 Route::get('seats/update', 'SeatsController@update')->name('seat.update');
 
 Route::group(['middleware' => ['auth']], function () {
