@@ -32,10 +32,16 @@ class SeatsController extends Controller
     }
     
    
-    public function update()
+    public function update($id)
     {
+        $user = User::find($id);
+
+        $data = [
+            'user' => $user,
+        ];
+        
         if (\Auth::check()) {
-            return view ('seat.update');
+            return view ('seat.update', $data);
         }
         else {
             return redirect('welcome');  
