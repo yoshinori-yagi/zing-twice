@@ -34,3 +34,8 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('games', 'GamesController@index')->name('game.index');
 Route::get('games/game', 'GamesController@show')->name('game.show');
 Route::get('games/game/result', 'GamesController@result')->name('game.result');
+
+
+Route::get('users/{id}','UsersController@show' )->name('users.show');
+
+Route::post('add_info', 'UsersController@add')->name('add.info');

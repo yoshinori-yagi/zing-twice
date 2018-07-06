@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\Seat;
 
+use App\User;
+
 class SeatsController extends Controller
 {
     public function index()
