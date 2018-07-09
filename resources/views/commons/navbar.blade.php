@@ -6,7 +6,7 @@
   <!-- choices -->
   <ul class="dropdown-menu">
     @if (Auth::check())
-    <li><a href="#">Timeline</a></li>
+    <li><a href="/">Timeline</a></li>
     <li><a href="#">My Page</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="{{ route('logout.get') }}">Logout</a></li>
