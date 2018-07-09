@@ -224,8 +224,8 @@ $(function () {
         $('.offence').fadeIn();
     });
     
-    $('.seat40').click(function(){
-        $('.seats_index').hide();
-        $('.offence').fadeIn();
+    $('.close_button').click(function(){
+        $('.seats_index').show();
+        $('.offence').hide();
     });
 })
