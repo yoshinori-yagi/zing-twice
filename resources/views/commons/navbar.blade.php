@@ -7,7 +7,8 @@
   <ul class="dropdown-menu">
     @if (Auth::check())
     <li><a href="#">Timeline</a></li>
-    <li><a href="#">My Page</a></li>
+    <li><a href="{{ route('seat', ['id' => $user->id]) }}">Seats</a></li>
+    <li><a href="{{ route('users.show', ['id' => $user->id])}}">My Page</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="{{ route('logout.get') }}">Logout</a></li>
     @else
