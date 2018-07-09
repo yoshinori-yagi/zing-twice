@@ -41,6 +41,10 @@ h1, a {
     margin-top: 100px;
 }
 
+.panel-body {
+    list-style-type: none;
+}
+
 .seat{
     font-size: 40px;
     width: 80px;
@@ -48,12 +52,13 @@ h1, a {
 }
 
 .seats_index {
- 
+    margin-left:300px;
 }
 
 .offence{
     display: none;
     position: absolute;
+    margin-left: 300px;
     width: 600px;
     height: 300px;
     margin: 0 auto;
@@ -62,3 +67,58 @@ h1, a {
     z-index: 30;
 }
 
+.game_index{
+    position: absolute;
+    margin-left: 300px;
+    width: 800px;
+    height: 300px;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 30;
+}
+
+.game_index h1{
+    font-size: 100px;
+}
+
+.game_show{
+    position: absolute;
+    margin-left: 300px;
+    width: 600px;
+    height: 300px;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 30;
+}
+
+.game_show h1{
+    font-size: 100px;
+}
+
+.game_result{
+    position: absolute;
+    margin-left: 300px;
+    width: 600px;
+    height: 300px;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 30;
+}
+
+.game_result h1{
+    font-size: 100px;
+}
+
+.seat_update{
+    position: absolute;
+    margin-left: 300px;
+    width: 600px;
+    height: 300px;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 30;
+}
+
+.seat_update h1{
+    font-size: 100px;
+}

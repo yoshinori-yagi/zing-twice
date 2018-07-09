@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Controller;
+
+use App\Seat;
+
+use App\User;
+
 class GamesController extends Controller
 {
     /**
@@ -11,79 +17,52 @@ class GamesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+        $user = User::find($id);
+
+        $data = [
+            'user' => $user,
+        ];
+        
         if (\Auth::check()) {
-            return view ('games.index');
+            
+            return view ('games.index', $data);
         }
         else {
             return redirect('welcome');  
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
-    }
+        $user = User::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $data = [
+            'user' => $user,
+        ];
+        
+        if (\Auth::check()) {
+            return view ('games.show', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    
+    public function result($id)
     {
-        //
-    }
+        $user = User::find($id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $data = [
+            'user' => $user,
+        ];
+        
+        if (\Auth::check()) {
+            return view ('games.result', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
     }
 }
