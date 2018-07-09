@@ -1,42 +1,42 @@
-$(function () {
+///$(function () {
     $('.seat1').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence1').fadeIn();
     });
     
     $('.seat2').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence2').fadeIn();
     });
     
     $('.seat3').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence3').fadeIn();
     });
     
     $('.seat4').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence4').fadeIn();
     });
     
     $('.seat5').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence5').fadeIn();
     });
     
     $('.seat6').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence6').fadeIn();
     });
     
     $('.seat7').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence7').fadeIn();
     });
     
     $('.seat8').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence8').fadeIn();
     });
     
     $('.seat9').click(function(){
@@ -46,12 +46,12 @@ $(function () {
     
     $('.seat10').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence9').fadeIn();
     });
     
     $('.seat11').click(function(){
         $('.seats_index').hide();
-        $('.offence').fadeIn();
+        $('.offence10').fadeIn();
     });
     
     $('.seat12').click(function(){

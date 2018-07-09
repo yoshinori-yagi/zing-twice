@@ -9,6 +9,8 @@ use App\Seat;
 
 use App\User;
 
+use DB;
+
 class SeatsController extends Controller
 {
     public function index()
@@ -17,7 +19,8 @@ class SeatsController extends Controller
         if (\Auth::check()) {
             $user = \Auth::user();
             $seats = Seat::All('id');
-
+       
+            
             $data = [
                 'user' => $user,
                 'seats' => $seats,
