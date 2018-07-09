@@ -2,13 +2,11 @@
 
 @section('cover')
 
-<div>
-    
-    <h1>{!! ($seat->id) !!}を攻める！</h1>
-    <h2>Team Name</h2>
-    <img src=""></img>
-    <h3>Points</h3>
-    
-</div>
+        <div class ="offence offence1">
+            <h1> {{ $team1 }} </h1>
+            <a href="" class="btn btn-default btn-ghost btn-lg game_choice">Profile</a>
+            <a href="{{ route('game.index', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_choice">Gameを選ぶ</a>
+            <a href="" class="btn btn-default btn-ghost btn-lg close_button">閉じる</a>
+        </div>
 
 @endsection

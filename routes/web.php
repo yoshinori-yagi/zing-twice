@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
           Route::get('games/game', 'GamesController@show')->name('game.show');
           Route::get('games/game/result', 'GamesController@result')->name('game.result');
           Route::get('seats/update', 'SeatsController@update')->name('seat.update');
+          Route::resource('offence','OffencesController',['only' => ['index']]);
      });
 });
 
