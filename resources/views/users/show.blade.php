@@ -14,6 +14,7 @@
                         <br>
                         <br>
                         <br>
+                        <br>
                     </div>
                 </div>
                 <div class="panel panel-default">
@@ -42,11 +43,11 @@
                     </div>
                     <div class="panel-body">
                         <br>
-                        <br>
-                        <br>
-                        <br>
+                        <a href="{{ route('game.confirm', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">Start game</a>
+                        <a href="{{ route('seat.update', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">See result</a>
                     </div>
                 </div>
+                
             
             </div>
         </div>

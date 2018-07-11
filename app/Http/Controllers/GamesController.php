@@ -12,6 +12,8 @@ use App\User;
 
 use App\Number;
 
+use App\Game;
+
 use Input;
 
 use DB;
@@ -72,6 +74,40 @@ class GamesController extends Controller
         }
     }
     
+    public function wait($id)
+    {
+        $user = User::find($id);
+
+        $data = [
+            'user' => $user,
+        ];
+        
+        if (\Auth::check()) {
+            
+            return view ('games.wait', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
+    }
+    
+    public function confirm($id)
+    {
+        $user = User::find($id);
+
+        $data = [
+            'user' => $user,
+        ];
+        
+        if (\Auth::check()) {
+            
+            return view ('games.confirm', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
+    }
+    
     public function numbers($id)
     {
         $user = User::find($id);
@@ -92,5 +128,25 @@ class GamesController extends Controller
         
     }
 
+
+    public function defence($id)
+    {
+        $user = User::find($id);
+        
+        $number=Input::get('number');                                               
+        $number=htmlspecialchars($number);          
+        
+        $number = rand(1,6);
+        
+        $data = [
+            'number' => $number,
+            'user' => $user,
+        ];
+
+        DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]); 
+        
+        return view('games.defence',$data);                                
+        
+    }
         
 }
