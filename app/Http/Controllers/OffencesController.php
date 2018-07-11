@@ -156,7 +156,7 @@ class OffencesController extends Controller
         if (\Auth::check()) {
             $user = \Auth::user();
             $seats = Seat::All('id');
-            $team7 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 3)->first();
+            $team7 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 7)->first();
             
             $data = [
                 'user' => $user,
