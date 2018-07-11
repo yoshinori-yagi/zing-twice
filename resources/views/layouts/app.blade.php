@@ -19,7 +19,7 @@
         
     </head>
     <body>
-        @include('commons.navbar')
+        @include('commons.navbar3')
 
         @yield('cover')
 
