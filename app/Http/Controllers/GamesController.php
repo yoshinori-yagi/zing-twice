@@ -128,7 +128,7 @@ class GamesController extends Controller
         ];
 
         DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]);
-        DB::update('update zing.users set notification = ? where games.team_id = users.id',[intval($notification)]);
+        /*DB::update('update zing.users set notification = ? where games.team_id = users.id',[intval($notification)]);*/
         
         return view('games.numbers',$data);                                
         
