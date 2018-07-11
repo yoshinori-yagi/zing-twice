@@ -23,7 +23,8 @@
                     </div>
 
                     <div class="text-right">
-                        {!! form::submit('Login', ['class' => 'btn btn-success']) !!}
+                        <a href="{{ route('signup.get') }}">you are not registered?</a>
+                        {!! form::submit('Login', ['class' => 'btn btn-default btn-ghost']) !!}
                     </div>
                 {!! form::close() !!}
             </div>

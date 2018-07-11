@@ -10,6 +10,8 @@ use App\Seat;
 
 use App\User;
 
+use App\Number;
+
 class GamesController extends Controller
 {
     /**
@@ -65,4 +67,20 @@ class GamesController extends Controller
             return redirect('welcome');  
         }
     }
+    
+    public function numbers($id)
+    {
+        $user = User::find($id);
+        $number = rand(1,6);
+        
+        $data = [
+            'number' => $number,
+            'user' => $user,
+        ];
+
+        return view('games.numbers',$data);
+    
+    }
+
+        
 }

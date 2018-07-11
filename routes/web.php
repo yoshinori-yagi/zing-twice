@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
      Route::group(['prefix' => 'users/{id}'], function () {
           Route::get('games', 'GamesController@index')->name('game.index');
           Route::get('games/game', 'GamesController@show')->name('game.show');
+          Route::get('games/game1', 'GamesController@numbers')->name('game.numbers');
           Route::get('games/game/result', 'GamesController@result')->name('game.result');
           Route::get('seats/update', 'SeatsController@update')->name('seat.update');
           
