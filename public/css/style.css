@@ -86,6 +86,35 @@ h1, h2, a  {
 }
 
 
+/*wait page*/
+.game_wait{
+    text-align: center;
+}
+
+.game_wait h2{
+    font-size: 80px;
+}
+
+
+/*confirm page*/
+.game_confirm{
+    text-align: center;
+}
+
+.game_confirm h2{
+    font-size: 80px;
+}
+
+/*defence page*/
+.game_defence{
+    text-align: center;
+}
+
+.game_defence h1{
+    font-size: 80px;
+}
+
+
 /*game result page*/
 .game_result{
     text-align: center;
