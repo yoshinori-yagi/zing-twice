@@ -12,6 +12,10 @@ use App\User;
 
 use App\Number;
 
+use Input;
+
+use DB;
+
 class GamesController extends Controller
 {
     /**
@@ -71,6 +75,10 @@ class GamesController extends Controller
     public function numbers($id)
     {
         $user = User::find($id);
+        
+        $number=Input::get('number');                                               
+        $number=htmlspecialchars($number);          
+        
         $number = rand(1,6);
         
         $data = [
@@ -78,8 +86,10 @@ class GamesController extends Controller
             'user' => $user,
         ];
 
-        return view('games.numbers',$data);
-    
+        DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]); 
+        
+        return view('games.numbers',$data);                                
+        
     }
 
         
