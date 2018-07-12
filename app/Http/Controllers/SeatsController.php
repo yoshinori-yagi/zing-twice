@@ -54,6 +54,17 @@ class SeatsController extends Controller
         DB::table('seats')->where ('id',intval($user_id_seat))->update(['team_id' => $team_id_seat]);
         DB::table('seats')->where ('id',intval($team_id_seat))->update(['team_id' => $user_id_seat]);
         
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 0]);
+        
+        $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
+        $team_id = $team_id->team_id;
+        
+        DB::table('users')->where ('id',intval($team_id))->update(['notification' => 0]);
+        
+        
         
         if (\Auth::check()) {
             return view ('seat.update', $data);
