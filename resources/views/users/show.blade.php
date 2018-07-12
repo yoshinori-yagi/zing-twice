@@ -43,8 +43,11 @@
                     </div>
                     <div class="panel-body">
                         <br>
+                        @if($notification == 1)
                         <a href="{{ route('game.confirm', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">Start game</a>
+                        @else($notification == 2)
                         <a href="{{ route('seat.update', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">See result</a>
+                        @endif
                     </div>
                 </div>
                 

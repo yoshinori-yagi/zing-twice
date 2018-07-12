@@ -8,6 +8,10 @@ use App\User;
 
 use App\Seat;
 
+use App\Game;
+
+use DB;
+
 class UsersController extends Controller
 {
     /**
@@ -51,9 +55,13 @@ class UsersController extends Controller
     {
         
         $user = User::find($id);
+        
+        $notification = DB::table('users')->where('id', $id)->select('users.notification')->first();
+        $notification = $notification->notification;
 
         $data = [
             'user' => $user,
+            'notification' => $notification,
         ];
 
         return view('users.show', $data);
