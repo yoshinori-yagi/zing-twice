@@ -9,6 +9,8 @@ use App\Seat;
 
 use App\User;
 
+use App\Game;
+
 use DB;
 
 class SeatsController extends Controller
@@ -42,6 +44,16 @@ class SeatsController extends Controller
         $data = [
             'user' => $user,
         ];
+        
+        $user_id_seat = DB::table('seats')->join('games','seats.team_id', '=', 'games.user_id')->select('seats.id')->first();
+        $user_id_seat = $user_id_seat->id;
+        
+        $team_id_seat = DB::table('seats')->join('games','seats.team_id', '=', 'games.team_id')->select('seats.id')->first();
+        $team_id_seat = $team_id_seat->id;
+        
+        DB::table('seats')->where ('id',intval($user_id_seat))->update(['team_id' => $team_id_seat]);
+        DB::table('seats')->where ('id',intval($team_id_seat))->update(['team_id' => $user_id_seat]);
+        
         
         if (\Auth::check()) {
             return view ('seat.update', $data);
