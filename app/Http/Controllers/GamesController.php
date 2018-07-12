@@ -61,9 +61,18 @@ class GamesController extends Controller
     public function result($id)
     {
         $user = User::find($id);
+        
+        $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
+        $user_id_score = $user_id_score->user_id_score;
+        
+        $team_id_score = DB::table('games')->orderby('id', 'desc')->select('games.team_id_score')->first();
+        $team_id_score = $team_id_score->team_id_score;
+        
 
         $data = [
             'user' => $user,
+            'user_id_score' => $user_id_score,
+            'team_id_score' => $team_id_score,
         ];
         
         if (\Auth::check()) {
@@ -117,18 +126,23 @@ class GamesController extends Controller
         
         $number = rand(1,6);
         
-        $notification=Input::get('notification');                                               
-        $notification=htmlspecialchars($notification);
-        
-        $notification = "1";
-        
         $data = [
             'number' => $number,
             'user' => $user,
         ];
+        
 
         DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]);
-        /*DB::update('update zing.users set notification = ? where games.team_id = users.id',[intval($notification)]);*/
+        
+        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
+        $game_id =  $game_id->id;
+        
+        DB::table('games')->where ('id',intval($game_id))->update(['user_id_score' => $number]);
+        
+        $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
+        $team_id = $team_id->team_id;
+        
+        DB::table('users')->where ('id',intval($team_id))->update(['notification' => 1]);
         
         return view('games.numbers',$data);                                
         
@@ -150,6 +164,16 @@ class GamesController extends Controller
         ];
 
         DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]); 
+        
+        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
+        $game_id =  $game_id->id;
+        
+        DB::table('games')->where ('id',intval($game_id))->update(['team_id_score' => $number]);
+        
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 2]);
         
         return view('games.defence',$data);                                
         
