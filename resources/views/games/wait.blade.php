@@ -4,7 +4,7 @@
     <div class = "cover">    
         <div class = "game_wait">
                 <h2>Wait for a moment…</h2>
-                <a href="{{ route('users.show', ['id' => $user->id 'notification' => $notification])}}" class="btn btn-default btn-ghost btn-lg">Back to my profile</a>
+                <a href="{{ route('users.show', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">Back to my profile</a>
         </div>
     </div>   
 @endsection

@@ -61,9 +61,18 @@ class GamesController extends Controller
     public function result($id)
     {
         $user = User::find($id);
+        
+        $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
+        $user_id_score = $user_id_score->user_id_score;
+        
+        $team_id_score = DB::table('games')->orderby('id', 'desc')->select('games.team_id_score')->first();
+        $team_id_score = $team_id_score->team_id_score;
+        
 
         $data = [
             'user' => $user,
+            'user_id_score' => $user_id_score,
+            'team_id_score' => $team_id_score,
         ];
         
         if (\Auth::check()) {
