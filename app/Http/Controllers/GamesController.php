@@ -117,18 +117,27 @@ class GamesController extends Controller
         
         $number = rand(1,6);
         
-        $notification=Input::get('notification');                                               
+        /*$notification=Input::get('notification');                                               
         $notification=htmlspecialchars($notification);
         
-        $notification = "1";
+        $notification = "1";*/
         
         $data = [
             'number' => $number,
             'user' => $user,
         ];
+        
 
         DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]);
-        /*DB::update('update zing.users set notification = ? where games.team_id = users.id',[intval($notification)]);*/
+        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
+        $game_id =  $game_id->id;
+        
+        DB::table('games')->where ('id',intval($game_id))->update(['user_id_score' => $number]);
+        
+        $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
+        $team_id = $team_id->team_id;
+        
+        DB::table('users')->where ('id',intval($team_id))->update(['notification' => 1]);
         
         return view('games.numbers',$data);                                
         

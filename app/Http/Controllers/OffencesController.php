@@ -8,6 +8,8 @@ use App\Seat;
 
 use App\User;
 
+use Input;
+
 use DB;
 
 class OffencesController extends Controller
@@ -21,17 +23,26 @@ class OffencesController extends Controller
     {
         $data = [];
         if (\Auth::check()) {
+            
+            $team1_id=Input::get('team1_id');   
+            
             $user = \Auth::user();
             $seats = Seat::All('id');
             $team1 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 1)->first();
+            $team1_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 1)->first();
+            $user_id = $user->id;
+            $team1_id = $team1_id->id;
             
-       
+          
             $data = [
                 'user' => $user,
                 'seats' => $seats,
                 'team1' => $team1,
-                
+                'team1_id' => $team1_id,
+                'user_id' => $user_id,
             ];
+            
+            DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team1_id)]);
         
             return view('offence.offence',$data);
         }
