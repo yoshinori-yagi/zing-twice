@@ -16,7 +16,7 @@
  * 定数
  */
 // ステージ
-var BLOCK_SIZE = 24;        // 1ブロックのサイズ
+var BLOCK_SIZE = 18;        // 1ブロックのサイズ
 var BLOCK_RAWS = 22;    // ステージの高さ（20ライン分をステージとして使用し、上下1ラインはあたり判定とブロックコピー用に使用）
 var BLOCK_COLS = 12;    // ステージの幅
 var SCREEN_WIDTH = BLOCK_SIZE * BLOCK_COLS; // キャンバスの幅
@@ -212,8 +212,8 @@ function createBlock(){
      
     if(hitCheck()){
         mode = GAMEOVER;
-        document.write("GAME OVER!!");
-      // console.log("GAMEOVER!");
+        /*document.write("GAME OVER!!");*/
+        console.log("GAMEOVER!");
     }
     putBlock();
 }
