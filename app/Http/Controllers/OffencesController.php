@@ -277,7 +277,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select9()
+    public function select9($id)
     {
         $data = [];
         if (\Auth::check()) {
@@ -286,11 +286,21 @@ class OffencesController extends Controller
             
             $user = \Auth::user();
             $seats = Seat::All('id');
+            
             $team9 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 9)->first();
             $team9_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 9)->first();
+            
             $user_id = $user->id;
             $team9_id = $team9_id->id;
             
+            $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 9)->first();
+            $seating = $seating->team_id;
+            
+            $notification = DB::table('users')->where('id', "=" , $id)->select('users.notification')->first();
+            $notification = $notification->notification;
+        
+            $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
+            $user_id_seat = $user_id_seat->id;
           
             $data = [
                 'user' => $user,
@@ -298,11 +308,22 @@ class OffencesController extends Controller
                 'team9' => $team9,
                 'team9_id' => $team9_id,
                 'user_id' => $user_id,
+                'seating' => $seating,
+                'notification' => $notification,
+                'user_id_seat' => $user_id_seat,
             ];
-            
-            DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team9_id)]);
         
-            return view('offence.offence9',$data);
+            if($user->id != $seating) {
+            
+                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team9_id)]);
+        
+                return view('offence.offence9',$data);
+            
+            }else{
+                
+                return view('users.show',$data);
+                
+            }
         }
         else {
             return redirect('welcome');  
@@ -442,25 +463,25 @@ class OffencesController extends Controller
         $data = [];
         if (\Auth::check()) {
             
-            $team13_id=Input::get('team13_id');   
+            $team14_id=Input::get('team13_id');   
             
             $user = \Auth::user();
             $seats = Seat::All('id');
-            $team13 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 13)->first();
-            $team13_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 13)->first();
+            $team14 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 14)->first();
+            $team14_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 14)->first();
             $user_id = $user->id;
-            $team13_id = $team13_id->id;
+            $team14_id = $team14_id->id;
             
           
             $data = [
                 'user' => $user,
                 'seats' => $seats,
-                'team13' => $team13,
-                'team13_id' => $team13_id,
+                'team14' => $team14,
+                'team14_id' => $team14_id,
                 'user_id' => $user_id,
             ];
             
-            DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team13_id)]);
+            DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team14_id)]);
         
             return view('offence.offence14',$data);
         }
