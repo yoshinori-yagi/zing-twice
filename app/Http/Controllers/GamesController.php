@@ -177,7 +177,37 @@ class GamesController extends Controller
         return view('games.numbers',$data);                                
         
     }
+    
+    public function tetoris($id)
+    {
+        $user = User::find($id);
+        
+        $number=Input::get('tetoris');                                               
+        
+        $number = 6;
+        
+        $data = [
+            'number' => $number,
+            'user' => $user,
+        ];
+        
 
+        DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]);
+        
+        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
+        $game_id =  $game_id->id;
+        
+        DB::table('games')->where ('id',intval($game_id))->update(['user_id_score' => $number]);
+        
+        $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
+        $team_id = $team_id->team_id;
+        
+        DB::table('users')->where ('id',intval($team_id))->update(['notification' => 1]);
+        
+        return view('games.tetoris',$data);                                
+        
+    }
+    
 
     public function defence($id)
     {

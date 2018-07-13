@@ -15,6 +15,8 @@
         <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
         
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/game.css') }}">
+        
         <script type="text/javascript" src="js/test.js"></script>
         
     </head>
