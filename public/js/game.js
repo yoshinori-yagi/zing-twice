@@ -334,20 +334,21 @@ function lineCheck(){
 
 $(function () {
     $(".game_finish").click(function(){
-        var lineCount = "newfile.txt";// 文字列に修正
+        event.preventDefault();
+        var param = { "String(linecount)": "Hell" };
+        
         $.ajax({
-            type: "POST",
-            url: "games/index",
-            data: {
-                data: lineCount // データをPHPに渡す
-            },
-            success: function(data) {
-                    $('#result').text(data); // resultのdivにphpでechoしたメッセージを吐き出す
-            },
-            error: function() {
-                $("#result").html( '<font color="red">エラー</font>' );
-            }
-        });
+                    type: "GET",
+                    url: "get.php",
+                    data: param,
+                    crossDomain: false,
+                    dataType : "json",
+                    scriptCharset: 'utf-8'
+                }).done(function(data){
+                    alert(data.text);
+                }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+                    alert(errorThrown);
+                });
     });
 });
  
