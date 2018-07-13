@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
+use DB;
+
 class WelcomeController extends Controller
 {
     /**
@@ -11,9 +15,19 @@ class WelcomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(/*$id*/)
     {
-        return view ('welcome');
+        /*$user = User::find($id);
+        
+        $notification = DB::table('users')->where('id' , "=" , $id)->select('users.notification')->first();
+        echo $notification; exit;
+        
+        $data = [
+            'user' => $user,
+            'notification' => $notification,
+        ];*/
+        
+        return view ('welcome'/*, $data*/);
     }
 
     /**

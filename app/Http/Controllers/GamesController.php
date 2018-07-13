@@ -83,6 +83,34 @@ class GamesController extends Controller
         }
     }
     
+    public function result_after($id)
+    {
+        $user = User::find($id);
+        
+        DB::table('users')->where ('id', "=", $id)->update(['notification' => 0]);
+        
+        
+        $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
+        $user_id_score = $user_id_score->user_id_score;
+        
+        $team_id_score = DB::table('games')->orderby('id', 'desc')->select('games.team_id_score')->first();
+        $team_id_score = $team_id_score->team_id_score;
+        
+
+        $data = [
+            'user' => $user,
+            'user_id_score' => $user_id_score,
+            'team_id_score' => $team_id_score,
+        ];
+        
+        if (\Auth::check()) {
+            return view ('games.result_after', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
+    }
+    
     public function wait($id)
     {
         $user = User::find($id);
@@ -103,7 +131,9 @@ class GamesController extends Controller
     public function confirm($id)
     {
         $user = User::find($id);
-
+        
+        DB::table('users')->where ('id', $id)->update(['notification' => 0]);
+        
         $data = [
             'user' => $user,
         ];

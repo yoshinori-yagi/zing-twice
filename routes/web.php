@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
           Route::get('games/game1', 'GamesController@numbers')->name('game.numbers');
           Route::get('games/game1/defence', 'GamesController@defence')->name('game.defence');
           Route::get('games/game/result', 'GamesController@result')->name('game.result');
+          Route::get('games/game/result/offence', 'GamesController@result_after')->name('game.result_after');
           Route::get('seats/update', 'SeatsController@update')->name('seat.update');
           Route::get('games/wait', 'GamesController@wait')->name('game.wait');
           Route::get('games/confirm', 'GamesController@confirm')->name('game.confirm');
