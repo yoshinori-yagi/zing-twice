@@ -56,7 +56,7 @@ class UsersController extends Controller
         
         $user = User::find($id);
         
-        $notification = DB::table('users')->where('id', $id)->select('users.notification')->first();
+        $notification = DB::table('users')->where('id', "=" , $id)->select('users.notification')->first();
         $notification = $notification->notification;
         
         $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
