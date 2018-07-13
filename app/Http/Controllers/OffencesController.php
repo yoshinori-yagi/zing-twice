@@ -19,7 +19,7 @@ class OffencesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function select()
+    public function select($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -72,7 +72,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select2()
+    public function select2($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -126,7 +126,7 @@ class OffencesController extends Controller
     }
     
     
-    public function select3()
+    public function select3($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -180,7 +180,7 @@ class OffencesController extends Controller
     }
     
     
-    public function select4()
+    public function select4($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -233,7 +233,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select5()
+    public function select5($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -286,7 +286,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select6()
+    public function select6($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -339,7 +339,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select7()
+    public function select7($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -392,7 +392,7 @@ class OffencesController extends Controller
         }
     }
 
-    public function select8()
+    public function select8($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -498,7 +498,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select10()
+    public function select10($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -551,7 +551,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select11()
+    public function select11($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -604,7 +604,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select12()
+    public function select12($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -657,7 +657,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select13()
+    public function select13($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -710,7 +710,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select14()
+    public function select14($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -763,7 +763,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select15()
+    public function select15($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -816,7 +816,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select16()
+    public function select16($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -869,7 +869,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select17()
+    public function select17($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -922,7 +922,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select18()
+    public function select18($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -975,7 +975,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select19()
+    public function select19($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1028,7 +1028,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select20()
+    public function select20($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1081,7 +1081,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select21()
+    public function select21($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1134,7 +1134,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select22()
+    public function select22($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1187,7 +1187,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select23()
+    public function select23($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1240,7 +1240,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select24()
+    public function select24($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1293,7 +1293,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select25()
+    public function select25($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1346,7 +1346,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select26()
+    public function select26($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1399,7 +1399,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select27()
+    public function select27($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1452,7 +1452,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select28()
+    public function select28($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1505,7 +1505,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select29()
+    public function select29($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1558,7 +1558,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select30()
+    public function select30($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1611,7 +1611,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select31()
+    public function select31($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1664,7 +1664,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select32()
+    public function select32($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1717,7 +1717,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select33()
+    public function select33($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1770,7 +1770,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select34()
+    public function select34($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1823,7 +1823,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select35()
+    public function select35($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1876,7 +1876,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select36()
+    public function select36($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1929,7 +1929,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select37()
+    public function select37($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -1982,7 +1982,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select38()
+    public function select38($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -2035,7 +2035,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select39()
+    public function select39($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -2088,7 +2088,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select40()
+    public function select40($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -2141,7 +2141,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select41()
+    public function select41($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -2194,7 +2194,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select42()
+    public function select42($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -2247,7 +2247,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select43()
+    public function select43($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -2300,7 +2300,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select44()
+    public function select44($id)
         {
         $data = [];
         if (\Auth::check()) {
@@ -2353,7 +2353,7 @@ class OffencesController extends Controller
         }
     }
     
-    public function select45()
+    public function select45($id)
         {
         $data = [];
         if (\Auth::check()) {
