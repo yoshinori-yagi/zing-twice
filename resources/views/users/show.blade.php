@@ -9,11 +9,7 @@
                         <h3 class="panel-title">Seat number</h3>
                     </div>
                     <div class="panel-body">
-                        <img class="media-object img-rounded img-responsive" src="" alt="">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+                        <h2>{{ $user_id_seat }}</h2>
                         <br>
                     </div>
                 </div>
@@ -43,10 +39,14 @@
                     </div>
                     <div class="panel-body">
                         <br>
-                        @if($notification == 1)
+                        @if($notification == 0)
+                        <br><br><br>
+                        @elseif($notification == 1)
+                        <h3>You are under attack.</h3>
                         <a href="{{ route('game.confirm', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">Start game</a>
                         @else($notification == 2)
-                        <a href="{{ route('seat.update', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">See result</a>
+                        <h3>Game finished.</h3>
+                        <a href="{{ route('game.result_after', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">See result</a>
                         @endif
                     </div>
                 </div>

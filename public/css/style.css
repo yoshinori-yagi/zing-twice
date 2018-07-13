@@ -1,5 +1,5 @@
 /* commons */
-h1, h2, a  {
+h1, h2, h3, a  {
     font-family: 'Cherry Swash', cursive;
 }
 
@@ -37,6 +37,18 @@ h1, h2, a  {
 .panel-body {
     list-style-type: none;
 }
+
+.panel-body h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.panel-body h3 {
+    font-size: 20px;
+    text-align: center;
+}
+
+
 
 
 /*seats page*/
