@@ -59,7 +59,7 @@ class OffencesController extends Controller
             
                 DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team1_id)]);
         
-                return view('offence.offence1',$data);
+                return view('offence.offence',$data);
             
             }else{
                 

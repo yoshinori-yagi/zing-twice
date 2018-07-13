@@ -114,9 +114,18 @@ class GamesController extends Controller
     public function wait($id)
     {
         $user = User::find($id);
+        
+        /*$tetoris_score = Input::get('lineCount');
+        
+        $text = filter_input(INPUT_GET, 'lineCount');
+        header('Content-type: application/json; charset=utf-8');
+        echo json_encode(['lineCount' => $text . ', ']);
+        
+        exit;*/
 
         $data = [
             'user' => $user,
+  
         ];
         
         if (\Auth::check()) {

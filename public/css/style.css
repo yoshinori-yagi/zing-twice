@@ -71,6 +71,38 @@ h1, h2, h3, a  {
     height: 120px;
 }
 
+.red{
+    border-color:crimson;
+}
+
+.red:hover{
+    background-color:crimson;
+}
+
+.yellow{
+    border-color:gold;
+}
+
+.yellow:hover{
+    background-color:gold;
+}
+
+.pink{
+    border-color:hotpink;
+}
+
+.pink:hover{
+    background-color:hotpink;
+}
+
+.purple{
+    border-color:mediumorchid;
+}
+
+.purple:hover{
+    background-color:mediumorchid;
+}
+
 
 /*attack page*/
 .offence{
