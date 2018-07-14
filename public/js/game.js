@@ -586,4 +586,17 @@ $(function() {
     }
   );
   
+  $('.btn-lg').hover(
+    function(){
+      $(this).animate({
+        'font-size':'40px'
+      },300)
+    },
+    function(){
+      $(this).animate({
+        'font-size':'30px'
+      },300)
+    }
+  );
+  
 });

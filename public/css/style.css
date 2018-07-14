@@ -12,6 +12,12 @@ ul {
     margin-top: 30px;
 }
 
+.btn-lg {
+    font-size: 30px;
+    margin-left: 2%;
+    border-color: transparent;
+}
+
 /* cover */
 .cover {
     padding-top: 0px;
