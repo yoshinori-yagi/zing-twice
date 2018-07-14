@@ -41,11 +41,11 @@
                         <br>
                         @elseif($notification == 1)
                         <h3>You are under attack.
-                        <a href="{{ route('game.confirm', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg profile_btn">Start game</a>
+                        <a href="{{ route('game.confirm', ['id' => $user->id])}}" class="btn btn-ghost btn-lg profile_btn">Start game</a>
                         </h3>
                         @else($notification == 2)
                         <h3>Game finished.
-                        <a href="{{ route('game.result_after', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg profile_btn">See result</a>
+                        <a href="{{ route('game.result_after', ['id' => $user->id])}}" class="btn btn-ghost btn-lg profile_btn">See result</a>
                         </h3>
                         @endif
                     </div>

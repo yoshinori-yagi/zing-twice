@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="text-right">
-                        {!! Form::submit('Register', ['class' => 'btn btn-default btn-ghost btn-lg']) !!}
+                        {!! Form::submit('Register', ['class' => 'btn-ghost btn-start']) !!}
                     </div>
                 {!! Form::close() !!}
             </div>

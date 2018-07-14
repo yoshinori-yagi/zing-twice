@@ -5,7 +5,7 @@
                 @if (!Auth::check())
                     <div class="sign_up">
                         <h1>Zing</h1>
-                        <a href="{{ route('login') }}" class="btn btn-default btn-ghost btn-lg">Log in</a>
+                        <a href="{{ route('login') }}" class="btn btn-ghost btn-lg">Log in</a>
                     </div>
                 @else
                     <div class ="select_teams">

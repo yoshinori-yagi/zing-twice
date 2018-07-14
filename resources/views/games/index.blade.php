@@ -28,7 +28,7 @@
                         <div class="panel-body">
                             <img src="{{ secure_asset("images/tetoris.jpg") }}" alt="">
                         </div>
-                        <a href="{{ route('game.tetoris', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_start">Start game</a>
+                        <a href="{{ route('game.tetoris', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_start">Start game</a>
                     </div>
                 </li>
             </ul>
