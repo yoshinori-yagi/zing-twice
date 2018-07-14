@@ -3,9 +3,9 @@
 @section('content')
 <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">Login Page</div>
-            <div class="panel-body">
+        <div class="profile_box">
+            <div class="profile_title">Login Page</div>
+            <div class="profile_body">
                 {!! Form::open(['route' => 'login.post']) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Team name') !!}
@@ -23,9 +23,9 @@
                     </div>
 
                     <div class="text-right">
-                        <a href="{{ route('signup.get') }}">you are not registered?</a>
-                        {!! form::submit('Login', ['class' => 'btn btn-default btn-ghost']) !!}
+                        {!! form::submit('Login', ['class' => 'btn btn-default btn-ghost btn-lg']) !!}
                     </div>
+                    <div><a href="{{ route('signup.get') }}" class="register_confirm">you are not registered?</a></div>
                 {!! form::close() !!}
             </div>
         </div>
