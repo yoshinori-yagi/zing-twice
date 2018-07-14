@@ -53,9 +53,34 @@ ul {
     text-align: center;
 }
 
+/*profile page*/
+.row {
+    border: 2px solid black;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    margin: 2em 0;
+    padding: 2em;
+}
 
+.profile_title {
+    border-bottom: 2px solid black;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    margin: 2em 0;
+    padding: 0.2em;
+}
 
+.profile_body h2 {
+    font-size: 40px;
+    text-align: center;
+}
 
+.profile_body h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.profile_btn {
+    margin-left: 10%;
+}
 /*seats page*/
 .select_teams {
     text-align: center;
