@@ -28,7 +28,7 @@ class SeatsController extends Controller
                 'seats' => $seats,
             ];
         
-            return view('welcome',$data);
+            return view('seat.index',$data);
         }
         else {
             return redirect('welcome');  

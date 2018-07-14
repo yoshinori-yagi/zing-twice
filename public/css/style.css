@@ -3,6 +3,10 @@ h1, h2, h3, a  {
     font-family: 'Cherry Swash', cursive;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .btn-ghost {
     background: transparent;
     margin-top: 30px;
@@ -25,6 +29,7 @@ h1, h2, h3, a  {
 /*welcome page*/
 .sign_up {
     text-align: center;
+    padding-top: 10%;
 }
 
 
@@ -125,10 +130,47 @@ h1, h2, h3, a  {
     font-size: 80px;
 }
 
-.game_show h1{
-    font-size: 100px;
+
+/*game index slide */
+.change-btn-wrapper {
+  width: 500px;
+  margin: 20px auto;
+  font-size: 18px;
 }
 
+.change-btn-wrapper:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.prev-btn {
+  cursor: pointer;
+  float: left;
+  display: none;
+}
+
+.next-btn {
+  cursor: pointer;
+  float: right;
+}
+
+.slides {
+  padding: 0;
+}
+
+
+.slide {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.game_start {
+    margin-bottom: 5%;
+}
 
 /*wait page*/
 .game_wait{
@@ -278,6 +320,7 @@ header {
 
 #nav-content ul{
   list-style: none;
+  padding: 10%;
 }
 
 .nav-text {
