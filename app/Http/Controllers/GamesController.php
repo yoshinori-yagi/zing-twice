@@ -41,21 +41,103 @@ class GamesController extends Controller
             return redirect('welcome');  
         }
     }
+    
+    public function numbers($id)
+    {
+        $user = User::find($id);
+        
+        $number=Input::get('number');                                               
+        $number=htmlspecialchars($number);
+        
+        $number = rand(1,6);
+        
+        $data = [
+            'number' => $number,
+            'user' => $user,
+        ];
+        
 
-    public function show($id)
+        DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]);
+        
+        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
+        $game_id =  $game_id->id;
+        
+        DB::table('games')->where ('id',intval($game_id))->update(['user_id_score' => $number]);
+        
+        $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
+        $team_id = $team_id->team_id;
+        
+        DB::table('users')->where ('id',intval($team_id))->update(['notification' => 1]);
+        
+        return view('games.numbers',$data);                                
+        
+    }
+    
+    public function wait($id)
     {
         $user = User::find($id);
 
         $data = [
             'user' => $user,
+  
         ];
         
         if (\Auth::check()) {
-            return view ('games.show', $data);
+            
+            return view ('games.wait', $data);
         }
         else {
             return redirect('welcome');  
         }
+    }
+    
+    public function confirm($id)
+    {
+        $user = User::find($id);
+        
+        DB::table('users')->where ('id', $id)->update(['notification' => 0]);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        if (\Auth::check()) {
+            
+            return view ('games.confirm', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
+    }
+    
+    public function defence($id)
+    {
+        $user = User::find($id);
+        
+        $number=$request->Input::get('number');                                               
+        $number=htmlspecialchars($number);          
+        
+        $number = rand(1,6);
+        
+        $data = [
+            'number' => $number,
+            'user' => $user,
+        ];
+
+        DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]); 
+        
+        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
+        $game_id =  $game_id->id;
+        
+        DB::table('games')->where ('id',intval($game_id))->update(['team_id_score' => $number]);
+        
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 2]);
+        
+        return view('games.defence',$data);                                
+        
     }
     
     public function result($id)
@@ -111,33 +193,56 @@ class GamesController extends Controller
         }
     }
     
-    public function wait($id)
+    public function tetoris($id)
     {
         $user = User::find($id);
-        
-        /*$tetoris_score = Input::get('lineCount');
-        
-        $text = filter_input(INPUT_GET, 'lineCount');
-        header('Content-type: application/json; charset=utf-8');
-        echo json_encode(['lineCount' => $text . ', ']);
-        
-        exit;*/
-
+    
         $data = [
             'user' => $user,
-  
         ];
         
-        if (\Auth::check()) {
-            
-            return view ('games.wait', $data);
-        }
-        else {
-            return redirect('welcome');  
-        }
+        return view('games.tetoris',$data);                                
+        
     }
     
-    public function confirm($id)
+    public function tetoris_result(Request $request) {
+        
+        $tetoris_score = $request;
+        $tetoris_score = $tetoris_score->point;
+        
+        DB::insert('insert into zing.tetoris (tetoris) values (?)',[intval($tetoris_score)]);
+
+        return $tetoris_score;
+        
+    }
+    
+    public function tetoris_wait($id) {
+        
+        $user = User::find($id);
+        
+        $tetoris_score = DB::table('tetoris')->orderby('id', 'desc')->select('tetoris.tetoris')->first();
+        $tetoris_score = $tetoris_score->tetoris;
+        
+        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
+        $game_id =  $game_id->id;
+        
+        DB::table('games')->where ('id',intval($game_id))->update(['user_id_score' => $tetoris_score]);
+        
+        $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
+        $team_id = $team_id->team_id;
+        
+        DB::table('users')->where ('id',intval($team_id))->update(['notification' => 3]);
+        
+        $data = [
+            'user' => $user,
+            'tetoris_score' => $tetoris_score,
+        ];
+        
+        return view ('games.tetoris_wait', $data);
+        
+    }
+    
+    public function tetoris_confirm($id)
     {
         $user = User::find($id);
         
@@ -149,103 +254,62 @@ class GamesController extends Controller
         
         if (\Auth::check()) {
             
-            return view ('games.confirm', $data);
+            return view ('games.tetoris_confirm', $data);
         }
         else {
             return redirect('welcome');  
         }
     }
     
-    public function numbers($id)
+    public function tetoris_defence($id)
     {
         $user = User::find($id);
-        
-        $number=Input::get('number');                                               
-        $number=htmlspecialchars($number);
-        
-        $number = rand(1,6);
-        
+    
         $data = [
-            'number' => $number,
             'user' => $user,
         ];
         
-
-        DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]);
-        
-        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
-        $game_id =  $game_id->id;
-        
-        DB::table('games')->where ('id',intval($game_id))->update(['user_id_score' => $number]);
-        
-        $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
-        $team_id = $team_id->team_id;
-        
-        DB::table('users')->where ('id',intval($team_id))->update(['notification' => 1]);
-        
-        return view('games.numbers',$data);                                
+        return view('games.tetoris_defence',$data);                                
         
     }
     
-    public function tetoris($id)
+    public function tetoris_game_result($id)
     {
         $user = User::find($id);
         
-        $number=Input::get('tetoris');                                               
-        
-        $number = 6;
-        
-        $data = [
-            'number' => $number,
-            'user' => $user,
-        ];
-        
-
-        DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]);
+        $tetoris_score = DB::table('tetoris')->orderby('id', 'desc')->select('tetoris.tetoris')->first();
+        $tetoris_score = $tetoris_score->tetoris;
         
         $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
         $game_id =  $game_id->id;
         
-        DB::table('games')->where ('id',intval($game_id))->update(['user_id_score' => $number]);
-        
-        $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
-        $team_id = $team_id->team_id;
-        
-        DB::table('users')->where ('id',intval($team_id))->update(['notification' => 1]);
-        
-        return view('games.tetoris',$data);                                
-        
-    }
-    
-
-    public function defence($id)
-    {
-        $user = User::find($id);
-        
-        $number=Input::get('number');                                               
-        $number=htmlspecialchars($number);          
-        
-        $number = rand(1,6);
-        
-        $data = [
-            'number' => $number,
-            'user' => $user,
-        ];
-
-        DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]); 
-        
-        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
-        $game_id =  $game_id->id;
-        
-        DB::table('games')->where ('id',intval($game_id))->update(['team_id_score' => $number]);
+        DB::table('games')->where ('id',intval($game_id))->update(['team_id_score' => $tetoris_score]);
         
         $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
         $user_id = $user_id->user_id;
         
-        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 2]);
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 4]);
         
-        return view('games.defence',$data);                                
+        $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
+        $user_id_score = $user_id_score->user_id_score;
         
+        $team_id_score = DB::table('games')->orderby('id', 'desc')->select('games.team_id_score')->first();
+        $team_id_score = $team_id_score->team_id_score;
+        
+
+        $data = [
+            'user' => $user,
+            'user_id_score' => $user_id_score,
+            'team_id_score' => $team_id_score,
+        ];
+        
+        if (\Auth::check()) {
+            return view ('games.tetoris_result', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
     }
-        
+
+
 }

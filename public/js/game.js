@@ -325,33 +325,36 @@ function lineCheck(){
         }
     }
     
-  score = document.getElementById("score");
+    score = document.getElementById("score");
     point+=lineCount*100
     score.innerHTML = point;
-    return lineCount;
+    saveScore(point);
+    
+    
+    function saveScore(point) {
+    $.ajax(
+        "../../../api/games/tetoris/result",{
+            type: "POST",
+            dataType: 'text',
+            data: {
+                    "point" : point,
+            },
+            global: false,
+            success: function(post){
+                console.dir(post);
+            },
+            error : function() { 
+                console.log("era-desuyo");
+            },
+            complete: function() {
+                console.log("読み込みＯＫ");
+            }
+        }
+    );
+    }
     
 }
-/*
-$(function () {
-    $(".game_finish").click(function(){
-        event.preventDefault();
-        var param = { "String(linecount)": "Hell" };
-        
-        $.ajax({
-                    type: "GET",
-                    url: "get.php",
-                    data: param,
-                    crossDomain: false,
-                    dataType : "json",
-                    scriptCharset: 'utf-8'
-                }).done(function(data){
-                    alert(data.text);
-                }).fail(function(XMLHttpRequest, textStatus, errorThrown){
-                    alert(errorThrown);
-                });
-    });
-});
-*/
+
 /*
  * そろったラインを消去する
  */
@@ -534,7 +537,7 @@ function keyDownFunc(e){
 window.onload = function(){
     init();
     newGame();
-}
+};
 
 
 
