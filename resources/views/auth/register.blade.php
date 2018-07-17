@@ -3,9 +3,9 @@
 @section('content')
 <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">Registration</div>
-            <div class="panel-body">
+        <div class="profile_box">
+            <div class="profile_title">Registration</div>
+            <div class="profile_body">
                 {!! Form::open(['route' => 'signup.post']) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Teamname') !!}
@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="text-right">
-                        {!! Form::submit('Register', ['class' => 'btn btn-default btn-ghost']) !!}
+                        {!! Form::submit('Register', ['class' => 'btn-ghost btn-start']) !!}
                     </div>
                 {!! Form::close() !!}
             </div>

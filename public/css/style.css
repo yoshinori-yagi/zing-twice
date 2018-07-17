@@ -3,10 +3,28 @@ h1, h2, h3, a  {
     font-family: 'Cherry Swash', cursive;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .btn-ghost {
     background: transparent;
     margin-top: 30px;
+    color: black;
 }
+
+.btn-lg {
+    font-size: 30px;
+    margin-left: 2%;
+    border-color: transparent;
+}
+
+.btn-start {
+    font-size: 30px;
+    margin-left: 2%;
+    border-color: transparent;
+}
+
 
 /* cover */
 .cover {
@@ -25,6 +43,7 @@ h1, h2, h3, a  {
 /*welcome page*/
 .sign_up {
     text-align: center;
+    padding-top: 10%;
 }
 
 
@@ -48,9 +67,51 @@ h1, h2, h3, a  {
     text-align: center;
 }
 
+.register_confirm {
+    color: black;
+}
+
+.form-control {
+    border-color: transparent;
+    border-radius: 200px;
+    background-color: #c0c0c0;
+}
 
 
 
+/*profile page*/
+.row {
+    border: 2px solid black;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    margin: 2em 0;
+    padding: 2em;
+}
+
+.profile_title {
+    border-bottom: 2px solid black;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    margin: 2em 0;
+    padding: 0.2em;
+}
+
+.profile_box {
+    font-family: 'Cherry Swash', cursive;
+    margin-top: 50px;
+}
+
+.profile_body h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.profile_body h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.profile_btn {
+    margin-left: 10%;
+}
 /*seats page*/
 .select_teams {
     text-align: center;
@@ -125,10 +186,47 @@ h1, h2, h3, a  {
     font-size: 80px;
 }
 
-.game_show h1{
-    font-size: 100px;
+
+/*game index slide */
+.change-btn-wrapper {
+  width: 500px;
+  margin: 20px auto;
+  font-size: 18px;
 }
 
+.change-btn-wrapper:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.prev-btn {
+  cursor: pointer;
+  float: left;
+  display: none;
+}
+
+.next-btn {
+  cursor: pointer;
+  float: right;
+}
+
+.slides {
+  padding: 0;
+}
+
+
+.slide {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.game_start {
+    margin-bottom: 5%;
+}
 
 /*wait page*/
 .game_wait{
@@ -278,6 +376,7 @@ header {
 
 #nav-content ul{
   list-style: none;
+  padding: 10%;
 }
 
 .nav-text {

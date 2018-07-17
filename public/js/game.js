@@ -331,7 +331,7 @@ function lineCheck(){
     return lineCount;
     
 }
-
+/*
 $(function () {
     $(".game_finish").click(function(){
         event.preventDefault();
@@ -351,7 +351,7 @@ $(function () {
                 });
     });
 });
- 
+*/
 /*
  * そろったラインを消去する
  */
@@ -535,3 +535,68 @@ window.onload = function(){
     init();
     newGame();
 }
+
+
+
+$(function() {
+
+/* Slide show*/
+  function toggleChangeBtn() {
+    var slideIndex = $('.slide').index($('.active'));
+    $('.change-btn').show();
+    
+    if (slideIndex == 0) {
+      $('.prev-btn').hide();
+    
+    } else if (slideIndex == $('.slide').length - 1) {
+      $('.next-btn').hide();
+    }
+  }
+  
+  $('.index-btn').click(function() {
+    $('.active').removeClass('active');
+    var clickedIndex = $('.index-btn').index($(this));
+    $('.slide').eq(clickedIndex).addClass('active');
+    toggleChangeBtn();
+  });
+  
+  $('.change-btn').click(function() {
+    var $displaySlide = $('.active');
+    $displaySlide.removeClass('active');
+    
+    if ($(this).hasClass('next-btn')) {
+      $displaySlide.next().addClass('active');
+    } else {
+      $displaySlide.prev().addClass('active');
+    }
+    toggleChangeBtn();
+  });
+  
+/* seat number hover action */
+  $('.seat').hover(
+    function(){
+      $(this).animate({
+        'font-size':'50px'
+      },300)
+    },
+    function(){
+      $(this).animate({
+        'font-size':'40px'
+      },300)
+    }
+  );
+  
+  $('.btn-lg').hover(
+    function(){
+      $(this).animate({
+        'font-size':'40px'
+      },300)
+    },
+    function(){
+      $(this).animate({
+        'font-size':'30px'
+      },300)
+    }
+  );
+  
+});

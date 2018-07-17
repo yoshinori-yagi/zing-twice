@@ -4,49 +4,49 @@
     <div class = "cover">
          <div class="row">
             <aside class="col-xs-4">
-                <div class="panel panel-default">
+                <div class="profile_box">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Seat number</h3>
+                        <h3 class="profile_title">Seat number</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="profile_body">
                         <h2>{{ $user_id_seat }}</h2>
-                        <br>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div class="profile_box">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Points</h3>
+                        <h3 class="profile_title">Points</h3>
                     </div>
-                    <div class="panel-body">
-                        <h3>{{ $user->points }} points</h3>
+                    <div class="profile_body">
+                        <h2>{{ $user->points }} points</h2>
                     </div>
                 </div>
             </aside>
             
             <div class="col-xs-8">
-                <div class="panel panel-default">
+                <div class="profile_box">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Team Name</h3>
+                        <h3 class="profile_title">Team Name</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="profile_body">
                         <h2>{{ $user->name }}</h2>
                     </div>
                 </div>
                 
-                <div class="panel panel-default">
+                <div class="profile_box">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Notification</h3>
+                        <h3 class="profile_title">Notification</h3>
                     </div>
-                    <div class="panel-body">
-                        <br>
+                    <div class="profile_body">
                         @if($notification == 0)
-                        <br><br><br>
+                        <br>
                         @elseif($notification == 1)
-                        <h3>You are under attack.</h3>
-                        <a href="{{ route('game.confirm', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">Start game</a>
+                        <h3>You are under attack.
+                        <a href="{{ route('game.confirm', ['id' => $user->id])}}" class="btn btn-ghost btn-lg profile_btn">Start game</a>
+                        </h3>
                         @else($notification == 2)
-                        <h3>Game finished.</h3>
-                        <a href="{{ route('game.result_after', ['id' => $user->id])}}" class="btn btn-default btn-ghost btn-lg">See result</a>
+                        <h3>Game finished.
+                        <a href="{{ route('game.result_after', ['id' => $user->id])}}" class="btn btn-ghost btn-lg profile_btn">See result</a>
+                        </h3>
                         @endif
                     </div>
                 </div>

@@ -7,7 +7,7 @@
             <div class="number_show">
                 <h1>{{ $number }}</h1>
             </div>
-            <a href="{{ route('game.wait', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_start">Send this result</a>
+            <a href="{{ route('game.wait', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_start">Send this result</a>
         </div>
     </div>
 @endsection
