@@ -10,6 +10,6 @@
         </div>
         <script type = "text/javascript" src="/js/game.js">
         </script>
-        <a href="{{ route('tetoris.result_after', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_finish tetoris_fininsh">Send this result</a>
+        <a href="{{ route('tetoris.game_result', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_finish tetoris_fininsh">Send this result</a>
     </div>
 @endsection
