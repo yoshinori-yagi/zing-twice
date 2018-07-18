@@ -3,8 +3,10 @@
 @section('content')
     <div class="cover">
         <div id="wrapper">
+            <div id = "speedup"></div>
             <canvas id="canvas"></canvas>
             <div id="score"></div>
+            <div id ="time"></div>
         </div>
         <script type = "text/javascript" src="/js/game.js">
         </script>
