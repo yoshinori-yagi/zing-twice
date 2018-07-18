@@ -11,6 +11,8 @@ use App\User;
 
 use App\Game;
 
+use Input;
+
 use DB;
 
 class SeatsController extends Controller

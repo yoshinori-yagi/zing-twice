@@ -3,7 +3,6 @@
 @section('cover')
     <div class="cover">
         <div class ="select_teams">
-            <h2>Select team</h2>
             <h2 class='select-team'>Select team</h2>
             <h2 class='team1'>{{ $team1->name }}</h2>
             <h2 class='team2'>{{ $team2->name }}</h2>
