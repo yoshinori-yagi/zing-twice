@@ -74,6 +74,13 @@ class GamesController extends Controller
         
         DB::table('users')->where ('id',intval($user_id))->update(['notification' => 100]);
         
+        $points = DB::table('users')->where('id','=', $id)->select('users.points')->first();
+        $points = $points->points;
+        
+        $points = $points-10;
+        
+        DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
+        
         return view('games.numbers',$data);                                
         
     }
@@ -201,6 +208,13 @@ class GamesController extends Controller
     public function tetoris($id)
     {
         $user = User::find($id);
+        
+        $points = DB::table('users')->where('id','=', $id)->select('users.points')->first();
+        $points = $points->points;
+        
+        $points = $points-10;
+        
+        DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
     
         $data = [
             'user' => $user,
