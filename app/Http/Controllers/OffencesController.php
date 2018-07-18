@@ -95,7 +95,6 @@ class OffencesController extends Controller
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 2)->first();
             $seating = $seating->team_id;
-            echo$seating;exit;
             
             $notification = DB::table('users')->where('id', "=" , $id)->select('users.notification')->first();
             $notification = $notification->notification;
