@@ -326,32 +326,11 @@ function lineCheck(){
     }
     
     score = document.getElementById("score");
-    point+=lineCount*100
+    point+=lineCount*100;
     score.innerHTML = point;
     saveScore(point);
+    return lineCount;
     
-    
-    function saveScore(point) {
-    $.ajax(
-        "../../../api/games/tetoris/result",{
-            type: "POST",
-            dataType: 'text',
-            data: {
-                    "point" : point,
-            },
-            global: false,
-            success: function(post){
-                console.dir(post);
-            },
-            error : function() { 
-                console.log("era-desuyo");
-            },
-            complete: function() {
-                console.log("読み込みＯＫ");
-            }
-        }
-    );
-    }
     
 }
 
@@ -493,6 +472,30 @@ function mainLoop(){
     timer1 = setTimeout(mainLoop, 1000/FPS);
 }
  
+ 
+ 
+ function saveScore(point) {
+    $.ajax(
+        "../../../api/games/tetoris/result",{
+            type: "POST",
+            dataType: 'text',
+            data: {
+                    "point" : point,
+            },
+            global: false,
+            success: function(post){
+                console.dir(post);
+            },
+            error : function() { 
+                console.log("era-desuyo");
+            },
+            complete: function() {
+                console.log("読み込みＯＫ");
+            }
+        }
+    );
+    }
+    
  
 /*
  * キーボードイベント

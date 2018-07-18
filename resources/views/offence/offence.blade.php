@@ -7,5 +7,6 @@
             <a href="{{ route('game.index', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_choice">Select Games</a>
             <a href="{{ route('seat', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg close_button">Close</a>
         </div>
+        
     </div>
 @endsection
