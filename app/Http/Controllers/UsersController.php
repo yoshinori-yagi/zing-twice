@@ -72,39 +72,33 @@ class UsersController extends Controller
         return view('users.show', $data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function buy($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $user = User::find($id);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('users.buy', $data);
     }
     
+    public function bought($id)
+    {
+        $user = User::find($id);
+        
+        $points = DB::table('users')->where('id','=', $id)->select('users.points')->first();
+        $points = $points->points;
+        
+        $points = $points+50;
+        
+        DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('users.bought', $data);
+    }
    
 }

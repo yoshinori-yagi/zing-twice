@@ -362,4 +362,23 @@ class GamesController extends Controller
             return redirect('welcome');  
         }
     }
+    
+    public function refuse($id) 
+    {
+        
+        $user = User::find($id);
+        
+        $points = DB::table('users')->where('id','=', $id)->select('users.points')->first();
+        $points = $points->points;
+        
+        $points = $points-10;
+        
+        DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
+    
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('games.refuse', $data);
+    }
 }
