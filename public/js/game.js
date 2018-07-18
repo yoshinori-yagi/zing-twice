@@ -43,7 +43,7 @@ var ERROR_COLOR = "#f00";           // エラーブロックの色
 var EFFECT_COLOR1 = "#fff";         // エフェクト時の色1
 var EFFECT_COLOR2 = "#000";         // エフェクト時の色2
 // ゲーム要素
-var NEXTLEVEL = 10;                 // 次のレベルまでの消去ライン数
+var NEXTLEVEL = 1;                 // 次のレベルまでの消去ライン数
  
 /*
  * グローバル変数
@@ -67,7 +67,7 @@ var clearLine;                          // 消去したライン数
 // エフェクト時（色の反転/エフェクトスピード/エフェクト回数）
 var effectState = {flipFlop: 0, speed: 0, count: 0};
 
-
+var count = 0;
 var point = 0; 
 /*
  * 初期化
@@ -189,10 +189,11 @@ function newGame(){
     setStage();
     mode = GAME;
     frame = 1;
-    speed = 30;
+    speed = 10;
     clearTimeout(timer1);
     createBlock();
     mainLoop();
+    timeUP();
 }
  
 /*
@@ -465,16 +466,39 @@ function mainLoop(){
     // 落下スピードアップ
     if(clearLine >= NEXTLEVEL){
         clearLine = 0;
-        speed--;
+        speed = speed - 3;
         console.log("speedUP! : " + speed);
+        speedup = document.getElementById("speedup");
+      speedup.innerHTML = ("speedUP! : " + speed);
     }
     if(speed < 1) speed = 1;
     timer1 = setTimeout(mainLoop, 1000/FPS);
+
 }
  
+function timeUP(){
+
+    count = 60; 
+    timerID = setInterval('countup()',1000); //1秒毎にcountup()を呼び出し
+   
+   
+}
+
+function countup() {
+    
+	 count--;
+	 if(count<=0){ 
+         count=0;
+         mode = GAMEOVER;
+     }   
+	
+     time = document.getElementById("time");
+     time.innerHTML = count;
+     
+   
+} 
  
- 
- function saveScore(point) {
+function saveScore(point) {
     $.ajax(
         "../../../api/games/tetoris/result",{
             type: "POST",
