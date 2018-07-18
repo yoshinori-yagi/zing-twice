@@ -87,12 +87,15 @@ class OffencesController extends Controller
             
             $team2 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 2)->first();
             $team2_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 2)->first();
+            $team2_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 2)->first();
             
             $user_id = $user->id;
             $team2_id = $team2_id->id;
+            $team2_notification = $team2_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 2)->first();
             $seating = $seating->team_id;
+            echo$seating;exit;
             
             $notification = DB::table('users')->where('id', "=" , $id)->select('users.notification')->first();
             $notification = $notification->notification;
@@ -109,6 +112,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team2_notification' => $team2_notification,
             ];
         
             if($user->id != $seating) {
@@ -141,9 +145,11 @@ class OffencesController extends Controller
             
             $team3 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 3)->first();
             $team3_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 3)->first();
+            $team3_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 3)->first();
             
             $user_id = $user->id;
             $team3_id = $team3_id->id;
+            $team3_notification = $team3_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 3)->first();
             $seating = $seating->team_id;
@@ -163,6 +169,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team3_notification' => $team3_notification,
             ];
         
             if($user->id != $seating) {
@@ -195,9 +202,11 @@ class OffencesController extends Controller
             
             $team4 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 4)->first();
             $team4_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 4)->first();
+            $team4_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 4)->first();
             
             $user_id = $user->id;
             $team4_id = $team4_id->id;
+            $team4_notification = $team4_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 4)->first();
             $seating = $seating->team_id;
@@ -217,6 +226,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team4_notification' => $team4_notification,
             ];
         
             if($user->id != $seating) {
@@ -248,9 +258,11 @@ class OffencesController extends Controller
             
             $team5 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 5)->first();
             $team5_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 5)->first();
+            $team5_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 5)->first();
             
             $user_id = $user->id;
             $team5_id = $team5_id->id;
+            $team5_notification = $team5_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 5)->first();
             $seating = $seating->team_id;
@@ -270,6 +282,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team5_notification' => $team5_notification,
             ];
         
             if($user->id != $seating) {
@@ -301,9 +314,11 @@ class OffencesController extends Controller
             
             $team6 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 6)->first();
             $team6_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 6)->first();
+            $team6_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 6)->first();
             
             $user_id = $user->id;
             $team6_id = $team6_id->id;
+            $team6_notification = $team6_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 6)->first();
             $seating = $seating->team_id;
@@ -323,6 +338,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team6_notification' => $team6_notification,
             ];
         
             if($user->id != $seating) {
@@ -354,9 +370,11 @@ class OffencesController extends Controller
             
             $team7 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 7)->first();
             $team7_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 7)->first();
+            $team7_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 7)->first();
             
             $user_id = $user->id;
             $team7_id = $team7_id->id;
+            $team7_notification = $team7_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 7)->first();
             $seating = $seating->team_id;
@@ -376,6 +394,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team7_notification' => $team7_notification,
             ];
         
             if($user->id != $seating) {
@@ -407,9 +426,11 @@ class OffencesController extends Controller
             
             $team8 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 8)->first();
             $team8_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 8)->first();
+            $team8_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 8)->first();
             
             $user_id = $user->id;
             $team8_id = $team8_id->id;
+            $team8_notification = $team8_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 8)->first();
             $seating = $seating->team_id;
@@ -429,6 +450,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team8_notification' => $team8_notification,
             ];
         
             if($user->id != $seating) {
@@ -460,9 +482,11 @@ class OffencesController extends Controller
             
             $team9 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 9)->first();
             $team9_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 9)->first();
+            $team9_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 9)->first();
             
             $user_id = $user->id;
             $team9_id = $team9_id->id;
+            $team9_notification = $team9_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 9)->first();
             $seating = $seating->team_id;
@@ -482,6 +506,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team9_notification' => $team9_notification,
             ];
         
             if($user->id != $seating) {
@@ -513,9 +538,11 @@ class OffencesController extends Controller
             
             $team10 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 10)->first();
             $team10_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 10)->first();
+            $team10_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 10)->first();
             
             $user_id = $user->id;
             $team10_id = $team10_id->id;
+            $team10_notification = $team10_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 10)->first();
             $seating = $seating->team_id;
@@ -535,6 +562,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team10_notification' => $team10_notification,
             ];
         
             if($user->id != $seating) {
@@ -566,9 +594,11 @@ class OffencesController extends Controller
             
             $team11 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 11)->first();
             $team11_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 11)->first();
-            
+            $team11_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 11)->first();
+
             $user_id = $user->id;
             $team11_id = $team11_id->id;
+            $team11_notification = $team11_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 11)->first();
             $seating = $seating->team_id;
@@ -588,6 +618,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team11_notification' => $team11_notification,
             ];
         
             if($user->id != $seating) {
@@ -619,9 +650,11 @@ class OffencesController extends Controller
             
             $team12 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 12)->first();
             $team12_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 12)->first();
+            $team12_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 12)->first();
             
             $user_id = $user->id;
             $team12_id = $team12_id->id;
+            $team12_notification = $team12_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 12)->first();
             $seating = $seating->team_id;
@@ -641,6 +674,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team12_notification' => $team12_notification,
             ];
         
             if($user->id != $seating) {
@@ -672,9 +706,11 @@ class OffencesController extends Controller
             
             $team13 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 13)->first();
             $team13_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 13)->first();
+            $team13_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 13)->first();
             
             $user_id = $user->id;
             $team13_id = $team13_id->id;
+            $team13_notification = $team13_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 13)->first();
             $seating = $seating->team_id;
@@ -694,6 +730,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team13_notification' => $team13_notification,
             ];
         
             if($user->id != $seating) {
@@ -725,9 +762,11 @@ class OffencesController extends Controller
             
             $team14 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 14)->first();
             $team14_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 14)->first();
+            $team14_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 14)->first();
             
             $user_id = $user->id;
             $team14_id = $team14_id->id;
+            $team14_notification = $team14_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 14)->first();
             $seating = $seating->team_id;
@@ -747,6 +786,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team14_notification' => $team14_notification,
             ];
         
             if($user->id != $seating) {
@@ -778,9 +818,11 @@ class OffencesController extends Controller
             
             $team15 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 15)->first();
             $team15_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 15)->first();
+            $team15_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 15)->first();
             
             $user_id = $user->id;
             $team15_id = $team15_id->id;
+            $team15_notification = $team15_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 15)->first();
             $seating = $seating->team_id;
@@ -800,6 +842,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team15_notification' => $team15_notification,
             ];
         
             if($user->id != $seating) {
@@ -831,9 +874,11 @@ class OffencesController extends Controller
             
             $team16 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 16)->first();
             $team16_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 16)->first();
+            $team16_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 16)->first();
             
             $user_id = $user->id;
             $team16_id = $team16_id->id;
+            $team16_notification = $team16_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 16)->first();
             $seating = $seating->team_id;
@@ -853,6 +898,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team16_notification' => $team16_notification,
             ];
         
             if($user->id != $seating) {
@@ -884,9 +930,11 @@ class OffencesController extends Controller
             
             $team17 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 17)->first();
             $team17_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 17)->first();
+            $team17_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 17)->first();
             
             $user_id = $user->id;
             $team17_id = $team17_id->id;
+            $team17_notification = $team17_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 17)->first();
             $seating = $seating->team_id;
@@ -906,6 +954,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team17_notification' => $team17_notification,
             ];
         
             if($user->id != $seating) {
@@ -937,9 +986,11 @@ class OffencesController extends Controller
             
             $team18 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 18)->first();
             $team18_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 18)->first();
+            $team18_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 18)->first();
             
             $user_id = $user->id;
             $team18_id = $team18_id->id;
+            $team18_notification = $team18_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 18)->first();
             $seating = $seating->team_id;
@@ -959,6 +1010,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team18_notification' => $team18_notification,
             ];
         
             if($user->id != $seating) {
@@ -990,9 +1042,11 @@ class OffencesController extends Controller
             
             $team19 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 19)->first();
             $team19_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 19)->first();
+            $team19_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 19)->first();
             
             $user_id = $user->id;
             $team19_id = $team19_id->id;
+            $team19_notification = $team19_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 19)->first();
             $seating = $seating->team_id;
@@ -1012,6 +1066,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team19_notification' => $team19_notification,
             ];
         
             if($user->id != $seating) {
@@ -1043,9 +1098,12 @@ class OffencesController extends Controller
             
             $team20 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 20)->first();
             $team20_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 20)->first();
+            $team20_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 20)->first();
+
             
             $user_id = $user->id;
             $team20_id = $team20_id->id;
+            $team20_notification = $team20_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 20)->first();
             $seating = $seating->team_id;
@@ -1065,6 +1123,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team20_notification' => $team20_notification,
             ];
         
             if($user->id != $seating) {
@@ -1096,9 +1155,11 @@ class OffencesController extends Controller
             
             $team21 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 21)->first();
             $team21_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 21)->first();
+            $team21_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 21)->first();
             
             $user_id = $user->id;
             $team21_id = $team21_id->id;
+            $team21_notification = $team21_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 21)->first();
             $seating = $seating->team_id;
@@ -1118,6 +1179,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team21_notification' => $team21_notification,
             ];
         
             if($user->id != $seating) {
@@ -1149,9 +1211,11 @@ class OffencesController extends Controller
             
             $team22 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 22)->first();
             $team22_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 22)->first();
+            $team22_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 22)->first();
             
             $user_id = $user->id;
             $team22_id = $team22_id->id;
+            $team22_notification = $team22_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 22)->first();
             $seating = $seating->team_id;
@@ -1171,6 +1235,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team22_notification' => $team22_notification,
             ];
         
             if($user->id != $seating) {
@@ -1202,9 +1267,11 @@ class OffencesController extends Controller
             
             $team23 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 23)->first();
             $team23_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 23)->first();
+            $team23_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 23)->first();
             
             $user_id = $user->id;
             $team23_id = $team23_id->id;
+            $team23_notification = $team23_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 23)->first();
             $seating = $seating->team_id;
@@ -1224,6 +1291,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team23_notification' => $team23_notification,
             ];
         
             if($user->id != $seating) {
@@ -1255,9 +1323,11 @@ class OffencesController extends Controller
             
             $team24 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 24)->first();
             $team24_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 24)->first();
+            $team24_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 24)->first();
             
             $user_id = $user->id;
             $team24_id = $team24_id->id;
+            $team24_notification = $team24_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 24)->first();
             $seating = $seating->team_id;
@@ -1277,6 +1347,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team24_notification' => $team24_notification,
             ];
         
             if($user->id != $seating) {
@@ -1308,9 +1379,11 @@ class OffencesController extends Controller
             
             $team25 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 25)->first();
             $team25_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 25)->first();
+            $team25_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 25)->first();
             
             $user_id = $user->id;
             $team25_id = $team25_id->id;
+            $team25_notification = $team25_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 25)->first();
             $seating = $seating->team_id;
@@ -1330,6 +1403,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team25_notification' => $team25_notification,
             ];
         
             if($user->id != $seating) {
@@ -1361,9 +1435,11 @@ class OffencesController extends Controller
             
             $team26 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 26)->first();
             $team26_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 26)->first();
+            $team26_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 26)->first();
             
             $user_id = $user->id;
             $team26_id = $team26_id->id;
+            $team26_notification = $team26_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 26)->first();
             $seating = $seating->team_id;
@@ -1383,6 +1459,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team26_notification' => $team26_notification,
             ];
         
             if($user->id != $seating) {
@@ -1414,9 +1491,11 @@ class OffencesController extends Controller
             
             $team27 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 27)->first();
             $team27_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 27)->first();
+            $team27_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 27)->first();
             
             $user_id = $user->id;
             $team27_id = $team27_id->id;
+            $team27_notification = $team27_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 27)->first();
             $seating = $seating->team_id;
@@ -1436,6 +1515,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team27_notification' => $team27_notification,
             ];
         
             if($user->id != $seating) {
@@ -1467,9 +1547,11 @@ class OffencesController extends Controller
             
             $team28 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 28)->first();
             $team28_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 28)->first();
+            $team28_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 28)->first();
             
             $user_id = $user->id;
             $team28_id = $team28_id->id;
+            $team28_notification = $team28_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 28)->first();
             $seating = $seating->team_id;
@@ -1489,6 +1571,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team28_notification' => $team28_notification,
             ];
         
             if($user->id != $seating) {
@@ -1520,9 +1603,11 @@ class OffencesController extends Controller
             
             $team29 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 29)->first();
             $team29_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 29)->first();
+            $team29_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 29)->first();
             
             $user_id = $user->id;
             $team29_id = $team29_id->id;
+            $team29_notification = $team29_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 29)->first();
             $seating = $seating->team_id;
@@ -1542,6 +1627,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team29_notification' => $team29_notification,
             ];
         
             if($user->id != $seating) {
@@ -1573,9 +1659,11 @@ class OffencesController extends Controller
             
             $team30 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 30)->first();
             $team30_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 30)->first();
+            $team30_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 30)->first();
             
             $user_id = $user->id;
             $team30_id = $team30_id->id;
+            $team30_notification = $team30_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 30)->first();
             $seating = $seating->team_id;
@@ -1595,6 +1683,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team30_notification' => $team30_notification,
             ];
         
             if($user->id != $seating) {
@@ -1626,9 +1715,11 @@ class OffencesController extends Controller
             
             $team31 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 31)->first();
             $team31_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 31)->first();
+            $team31_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 31)->first();
             
             $user_id = $user->id;
             $team31_id = $team31_id->id;
+            $team31_notification = $team31_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 31)->first();
             $seating = $seating->team_id;
@@ -1648,6 +1739,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team31_notification' => $team31_notification,
             ];
         
             if($user->id != $seating) {
@@ -1679,9 +1771,11 @@ class OffencesController extends Controller
             
             $team32 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 32)->first();
             $team32_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 32)->first();
+            $team32_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 32)->first();
             
             $user_id = $user->id;
             $team32_id = $team32_id->id;
+            $team32_notification = $team32_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 32)->first();
             $seating = $seating->team_id;
@@ -1701,6 +1795,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team32_notification' => $team32_notification,
             ];
         
             if($user->id != $seating) {
@@ -1732,9 +1827,11 @@ class OffencesController extends Controller
             
             $team33 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 33)->first();
             $team33_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 33)->first();
+            $team33_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 33)->first();
             
             $user_id = $user->id;
             $team33_id = $team33_id->id;
+            $team33_notification = $team33_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 33)->first();
             $seating = $seating->team_id;
@@ -1754,6 +1851,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team33_notification' => $team33_notification,
             ];
         
             if($user->id != $seating) {
@@ -1785,9 +1883,11 @@ class OffencesController extends Controller
             
             $team34 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 34)->first();
             $team34_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 34)->first();
+            $team34_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 34)->first();
             
             $user_id = $user->id;
             $team34_id = $team34_id->id;
+            $team34_notification = $team34_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 34)->first();
             $seating = $seating->team_id;
@@ -1807,6 +1907,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team34_notification' => $team34_notification,
             ];
         
             if($user->id != $seating) {
@@ -1838,9 +1939,11 @@ class OffencesController extends Controller
             
             $team35 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 35)->first();
             $team35_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 35)->first();
+            $team35_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 35)->first();
             
             $user_id = $user->id;
             $team35_id = $team35_id->id;
+            $team35_notification = $team35_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 35)->first();
             $seating = $seating->team_id;
@@ -1860,6 +1963,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team35_notification' => $team35_notification,
             ];
         
             if($user->id != $seating) {
@@ -1891,9 +1995,11 @@ class OffencesController extends Controller
             
             $team36 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 36)->first();
             $team36_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 36)->first();
+            $team36_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 36)->first();
             
             $user_id = $user->id;
             $team36_id = $team36_id->id;
+            $team36_notification = $team36_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 36)->first();
             $seating = $seating->team_id;
@@ -1913,6 +2019,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team36_notification' => $team36_notification,
             ];
         
             if($user->id != $seating) {
@@ -1944,9 +2051,11 @@ class OffencesController extends Controller
             
             $team37 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 37)->first();
             $team37_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 37)->first();
+            $team37_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 37)->first();
             
             $user_id = $user->id;
             $team37_id = $team37_id->id;
+            $team37_notification = $team37_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 37)->first();
             $seating = $seating->team_id;
@@ -1966,6 +2075,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team37_notification' => $team37_notification,
             ];
         
             if($user->id != $seating) {
@@ -1997,9 +2107,11 @@ class OffencesController extends Controller
             
             $team38 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 38)->first();
             $team38_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 38)->first();
+            $team38_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 38)->first();
             
             $user_id = $user->id;
             $team38_id = $team38_id->id;
+            $team38_notification = $team38_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 38)->first();
             $seating = $seating->team_id;
@@ -2019,6 +2131,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team38_notification' => $team38_notification,
             ];
         
             if($user->id != $seating) {
@@ -2050,9 +2163,11 @@ class OffencesController extends Controller
             
             $team39 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 39)->first();
             $team39_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 39)->first();
+            $team39_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 39)->first();
             
             $user_id = $user->id;
             $team39_id = $team39_id->id;
+            $team39_notification = $team39_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 39)->first();
             $seating = $seating->team_id;
@@ -2072,6 +2187,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team39_notification' => $team39_notification,
             ];
         
             if($user->id != $seating) {
@@ -2103,9 +2219,11 @@ class OffencesController extends Controller
             
             $team40 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 40)->first();
             $team40_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 40)->first();
+            $team40_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 40)->first();
             
             $user_id = $user->id;
             $team40_id = $team40_id->id;
+            $team40_notification = $team40_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 40)->first();
             $seating = $seating->team_id;
@@ -2125,6 +2243,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team40_notification' => $team40_notification,
             ];
         
             if($user->id != $seating) {
@@ -2156,9 +2275,11 @@ class OffencesController extends Controller
             
             $team41 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 41)->first();
             $team41_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 41)->first();
+            $team41_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 41)->first();
             
             $user_id = $user->id;
             $team41_id = $team41_id->id;
+            $team41_notification = $team41_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 41)->first();
             $seating = $seating->team_id;
@@ -2178,6 +2299,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team41_notification' => $team41_notification,
             ];
         
             if($user->id != $seating) {
@@ -2209,9 +2331,11 @@ class OffencesController extends Controller
             
             $team42 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 42)->first();
             $team42_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 42)->first();
+            $team42_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 42)->first();
             
             $user_id = $user->id;
             $team42_id = $team42_id->id;
+            $team42_notification = $team42_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 42)->first();
             $seating = $seating->team_id;
@@ -2231,6 +2355,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team42_notification' => $team42_notification,
             ];
         
             if($user->id != $seating) {
@@ -2262,9 +2387,11 @@ class OffencesController extends Controller
             
             $team43 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 43)->first();
             $team43_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 43)->first();
+            $team43_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 43)->first();
             
             $user_id = $user->id;
             $team43_id = $team43_id->id;
+            $team43_notification = $team43_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 43)->first();
             $seating = $seating->team_id;
@@ -2284,6 +2411,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team43_notification' => $team43_notification,
             ];
         
             if($user->id != $seating) {
@@ -2315,9 +2443,11 @@ class OffencesController extends Controller
             
             $team44 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 44)->first();
             $team44_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 44)->first();
+            $team44_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 44)->first();
             
             $user_id = $user->id;
             $team44_id = $team44_id->id;
+            $team44_notification = $team44_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 44)->first();
             $seating = $seating->team_id;
@@ -2337,6 +2467,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team44_notification' => $team44_notification,
             ];
         
             if($user->id != $seating) {
@@ -2368,9 +2499,11 @@ class OffencesController extends Controller
             
             $team45 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 45)->first();
             $team45_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 45)->first();
+            $team45_notification = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.notification')-> where('seats.id', '=', 45)->first();
             
             $user_id = $user->id;
             $team45_id = $team45_id->id;
+            $team45_notification = $team45_notification->notification;
             
             $seating = DB::table('seats')->select('seats.team_id')->where('seats.id', '=', 45)->first();
             $seating = $seating->team_id;
@@ -2390,6 +2523,7 @@ class OffencesController extends Controller
                 'seating' => $seating,
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
+                'team45_notification' => $team45_notification,
             ];
         
             if($user->id != $seating) {
