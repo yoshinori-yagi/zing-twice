@@ -114,7 +114,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        $number=$request->Input::get('number');                                               
+        $number=Input::get('number');                                               
         $number=htmlspecialchars($number);          
         
         $number = rand(1,6);
@@ -332,7 +332,7 @@ class GamesController extends Controller
         ];
         
         if (\Auth::check()) {
-            return view ('games.result_after', $data);
+            return view ('tetoris.result_after', $data);
         }
         else {
             return redirect('welcome');  
