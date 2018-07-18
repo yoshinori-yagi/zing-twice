@@ -9,6 +9,7 @@
             <li><a href="#"><span class="nav-text">Timeline</span></a></li>
             <li><a href="{{ route('seat', ['id' => $user->id]) }}"><span class="nav-text">Seats</span></a></li>
             <li><a href="{{ route('users.show', ['id' => $user->id])}}"><span class="nav-text">My Page</span></a></li>
+            <li><a href="{{ route('users.buy', ['id' => $user->id])}}"><span class="nav-text">Buy points</span></a></li>
             <li><a href="{{ route('logout.get') }}"><span class="nav-text">Log out</span></a></li>
           @else
             <li><a href="{{ route('signup.get') }}"><span class="nav-text">Sign Up</span></a></li>

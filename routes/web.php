@@ -34,6 +34,8 @@ Route::get('seats', 'SeatsController@index')->name('seat');
 Route::group(['middleware' => ['auth']], function () {
      Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'users']]);
      Route::group(['prefix' => 'users/{id}'], function () {
+          Route::get('buy', 'UsersController@buy')->name('users.buy');
+          Route::get('bought', 'UsersController@bought')->name('users.bought');
           Route::get('games', 'GamesController@index')->name('game.index');
           Route::get('games/game1', 'GamesController@numbers')->name('game.numbers');
           Route::get('games/game2', 'GamesController@tetoris')->name('game.tetoris');
@@ -41,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
           Route::get('games/game2/wait', 'GamesController@tetoris_wait')->name('tetoris.wait');
           Route::get('games/game1/confirm', 'GamesController@confirm')->name('game.confirm');
           Route::get('games/game2/confirm', 'GamesController@tetoris_confirm')->name('tetoris.confirm');
+          Route::get('games/refuse', 'GamesController@refuse')->name('game.refuse');
           Route::get('games/game1/defence', 'GamesController@defence')->name('game.defence');
           Route::get('games/defence', 'GamesController@tetoris_defence')->name('tetoris.defence');
           Route::get('games/game1/result', 'GamesController@result')->name('game.result');
