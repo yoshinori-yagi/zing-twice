@@ -69,6 +69,11 @@ class GamesController extends Controller
         
         DB::table('users')->where ('id',intval($team_id))->update(['notification' => 1]);
         
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 100]);
+        
         return view('games.numbers',$data);                                
         
     }
@@ -233,6 +238,11 @@ class GamesController extends Controller
         
         DB::table('users')->where ('id',intval($team_id))->update(['notification' => 3]);
         
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 100]);
+        
         $data = [
             'user' => $user,
             'tetoris_score' => $tetoris_score,
@@ -332,7 +342,7 @@ class GamesController extends Controller
         ];
         
         if (\Auth::check()) {
-            return view ('tetoris.result_after', $data);
+            return view ('games.tetoris_result_after', $data);
         }
         else {
             return redirect('welcome');  
