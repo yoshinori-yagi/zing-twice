@@ -189,7 +189,7 @@ function newGame(){
     setStage();
     mode = GAME;
     frame = 1;
-    speed = 10;
+    speed = 12;
     clearTimeout(timer1);
     createBlock();
     mainLoop();
@@ -466,7 +466,7 @@ function mainLoop(){
     // 落下スピードアップ
     if(clearLine >= NEXTLEVEL){
         clearLine = 0;
-        speed = speed - 3;
+        speed = speed - 2;
         console.log("speedUP! : " + speed);
         speedup = document.getElementById("speedup");
       speedup.innerHTML = ("speedUP! : " + speed);
@@ -478,7 +478,7 @@ function mainLoop(){
  
 function timeUP(){
 
-    count = 60; 
+    count = 120; 
     timerID = setInterval('countup()',1000); //1秒毎にcountup()を呼び出し
    
    
