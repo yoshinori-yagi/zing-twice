@@ -35,16 +35,20 @@ Route::group(['middleware' => ['auth']], function () {
      Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'users']]);
      Route::group(['prefix' => 'users/{id}'], function () {
           Route::get('games', 'GamesController@index')->name('game.index');
-          Route::get('games/game', 'GamesController@show')->name('game.show');
           Route::get('games/game1', 'GamesController@numbers')->name('game.numbers');
           Route::get('games/game2', 'GamesController@tetoris')->name('game.tetoris');
+          Route::get('games/game1/wait', 'GamesController@wait')->name('game.wait');
+          Route::get('games/game2/wait', 'GamesController@tetoris_wait')->name('tetoris.wait');
+          Route::get('games/game1/confirm', 'GamesController@confirm')->name('game.confirm');
+          Route::get('games/game2/confirm', 'GamesController@tetoris_confirm')->name('tetoris.confirm');
           Route::get('games/game1/defence', 'GamesController@defence')->name('game.defence');
-          Route::get('games/game/result', 'GamesController@result')->name('game.result');
-          Route::get('games/game/result/offence', 'GamesController@result_after')->name('game.result_after');
-          Route::get('seats/update', 'SeatsController@update')->name('seat.update');
+          Route::get('games/defence', 'GamesController@tetoris_defence')->name('tetoris.defence');
+          Route::get('games/game1/result', 'GamesController@result')->name('game.result');
+          Route::get('games/game2/result', 'GamesController@tetoris_game_result')->name('tetoris.game_result');
+          Route::get('games/game1/result/offence', 'GamesController@result_after')->name('game.result_after');
+          Route::get('games/game2/result/offence', 'GamesController@tetoris_result_after')->name('tetoris.result_after');
           
-          Route::get('games/wait', 'GamesController@wait')->name('game.wait');
-          Route::get('games/confirm', 'GamesController@confirm')->name('game.confirm');
+          Route::get('seats/update', 'SeatsController@update')->name('seat.update');
           
           Route::get('offence', 'OffencesController@select')->name('offence.select');
           Route::get('offence2', 'OffencesController@select2')->name('offence.select2');
