@@ -299,7 +299,7 @@ class SeatsController extends Controller
                 'team45_id' => $team45_id,
             ];
         
-            return view('seat.index',$data);
+            return view('seat.index', $data);
         }
         else {
             return redirect('welcome');  

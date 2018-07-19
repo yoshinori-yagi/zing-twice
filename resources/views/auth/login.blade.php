@@ -11,11 +11,6 @@
                         {!! Form::label('name', 'Team name') !!}
                         {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
                     </div>
-                    
-                    <div class="form-group">
-                        {!! form::label('email', 'e-mail') !!}
-                        {!! form::email('email', old('email'), ['class' => 'form-control']) !!}
-                    </div>
 
                     <div class="form-group">
                         {!! form::label('password', 'Password') !!}
