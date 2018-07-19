@@ -1108,4 +1108,12 @@ $(function() {
                 $('.select-team').show()
           }
           );
+    $('.character').hover(
+          function(){
+              $('.information').show()
+          },
+          function(){
+              $('.information').hide()
+          }
+    );   
 });
