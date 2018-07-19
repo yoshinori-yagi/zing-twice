@@ -2,11 +2,13 @@
 
 @section('content')
     <div class="cover">
+        <div class = "aside">
+            <h2>Time:</h2><h2 id ="time"></h2>
+            <h2>Score:</h2><h2 id="score"></h2>
+        </div>
         <div id="wrapper">
             <div id = "speedup"></div>
             <canvas id="canvas"></canvas>
-            <div id="score"></div>
-            <div id ="time"></div>
         </div>
         <script type = "text/javascript" src="/js/game.js">
         </script>

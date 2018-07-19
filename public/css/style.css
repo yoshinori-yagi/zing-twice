@@ -367,6 +367,10 @@ ul {
     margin-bottom: 5%;
 }
 
+.speedup {
+    display: none;
+}
+
 /*wait page*/
 .game_wait{
     text-align: center;
@@ -427,6 +431,13 @@ ul {
 
 .seat_update h2{
     font-size: 80px;
+}
+
+.aside {
+    float: left;
+}
+.wrapper {
+    float: left;
 }
 
 /*navbar3*/
