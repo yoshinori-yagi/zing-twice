@@ -112,6 +112,12 @@ ul {
 .profile_btn {
     margin-left: 10%;
 }
+
+.profile_body a {
+    color: black;
+    text-align: center;
+}
+
 /*seats page*/
 .select_teams {
     text-align: center;
@@ -534,3 +540,17 @@ header {
     color: black;
 }
 
+.information {
+    display: none;
+    z-index: 100000;
+    position: absolute;
+    right: 15%;
+    top: 2%;
+}
+
+.character {
+    z-index: 98;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}

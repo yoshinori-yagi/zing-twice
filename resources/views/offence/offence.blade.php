@@ -3,6 +3,8 @@
 @section('cover')
     <div class="cover">
         <div class ="offence">
+            <a><img src="{{ secure_asset("images/character.jpg") }}" alt="" class="character"></a>
+            <h3 class="information">explanation</h3>
             @if($team1_notification == 0)
             <h2> Attack </h2><br><h1>{{ $team1->name }} </h1>
             <a href="{{ route('game.index', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_choice">Select Games</a>

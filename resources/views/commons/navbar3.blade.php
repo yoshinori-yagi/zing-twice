@@ -6,7 +6,6 @@
       <div id="nav-content">
         <ul>
           @if (Auth::check())
-            <li><a href="#"><span class="nav-text">Timeline</span></a></li>
             <li><a href="{{ route('seat', ['id' => $user->id]) }}"><span class="nav-text">Seats</span></a></li>
             <li><a href="{{ route('users.show', ['id' => $user->id])}}"><span class="nav-text">My Page</span></a></li>
             <li><a href="{{ route('users.buy', ['id' => $user->id])}}"><span class="nav-text">Buy points</span></a></li>

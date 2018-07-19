@@ -9,7 +9,7 @@
                         <h3 class="profile_title">Seat number</h3>
                     </div>
                     <div class="profile_body">
-                        <h2>{{ $user_id_seat }}</h2>
+                        <h2><a href="{{ route('seat', ['id' => $user->id])}}"><span class="profile_link">{{ $user_id_seat }}</span></a></h2>
                     </div>
                 </div>
                 <div class="profile_box">
@@ -17,7 +17,7 @@
                         <h3 class="profile_title">Points</h3>
                     </div>
                     <div class="profile_body">
-                        <h2>{{ $user->points }} points</h2>
+                        <h3><a href="{{ route('users.buy', ['id' => $user->id])}}"><span class="profile_link">{{ $user->points }} points</span></a></h3>
                     </div>
                 </div>
             </aside>
@@ -60,9 +60,9 @@
                         @endif
                     </div>
                 </div>
-                
-            
             </div>
         </div>
+            <a href = "{{ route('seat', ['id' => $user->id]) }}"><img src="{{ secure_asset("images/character.jpg") }}" alt="" class="character"></a>
+            <h3 class="information">explanation</h3>
     </div>
 @endsection

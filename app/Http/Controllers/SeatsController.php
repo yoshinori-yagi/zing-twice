@@ -23,7 +23,7 @@ class SeatsController extends Controller
         if (\Auth::check()) {
             $user = \Auth::user();
             $seats = Seat::All('id');
-       
+            
             $team1_id=Input::get('team1_id');   
              $team1 = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.name')-> where('seats.id', '=', 1)->first();
                $team1_id = DB::table('users')->join('seats','users.id', '=', 'seats.team_id')->select('users.id')-> where('seats.id', '=', 1)->first();
