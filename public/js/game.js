@@ -16,7 +16,7 @@
  * 定数
  */
 // ステージ
-var BLOCK_SIZE = 18;        // 1ブロックのサイズ
+var BLOCK_SIZE = 22;        // 1ブロックのサイズ
 var BLOCK_RAWS = 22;    // ステージの高さ（20ライン分をステージとして使用し、上下1ラインはあたり判定とブロックコピー用に使用）
 var BLOCK_COLS = 12;    // ステージの幅
 var SCREEN_WIDTH = BLOCK_SIZE * BLOCK_COLS; // キャンバスの幅
@@ -27,7 +27,12 @@ var GAMEOVER = 0;       // ゲームオーバー時
 var EFFECT = 2;         // ブロックを消すときのエフェクトモード
 // ブロックの状態
 var NON_BLOCK = 0;      // ブロックが存在しない
-var NORMAL_BLOCK = 1;   // 通常のブロック（動かせる）
+var NORMAL_BLOCK = 1;// 通常のブロック（動かせる）
+var NORMAL_BLOCK2 = 8; 
+var NORMAL_BLOCK3 = 7; 
+var NORMAL_BLOCK4 = 6; 
+var NORMAL_BLOCK5 = 5;
+var NORMAL_BLOCK6 = 4;
 var LOCK_BLOCK = 2;     // ロックした（動かせない）ブロック
 var CLEAR_BLOCK = 3;    // 消去するブロック（1ライン揃ったとき）
 var WALL = 9;           // 壁
@@ -35,9 +40,16 @@ var WALL = 9;           // 壁
 var EFFECT_ANIMATION = 2;   // エフェクト時のちかちかする回数
 // 色
 var BACK_COLOR = "#ddd";            // 背景色
-var GAMEOVER_COLOR = "#FF0000";            // ゲームオーバー時のブロックの色
-var BLOCK_COLOR = "#000";           // 操作ブロックの色
-var LOCK_COLOR = "#333";            // ロックしたブロックの色
+var GAMEOVER_COLOR = "#000";// ゲームオーバー時のブロックの色
+var arr = ["#0040FF","#FF8000","#00FF00","#FF00BF","#FFFF00","#9A2EFE" ] ;// 配列からランダムで値を選択
+var BLOCK_COLOR = arr[Math.floor(Math.random()*6)];
+/*var BLOCK_COLOR = "#0040FF";           // 操作ブロックの色
+var BLOCK_COLOR2 = "#FF8000";
+var BLOCK_COLOR3 = "#00FF00";
+var BLOCK_COLOR4 = "#FF00BF";           // 操作ブロックの色
+var BLOCK_COLOR5 = "#FFFF00";
+var BLOCK_COLOR6 = "#9A2EFE";*/
+var LOCK_COLOR = "#fff";            // ロックしたブロックの色
 var WALL_COLOR = "#666";            // 壁の色
 var ERROR_COLOR = "#f00";           // エラーブロックの色
 var EFFECT_COLOR1 = "#fff";         // エフェクト時の色1
@@ -89,29 +101,29 @@ function init(){
     bs = BLOCK_SIZE;
     // ブロックを設定
     block =  [[ [0, 0, 0, 0],
-                [0, 1, 1, 0],
-                [0, 1, 1, 0],
+                [0, 8, 8, 0],
+                [0, 8, 8, 0],
                 [0, 0, 0, 0]],
                  
-            [   [0, 1, 0, 0],
-                [0, 1, 0, 0],
-                [0, 1, 0, 0],
-                [0, 1, 0, 0]],
+            [   [0, 7, 0, 0],
+                [0, 7, 0, 0],
+                [0, 7, 0, 0],
+                [0, 7, 0, 0]],
  
-            [   [0, 0, 1, 0],
-                [0, 1, 1, 0],
-                [0, 1, 0, 0],
+            [   [0, 0, 6, 0],
+                [0, 6, 6, 0],
+                [0, 6, 0, 0],
                 [0, 0, 0, 0]],
  
-            [   [0, 1, 0, 0],
-                [0, 1, 1, 0],
-                [0, 0, 1, 0],
+            [   [0, 5, 0, 0],
+                [0, 5, 5, 0],
+                [0, 0, 5, 0],
                 [0, 0, 0, 0]],
  
             [   [0, 0, 0, 0],
-                [0, 1, 1, 0],
-                [0, 1, 0, 0],
-                [0, 1, 0, 0]],
+                [0, 4, 4, 0],
+                [0, 4, 0, 0],
+                [0, 4, 0, 0]],
  
             [   [0, 0, 0, 0],
                 [0, 1, 1, 0],
@@ -119,14 +131,14 @@ function init(){
                 [0, 0, 1, 0]],
  
             [   [0, 0, 0, 0],
-                [0, 1, 0, 0],
-                [1, 1, 1, 0],
+                [0, 8, 0, 0],
+                [8, 8, 8, 0],
                 [0, 0, 0, 0]],
                 
                 
-            [   [1, 0, 0, 0],
-                [1, 0, 0, 0],
-                [1, 1, 1, 1],
+            [   [7, 0, 0, 0],
+                [7, 0, 0, 0],
+                [7, 7, 7, 7],
                 [0, 0, 0, 0]],
                 
              [  [1, 0, 0, 1],
@@ -226,7 +238,7 @@ function lockBlock(){
     if(mode == EFFECT) return;
     for(var i=0; i<4; i++){
         for(var j=0; j<4; j++){
-            if(oBlock[i][j]) field[i+y][j+x] = LOCK_BLOCK;
+            if(oBlock[i][j]) field[i+y][j+x] = NORMAL_BLOCK;
         }
     }
 }
@@ -376,11 +388,26 @@ function draw(){
                 case NORMAL_BLOCK:      // ブロック
                     g.fillStyle = BLOCK_COLOR;
                     break;
+                /*case NORMAL_BLOCK2:      // ブロック
+                    g.fillStyle = BLOCK_COLOR2;
+                    break;
+                case NORMAL_BLOCK3:      // ブロック
+                    g.fillStyle = BLOCK_COLOR3;
+                    break;
+                case NORMAL_BLOCK4:      // ブロック
+                    g.fillStyle = BLOCK_COLOR4;
+                    break;
+                case NORMAL_BLOCK5:      // ブロック
+                    g.fillStyle = BLOCK_COLOR5;
+                    break;
+                case NORMAL_BLOCK6:      // ブロック
+                    g.fillStyle = BLOCK_COLOR6;
+                    break;*/
                 case LOCK_BLOCK:        // ブロック（ロック）
-                    g.fillStyle = LOCK_COLOR;
+                    g.fillStyle = BLOCK_COLOR;
                     break;
                 case CLEAR_BLOCK:       // 消去ブロック
-                    g.fillStyle = BLOCK_COLOR;
+                    g.fillStyle = arr[Math.floor(Math.random()*6)];
                     break;
                 case WALL:      // 壁
                     g.fillStyle = WALL_COLOR;
