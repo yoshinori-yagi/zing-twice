@@ -50,7 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
           Route::get('games/game2/result', 'GamesController@tetoris_game_result')->name('tetoris.game_result');
           Route::get('games/game1/result/offence', 'GamesController@result_after')->name('game.result_after');
           Route::get('games/game2/result/offence', 'GamesController@tetoris_result_after')->name('tetoris.result_after');
-          
+
           Route::get('seats/update', 'SeatsController@update')->name('seat.update');
           
           Route::get('offence', 'OffencesController@select')->name('offence.select');

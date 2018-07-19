@@ -28,9 +28,13 @@ class GamesController extends Controller
     public function index($id)
     {
         $user = User::find($id);
+        
+        $user_point = DB::table('users')->where('users.id', '=' , $id)->select('users.points')->first();
+        $user_point = $user_point->points;
 
         $data = [
             'user' => $user,
+            'user_point' => $user_point,
         ];
         
         if (\Auth::check()) {
@@ -46,6 +50,9 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
+        $user_point = DB::table('users')->where('users.id', '=' , $id)->select('users.points')->first();
+        $user_point = $user_point->points;
+        
         $number=Input::get('number');                                               
         $number=htmlspecialchars($number);
         
@@ -54,6 +61,7 @@ class GamesController extends Controller
         $data = [
             'number' => $number,
             'user' => $user,
+            'user_point' => $user_point,
         ];
         
 
@@ -109,8 +117,12 @@ class GamesController extends Controller
         
         DB::table('users')->where ('id', $id)->update(['notification' => 0]);
         
+        $user_point = DB::table('users')->where('users.id', '=' , $id)->select('users.points')->first();
+        $user_point = $user_point->points;
+        
         $data = [
             'user' => $user,
+            'user_point' => $user_point,
         ];
         
         if (\Auth::check()) {
@@ -209,6 +221,9 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
+        $user_point = DB::table('users')->where('users.id', '=' , $id)->select('users.points')->first();
+        $user_point = $user_point->points;
+        
         $points = DB::table('users')->where('id','=', $id)->select('users.points')->first();
         $points = $points->points;
         
@@ -218,6 +233,7 @@ class GamesController extends Controller
     
         $data = [
             'user' => $user,
+            'user_point' => $user_point,
         ];
         
         return view('games.tetoris',$data);                                
@@ -272,8 +288,12 @@ class GamesController extends Controller
         
         DB::table('users')->where ('id', $id)->update(['notification' => 0]);
         
+        $user_point = DB::table('users')->where('users.id', '=' , $id)->select('users.points')->first();
+        $user_point = $user_point->points;
+        
         $data = [
             'user' => $user,
+            'user_point' => $user_point,
         ];
         
         if (\Auth::check()) {
