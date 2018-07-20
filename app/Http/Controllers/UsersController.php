@@ -62,12 +62,17 @@ class UsersController extends Controller
         $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
         $user_id_seat = $user_id_seat->id;
         
+        $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->select('games.team_id')-> where('users.id', '=', $id)->first();
+        $team_id = $team_id->team_id;
+        $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+        $team_name = $team_name->name;
 
         $data = [
             'user' => $user,
             'notification' => $notification,
             'user_id_seat' => $user_id_seat,
-        ];
+            'team_name' => $team_name,
+         ];
 
         return view('users.show', $data);
     }

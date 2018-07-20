@@ -554,3 +554,11 @@ header {
     right: 5%;
     top: 5%;
 }
+
+button {
+    background-color: transparent;
+    font-family: 'Cherry Swash', cursive;
+    font-size: 30px;
+    text-align: center;
+} 
+
