@@ -55,6 +55,14 @@
                         <h3>Game finished.
                         <a href="{{ route('tetoris.result_after', ['id' => $user->id])}}" class="btn btn-ghost btn-lg profile_btn">See result</a>
                         </h3>
+                         @elseif($notification == 5)
+                        <h3>You are under attack.
+                        <a href="{{ route('block.confirm', ['id' => $user->id])}}" class="btn btn-ghost btn-start profile_btn">Start block game</a>
+                        </h3>
+                        @elseif($notification == 6)
+                        <h3>Game finished.
+                        <a href="{{ route('block.result_after', ['id' => $user->id])}}" class="btn btn-ghost btn-lg profile_btn">See result</a>
+                        </h3>
                         @else($notification == 100)
                         <h3>Game now.</h3>
                         @endif

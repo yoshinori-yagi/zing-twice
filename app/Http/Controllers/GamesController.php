@@ -14,6 +14,8 @@ use App\Number;
 
 use App\Game;
 
+use App\Block;
+
 use Input;
 
 use DB;
@@ -400,5 +402,172 @@ class GamesController extends Controller
         ];
         
         return view ('games.refuse', $data);
+    }
+    
+    /*block kuzushi*/
+    
+    public function block($id)
+    {
+        $user = User::find($id);
+        
+        $user_point = DB::table('users')->where('users.id', '=' , $id)->select('users.points')->first();
+        $user_point = $user_point->points;
+        
+        $points = DB::table('users')->where('id','=', $id)->select('users.points')->first();
+        $points = $points->points;
+        
+        $points = $points-10;
+        
+        DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
+    
+        $data = [
+            'user' => $user,
+            'user_point' => $user_point,
+        ];
+        
+        return view('games.block',$data);                                
+        
+    }
+    
+    public function block_result(Request $request) {
+        
+        $block_score = $request->BlockScore;
+        
+        DB::insert('insert into zing.block (block) values (?)',[intval($block_score)]);
+
+        return $block_score;
+        
+    }
+    
+     public function block_wait($id) {
+        
+        $user = User::find($id);
+        
+        $block_score = DB::table('block')->orderby('id', 'desc')->select('block.block')->first();
+        $block_score = $block_score->block;
+        
+        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
+        $game_id =  $game_id->id;
+        
+        DB::table('games')->where ('id',intval($game_id))->update(['user_id_score' => $block_score]);
+        
+        $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
+        $team_id = $team_id->team_id;
+        
+        DB::table('users')->where ('id',intval($team_id))->update(['notification' => 5]);
+        
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 100]);
+        
+        $data = [
+            'user' => $user,
+            'block_score' => $block_score,
+        ];
+        
+        return view ('games.block_wait', $data);
+        
+    }
+    
+    public function block_confirm($id)
+    {
+        $user = User::find($id);
+        
+        DB::table('users')->where ('id', $id)->update(['notification' => 0]);
+        
+        $user_point = DB::table('users')->where('users.id', '=' , $id)->select('users.points')->first();
+        $user_point = $user_point->points;
+        
+        $data = [
+            'user' => $user,
+            'user_point' => $user_point,
+        ];
+        
+        if (\Auth::check()) {
+            
+            return view ('games.block_confirm', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
+    }
+    
+    public function block_defence($id)
+    {
+        $user = User::find($id);
+    
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view('games.block_defence',$data);                                
+        
+    }
+    
+    public function block_game_result($id)
+    {
+        $user = User::find($id);
+        
+        $block_score = DB::table('block')->orderby('id', 'desc')->select('block.block')->first();
+        $block_score = $block_score->block;
+        
+        $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
+        $game_id =  $game_id->id;
+        
+        DB::table('games')->where ('id',intval($game_id))->update(['team_id_score' => $block_score]);
+        
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 6]);
+        
+        $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
+        $user_id_score = $user_id_score->user_id_score;
+        
+        $team_id_score = DB::table('games')->orderby('id', 'desc')->select('games.team_id_score')->first();
+        $team_id_score = $team_id_score->team_id_score;
+        
+
+        $data = [
+            'user' => $user,
+            'user_id_score' => $user_id_score,
+            'team_id_score' => $team_id_score,
+        ];
+        
+        if (\Auth::check()) {
+            return view ('games.block_result', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
+    }
+    
+    public function block_result_after($id)
+    {
+        $user = User::find($id);
+        
+        DB::table('users')->where ('id', "=", $id)->update(['notification' => 0]);
+        
+        
+        $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
+        $user_id_score = $user_id_score->user_id_score;
+        
+        $team_id_score = DB::table('games')->orderby('id', 'desc')->select('games.team_id_score')->first();
+        $team_id_score = $team_id_score->team_id_score;
+        
+
+        $data = [
+            'user' => $user,
+            'user_id_score' => $user_id_score,
+            'team_id_score' => $team_id_score,
+        ];
+        
+        if (\Auth::check()) {
+            return view ('games.block_result_after', $data);
+        }
+        else {
+            return redirect('welcome');  
+        }
     }
 }

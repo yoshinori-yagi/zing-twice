@@ -24,6 +24,19 @@
                 </li>
                 <li class= "slide">
                     <div class="profile_box">
+                            <h2 class="profile_title">Block kuzushi</h2>
+                        <div class="profile_body">
+                            <img src="{{ secure_asset("images/numbers.png") }}" alt="">
+                        </div>
+                        @if($user_point <= 0)
+                        <a href="{{ route('users.buy', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_start">Start game</a>
+                        @else
+                        <a href="{{ route('game.block', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_start">Start game</a>
+                        @endif
+                    </div>
+                </li>
+                <li class= "slide">
+                    <div class="profile_box">
                             <h2 class="profile_title">Sugoroku</h2>
                         <div class="profile_body">
                             <img src="{{ secure_asset("images/numbers.png") }}" alt="">
