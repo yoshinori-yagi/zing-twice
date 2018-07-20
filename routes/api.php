@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('games/tetoris/result', 'GamesController@tetoris_result')->name('tetoris.result');
+Route::post('games/block/result', 'GamesController@block_result')->name('block.result');

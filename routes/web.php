@@ -39,17 +39,23 @@ Route::group(['middleware' => ['auth']], function () {
           Route::get('games', 'GamesController@index')->name('game.index');
           Route::get('games/game1', 'GamesController@numbers')->name('game.numbers');
           Route::get('games/game2', 'GamesController@tetoris')->name('game.tetoris');
+          Route::get('games/game3', 'GamesController@block')->name('game.block');
           Route::get('games/game1/wait', 'GamesController@wait')->name('game.wait');
           Route::get('games/game2/wait', 'GamesController@tetoris_wait')->name('tetoris.wait');
+          Route::get('games/game3/wait', 'GamesController@block_wait')->name('block.wait');
           Route::get('games/game1/confirm', 'GamesController@confirm')->name('game.confirm');
           Route::get('games/game2/confirm', 'GamesController@tetoris_confirm')->name('tetoris.confirm');
+          Route::get('games/game3/confirm', 'GamesController@block_confirm')->name('block.confirm');
           Route::get('games/refuse', 'GamesController@refuse')->name('game.refuse');
           Route::get('games/game1/defence', 'GamesController@defence')->name('game.defence');
           Route::get('games/defence', 'GamesController@tetoris_defence')->name('tetoris.defence');
+          Route::get('block/defence', 'GamesController@block_defence')->name('block.defence');
           Route::get('games/game1/result', 'GamesController@result')->name('game.result');
           Route::get('games/game2/result', 'GamesController@tetoris_game_result')->name('tetoris.game_result');
+          Route::get('games/game3/result', 'GamesController@block_game_result')->name('block.game_result');
           Route::get('games/game1/result/offence', 'GamesController@result_after')->name('game.result_after');
           Route::get('games/game2/result/offence', 'GamesController@tetoris_result_after')->name('tetoris.result_after');
+          Route::get('games/game3/result/offence', 'GamesController@block_result_after')->name('block.result_after');
 
           Route::get('seats/update', 'SeatsController@update')->name('seat.update');
           
