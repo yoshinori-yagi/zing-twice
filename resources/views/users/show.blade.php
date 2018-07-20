@@ -64,7 +64,7 @@
                         <a href="{{ route('block.result_after', ['id' => $user->id])}}" class="btn btn-ghost btn-lg profile_btn">See result</a>
                         </h3>
                         @else($notification == 100)
-                        <h3>Game now.</h3>
+                        <h3>Game now. (vs {{ $team_name }})</h3>
                         @endif
                     </div>
                 </div>
