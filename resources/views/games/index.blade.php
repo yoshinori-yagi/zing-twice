@@ -16,7 +16,7 @@
                             <img src="{{ secure_asset("images/tetoris.jpg") }}" alt="">
                         </div>
                         @if($user_point <= 0)
-                        <a href="{{ route('users.buy', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_start">Start game</a>
+                        <a href="{{ route('users.buy', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_start">Start game</a>
                         @else
                         <a href="{{ route('game.tetoris', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_start">Start game</a>
                         @endif
@@ -26,12 +26,12 @@
                     <div class="profile_box">
                             <h2 class="profile_title">Block kuzushi</h2>
                         <div class="profile_body">
-                            <img src="{{ secure_asset("images/numbers.png") }}" alt="">
+                            <img src="{{ secure_asset("images/block.png") }}" alt="">
                         </div>
                         @if($user_point <= 0)
-                        <a href="{{ route('users.buy', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_start">Start game</a>
+                        <a href="{{ route('users.buy', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_start">Start game</a>
                         @else
-                        <a href="{{ route('game.block', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_start">Start game</a>
+                        <a href="{{ route('game.block', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_start">Start game</a>
                         @endif
                     </div>
                 </li>
@@ -42,9 +42,9 @@
                             <img src="{{ secure_asset("images/numbers.png") }}" alt="">
                         </div>
                         @if($user_point <= 0)
-                        <a href="{{ route('users.buy', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_start">Start game</a>
+                        <a href="{{ route('users.buy', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_start">Start game</a>
                         @else
-                        <a href="{{ route('game.numbers', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-lg game_start">Start game</a>
+                        <a href="{{ route('game.numbers', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_start">Start game</a>
                         @endif
                     </div>
                 </li>
