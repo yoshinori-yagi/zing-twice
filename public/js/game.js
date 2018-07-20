@@ -615,7 +615,7 @@ var game = {
    ball: {
        size: 10,
        speed: 5,
-       x: 320,
+       x: 320  + Math.floor(Math.random()*11) * 10,
        y: 240,
        color: '#dd0000'
    }, // ボール：サイズ, 速さ, 色
@@ -633,7 +633,7 @@ var game = {
        color: '#001100'
    }, // 背景: 色
    score: {
-       point: -6,
+       point: 0,
        color: '#00aa00'
    },
   NEXTLEVEL: {
@@ -692,6 +692,20 @@ Ball.prototype = {
        this.dx = option.speed;
        this.dy = option.speed;
    },
+   // スピードアップ
+   speedUp: function (value) {
+           if (this.dx < 0) {
+               this.dx = -value;    
+           } else {
+               this.dx = value;
+           }
+           
+           if (this.dy < 0) {
+               this.dy = -value;
+           } else {
+               this.dy = value;
+           }
+   },
    // 移動テスト
    moveTest: function () {
        return {
@@ -705,7 +719,6 @@ Ball.prototype = {
        if (pos.x < this.size || pos.x > game.cvs.width - this.size) {
            this.dx *= -1;
        }
-       // if (pos.y < this.size || pos.y > game.cvs.height - this.size) { // 下の跳ね返り判定は不要
        if (pos.y < this.size) {
            this.dy *= -1;
        }
@@ -794,7 +807,7 @@ function main() {
    ball.x = game.ball.x;
    ball.y = game.ball.y;
    ball.dx = game.ball.speed;
-   ball.dy = game.ball.speed * -1;
+   ball.dy = game.ball.speed;
    // パドル初期化
    var paddle = new Paddle({
        size: game.paddle.size
@@ -828,6 +841,15 @@ function main() {
        if (ball.y >= paddle.y - ball.size && ball.y <= paddle.y + ball.size && ball.x >= paddle.x - (paddle.size / 2) && ball.x <= paddle.x + (paddle.size / 2)) {
            ball.dy *= -1;
        }
+       
+       if (game.score.point >= 100) {
+           ball.speedUp(15);
+       } else if (game.score.point >= 50) {
+           ball.speedUp(10);
+       } else if (game.score.point >= 20) {
+           ball.speedUp(7);
+       }
+       
        // ボール移動テスト
        var pos = ball.moveTest();
        // ブロック当たり判定
@@ -836,37 +858,6 @@ function main() {
                if (blocks[i * col + j].flag) {
                    // 左からヒット
                    if (ball.x <= blocks[i * col + j].x && blocks[i * col + j].x <= pos.x && pos.y >= blocks[i * col + j].y && pos.y <= blocks[i * col + j].y + blocks[i * col + j].h) {
-                        if(game.score.point>0 && game.score.point<=30){
-                         ball.dx = 5;
-                         if (ball.dy < 0) {
-                           ball.dy = -5;
-                         } else {
-                             ball.dy = 5;
-                         }
-                           } else if(game.score.point>30 && game.score.point<=60){
-                            ball.dx = 10;
-                         if (ball.dy < 0) {
-                           ball.dy = -10;
-                         } else {
-                             ball.dy = 10;
-                         }
-                           }
-                         else if(game.score.point>60 && game.score.point<=100){
-                            ball.dx = 15;
-                         if (ball.dy < 0) {
-                           ball.dy = -15;
-                         } else {
-                             ball.dy = 15;
-                         }
-                       }
-                        else if(game.score.point>100 && game.score.point<=200){
-                            ball.dx = 20;
-                         if (ball.dy < 0) {
-                           ball.dy = -20;
-                         } else {
-                             ball.dy = 20;
-                         }
-                       }
                         ball.dx *= -1;
                         blocks[i * col + j].flag = false;
                         game.score.point += 5;
@@ -874,39 +865,6 @@ function main() {
                    }
                    // 右からヒット
                    if (pos.x <= blocks[i * col + j].x + blocks[i * col + j].w && blocks[i * col + j].x + blocks[i * col + j].w <= ball.x && pos.y >= blocks[i * col + j].y && pos.y <= blocks[i * col + j].y + blocks[i * col + j].h) {
-                       
-                        if(game.score.point>0 && game.score.point<=30){
-                         ball.dx = 5;
-                         if (ball.dy < 0) {
-                           ball.dy = -5;
-                         } else {
-                             ball.dy = 5;
-                         }
-                           } else if(game.score.point>30 && game.score.point<=60){
-                            ball.dx = 10;
-                         if (ball.dy < 0) {
-                           ball.dy = -10;
-                         } else {
-                             ball.dy = 10;
-                         }
-                       }
-                        else if(game.score.point>60 && game.score.point<=100){
-                            ball.dx = 15;
-                         if (ball.dy < 0) {
-                           ball.dy = -15;
-                         } else {
-                             ball.dy = 15;
-                         }
-                       }
-                       else if(game.score.point>100 && game.score.point<=200){
-                            ball.dx = 20;
-                         if (ball.dy < 0) {
-                           ball.dy = -20;
-                         } else {
-                             ball.dy = 20;
-                         }
-                       }
-                       
                        ball.dx *= -1;
                        blocks[i * col + j].flag = false;
                        game.score.point += 5;
@@ -914,39 +872,6 @@ function main() {
                    }
                    // 上からヒット
                    if (ball.y <= blocks[i * col + j].y && blocks[i * col + j].y <= pos.y && pos.x >= blocks[i * col + j].x && pos.x <= blocks[i * col + j].x + blocks[i * col + j].w) {
-                         if(game.score.point>0 && game.score.point<=30){
-                         ball.dx = 5;
-                         if (ball.dy < 0) {
-                           ball.dy = -5;
-                         } else {
-                             ball.dy = 5;
-                         }
-                           } else if(game.score.point>30 && game.score.point<=60){
-                            ball.dx = 10;
-                         if (ball.dy < 0) {
-                           ball.dy = -10;
-                         } else {
-                             ball.dy = 10;
-                         }
-                       }
-                        else if(game.score.point>60 && game.score.point<=100){
-                            ball.dx = 15;
-                         if (ball.dy < 0) {
-                           ball.dy = -15;
-                         } else {
-                             ball.dy = 15;
-                         }
-                       }
-                       else if(game.score.point>100 && game.score.point<=200){
-                            ball.dx = 20;
-                         if (ball.dy < 0) {
-                           ball.dy = -20;
-                         } else {
-                             ball.dy = 20;
-                         }
-                       }
-                       
-                     
                         ball.dy *= -1;
                         blocks[i * col + j].flag = false;
                         game.score.point += 10;
@@ -954,50 +879,11 @@ function main() {
                    }
                    // 下からヒット
                    if (pos.y <= blocks[i * col + j].y + blocks[i * col + j].h && blocks[i * col + j].y + blocks[i * col + j].h <= ball.y && pos.x >= blocks[i * col + j].x && pos.x <= blocks[i * col + j].x + blocks[i * col + j].w) {
-                       
-                       if(game.score.point>0 && game.score.point<=30){
-                         ball.dx = 5;
-                         if (ball.dy < 0) {
-                           ball.dy = -5;
-                         } else {
-                             ball.dy = 5;
-                         }
-                           } else if(game.score.point>30 && game.score.point<=60){
-                            ball.dx = 10;
-                         if (ball.dy < 0) {
-                           ball.dy = -10;
-                         } else {
-                             ball.dy = 10;
-                         }
-                       }
-                        else if(game.score.point>60 && game.score.point<=100){
-                            ball.dx = 15;
-                         if (ball.dy < 0) {
-                           ball.dy = -15;
-                         } else {
-                             ball.dy = 15;
-                         }
-                       }
-                       else if(game.score.point>100 && game.score.point<=200){
-                            ball.dx = 20;
-                         if (ball.dy < 0) {
-                           ball.dy = -20;
-                         } else {
-                             ball.dy = 20;
-                         }
-                       }
-                       
                        ball.dy *= -1;
                        blocks[i * col + j].flag = false;
                        game.score.point += 1;
-                       
-                       
                    }
-
                }
-               
-               
-           
            }
        }
        ball.move(); // ボール移動
