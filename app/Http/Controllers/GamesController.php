@@ -570,4 +570,5 @@ class GamesController extends Controller
             return redirect('welcome');  
         }
     }
-}
+} 
+   

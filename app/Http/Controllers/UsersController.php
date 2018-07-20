@@ -61,19 +61,32 @@ class UsersController extends Controller
         
         $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
         $user_id_seat = $user_id_seat->id;
+
+        $dummy = count(DB::table('games')->where('games.team_id', '=', $id)); 
         
-        $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->select('games.team_id')-> where('users.id', '=', $id)->first();
+        if($notification == 100) {
+            
+        $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
         $team_id = $team_id->team_id;
         $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
         $team_name = $team_name->name;
-
+        
         $data = [
             'user' => $user,
             'notification' => $notification,
             'user_id_seat' => $user_id_seat,
             'team_name' => $team_name,
          ];
-
+         
+        }else{
+        
+        $data = [
+            'user' => $user,
+            'notification' => $notification,
+            'user_id_seat' => $user_id_seat,
+         ];
+        
+        }
         return view('users.show', $data);
     }
 
