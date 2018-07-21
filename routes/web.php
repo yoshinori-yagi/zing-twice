@@ -22,14 +22,8 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
-
-
-Route::group(['middleware' => ['auth']], function () {
-     Route::group(['prefix' => 'seats/{id}'], function () {
-        Route::get('offence', 'SeatsController@show')->name('offence');
-     });
-});
 Route::get('seats', 'SeatsController@index')->name('seat');
+Route::get('about', 'SeatsController@zing')->name('about.zing');
 
 Route::group(['middleware' => ['auth']], function () {
      Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'users']]);
@@ -56,6 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
           Route::get('games/game1/result/offence', 'GamesController@result_after')->name('game.result_after');
           Route::get('games/game2/result/offence', 'GamesController@tetoris_result_after')->name('tetoris.result_after');
           Route::get('games/game3/result/offence', 'GamesController@block_result_after')->name('block.result_after');
+          Route::get('refused', 'GamesController@refused')->name('refused');
 
           Route::get('seats/update', 'SeatsController@update')->name('seat.update');
           

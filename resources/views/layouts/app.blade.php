@@ -16,6 +16,9 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         
         <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+        <script src="https://use.typekit.net/cdl6ugv.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
         
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ secure_asset('css/game.css') }}">

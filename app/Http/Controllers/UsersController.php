@@ -64,7 +64,7 @@ class UsersController extends Controller
 
         $dummy = count(DB::table('games')->where('games.team_id', '=', $id)); 
         
-        if($notification == 100) {
+        if($notification == 100 || 10) {
             
         $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
         $team_id = $team_id->team_id;

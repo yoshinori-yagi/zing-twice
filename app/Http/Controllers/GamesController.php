@@ -396,12 +396,30 @@ class GamesController extends Controller
         $points = $points-10;
         
         DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
+        
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 10]);
     
         $data = [
             'user' => $user,
         ];
         
         return view ('games.refuse', $data);
+    }
+    
+    public function refused($id) 
+    {
+        $user = User::find($id);
+        
+        DB::table('users')->where ('id',$id)->update(['notification' => 0]);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('games.refused', $data);
     }
     
     /*block kuzushi*/
