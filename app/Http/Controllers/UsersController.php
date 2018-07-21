@@ -61,8 +61,6 @@ class UsersController extends Controller
         
         $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
         $user_id_seat = $user_id_seat->id;
-
-        $dummy = count(DB::table('games')->where('games.team_id', '=', $id)); 
         
         if($notification == 100 || 10) {
             

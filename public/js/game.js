@@ -992,7 +992,7 @@ $(function() {
   });
   
 /* seat number hover action */
-  $('.seat').hover(
+/*  $('.seat').hover(
     function(){
       $(this).animate({
         'font-size':'50px'
@@ -1017,7 +1017,7 @@ $(function() {
       },300)
     }
   );
-  
+*/ 
   
   /*team name hover*/
     $('.seat1').hover(
@@ -1478,9 +1478,8 @@ $(function() {
               $('.information').hide()
           }
     );   
-});
-
-
+    
+    
 /* seat color hover */
 
 
@@ -1931,6 +1930,32 @@ $(function() {
         function(){
             $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
         }
-    );      
+    );
+    
+    
+    $('.seats_mini').hover(
+    function() {
+      $(this).find('.seat_mini{{$user_id_seat}}').addClass('black');
+      
+    },
+    function() {
+      $(this).find('.seat_mini{{$user_id_seat}}').removeClass('black');
+      
+    }
+  );
+});
+
+
+    $('.seats_mini').hover(
+    function() {
+      $(this).find('.seat_mini6').addClass('black');
+      
+    },
+    function() {
+      // Find the "text-contents" elements, then remove the "text-active" class
+      $(this).find('.seat_mini6').removeClass('black');
+      
+    }
+  );
    
    

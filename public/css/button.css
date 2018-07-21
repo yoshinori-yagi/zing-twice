@@ -1,0 +1,11 @@
+.seat_mini{
+    margin: 0;
+    padding: 10px;
+    width: 5px;
+    height: 5px;
+    border-color: black;
+}
+
+.black {
+    background-color: black;
+}
