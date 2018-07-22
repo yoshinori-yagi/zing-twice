@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ secure_asset('css/game.css') }}">
         <link rel="stylesheet" href="{{ secure_asset('css/button.css') }}">
-        <link rel="stylesheet" type="text/css" href="button.php" /> 
+        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/button.php') }}" /> 
         
         <script type = "text/javascript" src="/js/game.js"></script>
         

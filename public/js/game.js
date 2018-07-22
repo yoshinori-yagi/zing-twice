@@ -492,9 +492,7 @@ function mainLoop(){
     if(clearLine >= NEXTLEVEL){
         clearLine = 0;
         speed = speed - 2;
-        console.log("speedUP! : " + speed);
-        speedup = document.getElementById("speedup");
-      speedup.innerHTML = ("speedUP! : " + speed);
+
     }
     if(speed < 1) speed = 1;
     timer1 = setTimeout(mainLoop, 1000/FPS);
@@ -1018,6 +1016,12 @@ $(function() {
     }
   );
 */ 
+  $('.number_result').click(function() {
+      $(this).hide();
+      $('.numbers').fadeIn();
+  })
+  
+  
   
   /*team name hover*/
     $('.seat1').hover(

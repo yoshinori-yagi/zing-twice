@@ -122,6 +122,21 @@ ul {
     text-align: center;
 }
 
+.game_image {
+    margin-top: 1%;
+}
+
+.numbers {
+    display: none;
+}
+
+.number_result {
+    text-align: center;
+    margin-top: 40%;
+    
+}
+
+
 /*seats page*/
 .select_teams {
     text-align: center;
@@ -572,9 +587,17 @@ button {
     text-align: center;
 } 
 
+
 #sample {
-    margin: auto 0;
+    width: 640px;
+    height: 480px;
+    margin: 0 auto;
 }
+
+#canvas {
+    margin-left: 20%;
+}
+
 
 
 

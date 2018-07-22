@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="button.php" /> 
+</head>
 @extends('layouts.app')
 
 @section('content')
