@@ -62,7 +62,7 @@ class UsersController extends Controller
         $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
         $user_id_seat = $user_id_seat->id;
         
-        if($notification == 100 || 10) {
+        if($notification >= 10) {
             
         $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
         $team_id = $team_id->team_id;
@@ -116,5 +116,6 @@ class UsersController extends Controller
         
         return view ('users.bought', $data);
     }
+    
    
 }

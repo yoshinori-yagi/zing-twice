@@ -24,6 +24,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::get('seats', 'SeatsController@index')->name('seat');
 Route::get('about', 'SeatsController@zing')->name('about.zing');
+Route::get('timeline', 'SeatsController@timeline')->name('timeline');
 
 Route::group(['middleware' => ['auth']], function () {
      Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'users']]);
