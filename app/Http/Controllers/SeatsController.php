@@ -307,7 +307,6 @@ class SeatsController extends Controller
     
     }
     
-   
     public function update($id)
     {
         $user = User::find($id);
@@ -347,4 +346,9 @@ class SeatsController extends Controller
         }
     }
     
+    public function zing()
+    {
+
+      return view ('seat.zing');
+    }
 } 

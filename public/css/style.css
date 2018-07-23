@@ -1,6 +1,10 @@
 /* commons */
-h1, h2, h3, a  {
-    font-family: 'Cherry Swash', cursive;
+h1, h2, h3, a ,p {
+    font-family: "tornac", "vdl-terag", serif;
+}
+
+p {
+    font-size: 15px;
 }
 
 ul {
@@ -49,7 +53,7 @@ ul {
 
 /*log in % register page*/
 .panel-default {
-    font-family: 'Cherry Swash', cursive;
+    font-family: "tornac", "vdl-terag", serif;
     margin-top: 50px;
 }
 
@@ -90,12 +94,12 @@ ul {
 .profile_title {
     border-bottom: 2px solid black;
     border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
-    margin: 2em 0;
+    margin: 0;
     padding: 0.2em;
 }
 
 .profile_box {
-    font-family: 'Cherry Swash', cursive;
+    font-family: "tornac", "vdl-terag", serif;
     margin-top: 50px;
 }
 
@@ -118,6 +122,21 @@ ul {
     text-align: center;
 }
 
+.game_image {
+    margin-top: 1%;
+}
+
+.numbers {
+    display: none;
+}
+
+.number_result {
+    text-align: center;
+    margin-top: 40%;
+    
+}
+
+
 /*seats page*/
 .select_teams {
     text-align: center;
@@ -136,6 +155,12 @@ ul {
     font-size: 40px;
     width: 80px;
     height: 120px;
+}
+
+.seats_mini {
+    margin-top: 5%;
+    width: 360px;
+    height: 150px;
 }
 
 .red{
@@ -557,11 +582,125 @@ header {
 
 button {
     background-color: transparent;
-    font-family: 'Cherry Swash', cursive;
+    font-family: "tornac", "vdl-terag", serif;
     font-size: 30px;
     text-align: center;
 } 
 
+
 #sample {
-    margin: auto 0;
+    width: 640px;
+    height: 480px;
+    margin: 0 auto;
+}
+
+#canvas {
+    margin-left: 20%;
+}
+
+
+
+
+/* Seat Hover*/
+
+.seat{
+   font-size: 40px;
+   width: 80px;
+   height: 120px;
+   
+}
+.seat:hover{
+   -webkit-transform: rotateY(15deg) scale(1.4);
+   -webkit-transition: .3s ease-in-out;
+   transform: rotateY(360deg) scale(1.4);
+}
+
+.seat::before{
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ z-index: 2;
+ display: block;
+ content: '';
+ width: 0;
+ height: 0;
+ background: rgba(255,255,255,.2);
+ border-radius: 100%;
+ -webkit-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+ opacity: 0;
+}
+
+.seat:hover::before {
+ -webkit-animation: circle .75s;
+ animation: circle .75s;
+}
+@-webkit-keyframes circle {
+ 0% {
+   opacity: 1;
+ }
+ 40% {
+   opacity: 1;
+ }
+ 100% {
+   width: 200%;
+   height: 200%;
+   opacity: 0;
+ }
+}
+@keyframes circle {
+ 0% {
+   opacity: 1;
+ }
+ 40% {
+   opacity: 1;
+ }
+ 100% {
+   width: 200%;
+   height: 200%;
+   opacity: 0;
+ }
+}    
+   
+
+
+
+
+.red{
+   border-color: crimson;
+   box-shadow: 1px 2px crimson;
+}
+
+.red:hover{
+   background-color:crimson;
+}
+
+.yellow{
+   border-color:gold;
+   box-shadow: 1px 2px gold;
+}
+
+.yellow:hover{
+   background-color:gold;
+   
+   
+}
+
+.pink{
+   border-color:hotpink;
+   box-shadow: 1px 2px hotpink;
+}
+
+.pink:hover{
+   background-color:hotpink;
+}
+
+.purple{
+   border-color:mediumorchid;
+   box-shadow: 1px 2px mediumorchid;
+}
+
+
+.purple:hover{
+   background-color:mediumorchid;
 }

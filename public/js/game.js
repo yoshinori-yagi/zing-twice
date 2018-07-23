@@ -492,9 +492,7 @@ function mainLoop(){
     if(clearLine >= NEXTLEVEL){
         clearLine = 0;
         speed = speed - 2;
-        console.log("speedUP! : " + speed);
-        speedup = document.getElementById("speedup");
-      speedup.innerHTML = ("speedUP! : " + speed);
+
     }
     if(speed < 1) speed = 1;
     timer1 = setTimeout(mainLoop, 1000/FPS);
@@ -992,7 +990,7 @@ $(function() {
   });
   
 /* seat number hover action */
-  $('.seat').hover(
+/*  $('.seat').hover(
     function(){
       $(this).animate({
         'font-size':'50px'
@@ -1008,15 +1006,21 @@ $(function() {
   $('.btn-lg').hover(
     function(){
       $(this).animate({
-        'font-size':'40px'
+        'font-size':'35px'
       },300)
     },
     function(){
       $(this).animate({
-        'font-size':'30px'
+        'font-size':'25px'
       },300)
     }
   );
+*/ 
+  $('.number_result').click(function() {
+      $(this).hide();
+      $('.numbers').fadeIn();
+  })
+  
   
   
   /*team name hover*/
@@ -1478,4 +1482,484 @@ $(function() {
               $('.information').hide()
           }
     );   
+    
+    
+/* seat color hover */
+
+
+ $('.seat1').hover(
+        function(){
+            $('.red').css('background-color','LightCoral ')
+            $('.seat1').css('background-color','crimson').css('box-shadow','2px 2px brown')
+        },
+        
+        function(){
+            $('.red').css('background-color','white').css('box-shadow', '1px 2px crimson')
+        }
+    ); 
+    $('.seat2').hover(
+        function(){
+            $('.red').css('background-color','LightCoral ')
+            $('.seat2').css('background-color','crimson').css('box-shadow','2px 2px brown')
+        },
+        
+        function(){
+            $('.red').css('background-color','white').css('box-shadow', '1px 2px crimson')
+        }
+    ); 
+    $('.seat3').hover(
+        function(){
+            $('.red').css('background-color','LightCoral ')
+            $('.seat3').css('background-color','crimson').css('box-shadow','2px 2px brown')
+        },
+        
+        function(){
+            $('.red').css('background-color','white').css('box-shadow', '1px 2px crimson')
+        }
+    ); 
+    $('.seat4').hover(
+        function(){
+            $('.red').css('background-color','LightCoral ')
+            $('.seat4').css('background-color','crimson').css('box-shadow','2px 2px brown')
+        },
+        
+        function(){
+            $('.red').css('background-color','white').css('box-shadow', '1px 2px crimson')
+        }
+    ); 
+    $('.seat5').hover(
+        function(){
+            $('.red').css('background-color','LightCoral ')
+            $('.seat5').css('background-color','crimson').css('box-shadow','2px 2px brown')
+        },
+        
+        function(){
+            $('.red').css('background-color','white').css('box-shadow', '1px 2px crimson')
+        }
+    ); 
+    $('.seat6').hover(
+        function(){
+            $('.red').css('background-color','LightCoral ')
+            $('.seat6').css('background-color','crimson').css('box-shadow','2px 2px brown')
+        },
+        
+        function(){
+            $('.red').css('background-color','white').css('box-shadow', '1px 2px crimson')
+        }
+    ); 
+    $('.seat7').hover(
+        function(){
+            $('.red').css('background-color','LightCoral ')
+            $('.seat7').css('background-color','crimson').css('box-shadow','2px 2px brown')
+        },
+        
+        function(){
+            $('.red').css('background-color','white').css('box-shadow', '1px 2px crimson')
+        }
+    ); 
+    $('.seat8').hover(
+        function(){
+            $('.red').css('background-color','LightCoral ')
+            $('.seat8').css('background-color','crimson').css('box-shadow','2px 2px brown')
+        },
+        
+        function(){
+            $('.red').css('background-color','white').css('box-shadow', '1px 2px crimson')
+        }
+    ); 
+    $('.seat9').hover(
+        function(){
+            $('.red').css('background-color','LightCoral ')
+            $('.seat9').css('background-color','crimson').css('box-shadow','2px 2px brown')
+        },
+        
+        function(){
+            $('.red').css('background-color','white').css('box-shadow', '1px 2px crimson')
+        }
+    ); 
+   
+          
+     $('.seat10').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat10').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    ); 
+     $('.seat11').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat11').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+     $('.seat12').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat12').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+     $('.seat13').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat13').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+     $('.seat14').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat14').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+     $('.seat15').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat15').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+     $('.seat16').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat16').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+     $('.seat17').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat17').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+     $('.seat18').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat18').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+     $('.seat19').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat19').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );       $('.seat20').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat20').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+     $('.seat21').hover(
+        function(){
+            $('.yellow').css('background-color','lightyellow')
+            $('.seat21').css('background-color','gold').css('box-shadow','2px 2px  GoldenRod')
+        },
+        
+        function(){
+            $('.yellow').css('background-color','white').css('box-shadow', '1px 2px gold')
+        }
+    );      
+    $('.seat22').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat22').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      
+    $('.seat23').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat23').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      
+    $('.seat24').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat24').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      
+    $('.seat25').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat25').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      
+    $('.seat26').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat26').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      $('.seat27').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat27').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      $('.seat28').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat28').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      $('.seat29').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat29').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      
+    $('.seat30').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat30').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      
+    $('.seat31').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat31').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      
+    $('.seat32').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat32').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      
+    $('.seat33').hover(
+        function(){
+            $('.pink').css('background-color','MistyRose')
+            $('.seat33').css('background-color','hotpink').css('box-shadow','2px 2px DeepPink')
+        },
+        
+        function(){
+            $('.pink').css('background-color','white').css('box-shadow', '1px 2px hotpink')
+        }
+    );      
+    $('.seat34').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat34').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat35').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat35').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat36').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat36').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat37').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat37').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat38').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat38').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat39').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat39').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat40').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat40').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat41').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat41').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat42').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat42').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat43').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat43').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat44').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat44').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );      
+   $('.seat45').hover(
+        function(){
+            $('.purple').css('background-color','Plum')
+            $('.seat45').css('background-color','MediumOrchid').css('box-shadow','2px 2px DarkOrchid')
+        },
+        
+        function(){
+            $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
+        }
+    );
+    
+    
+    $('.seats_mini').hover(
+    function() {
+      $(this).find('.seat_mini{{$user_id_seat}}').addClass('black');
+      
+    },
+    function() {
+      $(this).find('.seat_mini{{$user_id_seat}}').removeClass('black');
+      
+    }
+  );
 });
+
+
+    $('.seats_mini').hover(
+    function() {
+      $(this).find('.seat_mini6').addClass('black');
+      
+    },
+    function() {
+      // Find the "text-contents" elements, then remove the "text-active" class
+      $(this).find('.seat_mini6').removeClass('black');
+      
+    }
+  );
+   
+   

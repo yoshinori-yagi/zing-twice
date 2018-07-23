@@ -6,6 +6,7 @@
                     <div class="sign_up">
                         <h1>Zing</h1>
                         <a href="{{ route('login') }}" class="btn btn-ghost btn-lg">Log in</a>
+                        <a href="{{ route('about.zing') }}" class="btn btn-ghost btn-lg">What's Zing?</a>
                     </div>
                 @else
                     <div class ="select_teams">
