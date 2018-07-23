@@ -99,7 +99,7 @@ class GamesController extends Controller
         
         }else{
             
-            return view ('users.buy',$data);
+            return view ('games.numbers_buy',$data);
             
         }
                                         
@@ -127,7 +127,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')/*->where ('id', $id)*/->update(['notification' => 0]);
+        DB::table('users')->update(['notification' => 0]);
         
         $user_point = DB::table('users')->where('users.id', '=' , $id)->select('users.points')->first();
         $user_point = $user_point->points;
@@ -229,6 +229,37 @@ class GamesController extends Controller
         }
     }
     
+    public function numbers_buy($id)
+    {
+        $user = User::find($id);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('games.numbers_buy', $data);
+    }
+    
+    public function numbers_bought($id)
+    {
+        $user = User::find($id);
+        
+        $points = DB::table('users')->where('id','=', $id)->select('users.points')->first();
+        $points = $points->points;
+        
+        $points = $points+50;
+        
+        DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('games.numbers_bought', $data);
+    }
+    
+    /* tetoris*/
+    
     public function tetoris($id)
     {
         $user = User::find($id);
@@ -254,7 +285,7 @@ class GamesController extends Controller
         
         }else{
             
-            return view ('users.buy',$data);
+            return view ('games.tetoris_buy',$data);
             
         }
         
@@ -381,7 +412,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')/*->where ('id', "=", $id)*/->update(['notification' => 0]);
+        DB::table('users')->update(['notification' => 0]);
         
         
         $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
@@ -433,13 +464,42 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')/*->where ('id',$id)*/->update(['notification' => 0]);
+        DB::table('users')->update(['notification' => 0]);
         
         $data = [
             'user' => $user,
         ];
         
         return view ('games.refused', $data);
+    }
+    
+    public function tetoris_buy($id)
+    {
+        $user = User::find($id);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('games.tetoris_buy', $data);
+    }
+    
+    public function tetoris_bought($id)
+    {
+        $user = User::find($id);
+        
+        $points = DB::table('users')->where('id','=', $id)->select('users.points')->first();
+        $points = $points->points;
+        
+        $points = $points+50;
+        
+        DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('games.tetoris_bought', $data);
     }
     
     /*block kuzushi*/
@@ -469,7 +529,7 @@ class GamesController extends Controller
         
         }else{
             
-            return view ('users.buy',$data);
+            return view ('games.block_buy',$data);
             
         }
                                      
@@ -596,7 +656,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')->where ('id', "=", $id)->update(['notification' => 0]);
+        DB::table('users')->update(['notification' => 0]);
         
         
         $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
@@ -618,6 +678,35 @@ class GamesController extends Controller
         else {
             return redirect('welcome');  
         }
+    }
+    
+    public function block_buy($id)
+    {
+        $user = User::find($id);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('games.block_buy', $data);
+    }
+    
+    public function block_bought($id)
+    {
+        $user = User::find($id);
+        
+        $points = DB::table('users')->where('id','=', $id)->select('users.points')->first();
+        $points = $points->points;
+        
+        $points = $points+50;
+        
+        DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
+        
+        $data = [
+            'user' => $user,
+        ];
+        
+        return view ('games.block_bought', $data);
     }
 } 
    

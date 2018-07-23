@@ -35,6 +35,12 @@ Route::group(['middleware' => ['auth']], function () {
           Route::get('games/game1', 'GamesController@numbers')->name('game.numbers');
           Route::get('games/game2', 'GamesController@tetoris')->name('game.tetoris');
           Route::get('games/game3', 'GamesController@block')->name('game.block');
+          Route::get('games/game1/buy', 'GamesController@numbers_buy')->name('numbers.buy');
+          Route::get('games/game2/buy', 'GamesController@tetoris_buy')->name('tetoris.buy');
+          Route::get('games/game3/buy', 'GamesController@block_buy')->name('block.buy');
+          Route::get('games/game1/bought', 'GamesController@numbers_bought')->name('numbers.bought');
+          Route::get('games/game2/bought', 'GamesController@tetoris_bought')->name('tetoris.bought');
+          Route::get('games/game3/bought', 'GamesController@block_bought')->name('block.bought');
           Route::get('games/game1/wait', 'GamesController@wait')->name('game.wait');
           Route::get('games/game2/wait', 'GamesController@tetoris_wait')->name('tetoris.wait');
           Route::get('games/game3/wait', 'GamesController@block_wait')->name('block.wait');
