@@ -107,10 +107,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
             
         }
@@ -178,7 +174,6 @@ class OffencesController extends Controller
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
                 'team2_notification' => $team2_notification,
-                'team_name' => $team_name,
             ];
             
             }
@@ -209,11 +204,8 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
+            
         }
         else {
             return redirect('welcome');  
@@ -281,7 +273,6 @@ class OffencesController extends Controller
                 'notification' => $notification,
                 'user_id_seat' => $user_id_seat,
                 'team3_notification' => $team3_notification,
-                'team_name' => $team_name,
             ];
             
             }
@@ -311,10 +302,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -413,10 +400,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -514,10 +497,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -613,10 +592,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -714,10 +689,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -813,10 +784,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -914,10 +881,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -1013,10 +976,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -1114,10 +1073,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -1213,10 +1168,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -1314,10 +1265,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -1413,10 +1360,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -1514,10 +1457,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -1613,10 +1552,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -1714,10 +1649,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -1814,10 +1745,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -1913,10 +1840,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -2015,10 +1938,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -2114,10 +2033,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -2216,10 +2131,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -2315,10 +2226,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -2416,10 +2323,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -2515,10 +2418,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -2616,10 +2515,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -2715,10 +2610,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -2816,10 +2707,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -2915,10 +2802,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -3016,10 +2899,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -3115,10 +2994,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -3216,10 +3091,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -3315,10 +3186,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -3416,10 +3283,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -3515,10 +3378,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -3616,10 +3475,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -3715,10 +3570,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -3816,10 +3667,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -3915,10 +3762,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -4016,10 +3859,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -4115,10 +3954,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -4216,10 +4051,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -4315,10 +4146,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }
@@ -4416,10 +4243,6 @@ class OffencesController extends Controller
                 
                 return view('seat.timeline',$data);
                 
-            }else{
-                
-                return view('users.show',$data);
-                
             }
         }
         else {
@@ -4515,10 +4338,6 @@ class OffencesController extends Controller
                 ];
                 
                 return view('seat.timeline',$data);
-                
-            }else{
-                
-                return view('users.show',$data);
                 
             }
         }

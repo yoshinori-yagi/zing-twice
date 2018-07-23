@@ -8,7 +8,7 @@
                 <h2>please wait</h2>
                 <a href="{{ route('seat', ['id' => $user->id])}}" class="btn btn-ghost btn-lg">Back</a>
                 <a><img src="{{ secure_asset("images/character.jpg") }}" alt="" class="character"></a>
-                <h3 class="information">explanation</h3>
+                <h2 class="information">マイページにいくのじゃ</h2>
         </div>
     </div>   
 @endsection

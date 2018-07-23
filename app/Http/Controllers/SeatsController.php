@@ -362,7 +362,6 @@ class SeatsController extends Controller
             $team_id = $team_id->team_id;
             $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
             $team_name = $team_name->name;
-            echo $team_name;exit;
             
             $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
             $user_id = $user_id->user_id;
