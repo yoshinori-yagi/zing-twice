@@ -93,8 +93,16 @@ class GamesController extends Controller
         
         DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
         
-        return view('games.numbers',$data);                                
+        if ($points > 0) {
+            
+            return view ('games.numbers',$data);  
         
+        }else{
+            
+            return view ('users.buy',$data);
+            
+        }
+                                        
     }
     
     public function wait($id)
@@ -240,7 +248,15 @@ class GamesController extends Controller
             'user_point' => $user_point,
         ];
         
-        return view('games.tetoris',$data);                                
+        if ($points > 0) {
+            
+            return view ('games.tetoris',$data);  
+        
+        }else{
+            
+            return view ('users.buy',$data);
+            
+        }
         
     }
     
@@ -447,7 +463,16 @@ class GamesController extends Controller
             'user_point' => $user_point,
         ];
         
-        return view('games.block',$data);                                
+        if ($points > 0) {
+            
+            return view ('games.block',$data);  
+        
+        }else{
+            
+            return view ('users.buy',$data);
+            
+        }
+                                     
         
     }
     
