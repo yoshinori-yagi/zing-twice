@@ -89,12 +89,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -191,12 +191,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -294,12 +294,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -395,12 +395,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -496,12 +496,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -596,12 +596,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -696,12 +696,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -796,12 +796,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -896,12 +896,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -996,12 +996,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1096,12 +1096,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1196,12 +1196,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1296,12 +1296,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1396,12 +1396,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1496,12 +1496,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1596,12 +1596,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1696,12 +1696,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1796,12 +1796,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1896,12 +1896,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -1997,12 +1997,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2097,12 +2097,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2198,12 +2198,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2298,12 +2298,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2398,12 +2398,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2498,12 +2498,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2598,12 +2598,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2698,12 +2698,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2798,12 +2798,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2898,12 +2898,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -2998,12 +2998,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3098,12 +3098,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3198,12 +3198,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3298,12 +3298,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3398,12 +3398,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3498,12 +3498,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3598,12 +3598,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3698,12 +3698,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3798,12 +3798,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3898,12 +3898,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -3998,12 +3998,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -4098,12 +4098,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -4198,12 +4198,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -4298,12 +4298,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -4398,12 +4398,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
@@ -4498,12 +4498,12 @@ class OffencesController extends Controller
             
             }elseif($notification = 99){
                 
-                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')->where('users.id', '=', $id)->first();
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
                 
-                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->where('users.id', '=', $id)->first();
+                $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
