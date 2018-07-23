@@ -11,7 +11,7 @@
                 <a href="{{ route('game.refuse', ['id' => $user->id])}}" class="btn btn-ghost btn-lg">Refuse</a>
                 @endif
                 <a><img src="{{ secure_asset("images/character.jpg") }}" alt="" class="character"></a>
-                <h3 class="information">explanation</h3>
+                <h3 class="information">ゲームをRefuseする場合も１０ポイント消費されるので注意じゃ！</h3>
         </div>
     </div>   
 @endsection

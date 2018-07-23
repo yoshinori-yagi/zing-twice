@@ -50,7 +50,7 @@
                 </li>
             </ul>
             <a><img src="{{ secure_asset("images/character.jpg") }}" alt="" class="character"></a>
-            <h3 class="information">explanation</h3>
+            <h3 class="information">３つのゲームの中から選ぶのじゃ！</h3>
     </div>
 </div>
 @endsection

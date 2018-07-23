@@ -9,8 +9,10 @@
                         <a href="{{ route('about.zing') }}" class="btn btn-ghost btn-lg">What's Zing?</a>
                     </div>
                 @else
-                    <div class ="select_teams">
-                        <h2>Select team</h2>
+                    <div class = "game_confirm">
+                        <h2>Timeline</h2>
+                        <a><img src="{{ secure_asset("images/character.jpg") }}" alt="" class="character"></a>
+                        <h3 class="information">explanation</h3>
                     </div>
                 @endif
     </div>

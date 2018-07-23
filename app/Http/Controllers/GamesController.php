@@ -77,6 +77,8 @@ class GamesController extends Controller
         $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
         $team_id = $team_id->team_id;
         
+        DB::table('users')->update(['notification' => 99]);
+        
         DB::table('users')->where ('id',intval($team_id))->update(['notification' => 1]);
         
         $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
@@ -91,8 +93,16 @@ class GamesController extends Controller
         
         DB::table('users')->where ('id','=', $id)->update(['points' => $points]);
         
-        return view('games.numbers',$data);                                
+        if ($points > 0) {
+            
+            return view ('games.numbers',$data);  
         
+        }else{
+            
+            return view ('users.buy',$data);
+            
+        }
+                                        
     }
     
     public function wait($id)
@@ -117,7 +127,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')->where ('id', $id)->update(['notification' => 0]);
+        DB::table('users')/*->where ('id', $id)*/->update(['notification' => 0]);
         
         $user_point = DB::table('users')->where('users.id', '=' , $id)->select('users.points')->first();
         $user_point = $user_point->points;
@@ -238,7 +248,15 @@ class GamesController extends Controller
             'user_point' => $user_point,
         ];
         
-        return view('games.tetoris',$data);                                
+        if ($points > 0) {
+            
+            return view ('games.tetoris',$data);  
+        
+        }else{
+            
+            return view ('users.buy',$data);
+            
+        }
         
     }
     
@@ -267,6 +285,8 @@ class GamesController extends Controller
         
         $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
         $team_id = $team_id->team_id;
+        
+        DB::table('users')->update(['notification' => 99]);
         
         DB::table('users')->where ('id',intval($team_id))->update(['notification' => 3]);
         
@@ -361,7 +381,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')->where ('id', "=", $id)->update(['notification' => 0]);
+        DB::table('users')/*->where ('id', "=", $id)*/->update(['notification' => 0]);
         
         
         $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
@@ -413,7 +433,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')->where ('id',$id)->update(['notification' => 0]);
+        DB::table('users')/*->where ('id',$id)*/->update(['notification' => 0]);
         
         $data = [
             'user' => $user,
@@ -443,7 +463,16 @@ class GamesController extends Controller
             'user_point' => $user_point,
         ];
         
-        return view('games.block',$data);                                
+        if ($points > 0) {
+            
+            return view ('games.block',$data);  
+        
+        }else{
+            
+            return view ('users.buy',$data);
+            
+        }
+                                     
         
     }
     
@@ -471,6 +500,8 @@ class GamesController extends Controller
         
         $team_id = DB::table('games')->orderby('id', 'desc')->select('games.team_id')->first();
         $team_id = $team_id->team_id;
+        
+        DB::table('users')->update(['notification' => 99]);
         
         DB::table('users')->where ('id',intval($team_id))->update(['notification' => 5]);
         

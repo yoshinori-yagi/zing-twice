@@ -136,6 +136,21 @@ ul {
     
 }
 
+.game_now {
+    text-align: center;
+}
+.game_now h2{
+    text-align: center;
+}
+
+.game_now h3{
+    font-size: 50px;
+}
+
+.timeline {
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
 
 /*seats page*/
 .select_teams {

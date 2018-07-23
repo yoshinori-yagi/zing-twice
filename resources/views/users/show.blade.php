@@ -48,7 +48,7 @@
                 
                 <div class="profile_box">
                     <div class="panel-heading">
-                        <h3 class="profile_title">Notification</h3>
+                        <h3 class="profile_title">Message</h3>
                     </div>
                     <div class="profile_body">
                         @if($notification == 0)
@@ -90,6 +90,6 @@
             </div>
         </div>
             <a href = "{{ route('seat') }}"><img src="{{ secure_asset("images/character.jpg") }}" alt="" class="character"></a>
-            <h3 class="information">explanation</h3>
+            <h3 class="information">Messageを確認するのじゃ！</h3>
     </div>
 @endsection

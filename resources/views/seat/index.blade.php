@@ -61,7 +61,7 @@
                 </tr>
             </table>
             <a><img src="{{ secure_asset("images/character.jpg") }}" alt="" class="character"></a>
-            <h3 class="information">explanation</h3>
+            <h3 class="information">SEATを選択して、挑戦状を送るのじゃ！</h3>
         </div>
     </div>
 @endsection
