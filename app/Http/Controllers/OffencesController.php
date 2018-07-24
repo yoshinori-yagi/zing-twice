@@ -163,68 +163,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
 
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team2_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team2' => $team2,
-                'team2_id' => $team2_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team2_notification' => $team2_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team2' => $team2,
+                    'team2_id' => $team2_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team2_notification' => $team2_notification,
+                ];
             
-            }else{
-                
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team2' => $team2,
-                'team2_id' => $team2_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team2_notification' => $team2_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team2_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team2_id)]);
-        
-                return view('offence.offence2',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence2',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team2' => $team2,
+                    'team2_id' => $team2_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team2_notification' => $team2_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team2' => $team2,
+                    'team2_id' => $team2_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team2_notification' => $team2_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
             
         }
@@ -262,68 +283,89 @@ class OffencesController extends Controller
             $user_id_seat = $user_id_seat->id;
 
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team3_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team3' => $team3,
+                    'team3_id' => $team3_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team3_notification' => $team3_notification,
+                ];
             
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team3' => $team3,
-                'team3_id' => $team3_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team3_notification' => $team3_notification,
-                'team_name' => $team_name,
-            ];
-            
-            }else{
-        
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team3' => $team3,
-                'team3_id' => $team3_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team3_notification' => $team3_notification,
-            ];
-            
-            }
-            
-            if($user->id != $seating && $notification == 0 && $team3_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team3_id)]);
-        
-                return view('offence.offence3',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence3',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team3' => $team3,
+                    'team3_id' => $team3_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team3_notification' => $team3_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team3' => $team3,
+                    'team3_id' => $team3_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team3_notification' => $team3_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -359,68 +401,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team4_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team4' => $team4,
-                'team4_id' => $team4_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team4_notification' => $team4_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team4' => $team4,
+                    'team4_id' => $team4_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team4_notification' => $team4_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team4' => $team4,
-                'team4_id' => $team4_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team4_notification' => $team4_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team4_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team4_id)]);
-        
-                return view('offence.offence4',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence4',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team4' => $team4,
+                    'team4_id' => $team4_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team4_notification' => $team4_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team4' => $team4,
+                    'team4_id' => $team4_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team4_notification' => $team4_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -455,69 +518,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team5_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team5' => $team5,
-                'team5_id' => $team5_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team5_notification' => $team5_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team5' => $team5,
+                    'team5_id' => $team5_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team5_notification' => $team5_notification,
+                ];
             
-            
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team5' => $team5,
-                'team5_id' => $team5_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team5_notification' => $team5_notification,
-            ];
-            
-            }
-            
-            if($user->id != $seating && $notification == 0 && $team5_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team5_id)]);
-        
-                return view('offence.offence5',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence5',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team5' => $team5,
+                    'team5_id' => $team5_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team5_notification' => $team5_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team5' => $team5,
+                    'team5_id' => $team5_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team5_notification' => $team5_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -552,68 +635,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team6_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team6' => $team6,
-                'team6_id' => $team6_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team6_notification' => $team6_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team6' => $team6,
+                    'team6_id' => $team6_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team6_notification' => $team6_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team6' => $team6,
-                'team6_id' => $team6_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team6_notification' => $team6_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team6_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team6_id)]);
-        
-                return view('offence.offence6',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence6',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team6' => $team6,
+                    'team6_id' => $team6_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team6_notification' => $team6_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team6' => $team6,
+                    'team6_id' => $team6_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team6_notification' => $team6_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -648,68 +752,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team7_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team7' => $team7,
-                'team7_id' => $team7_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team7_notification' => $team7_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team7' => $team7,
+                    'team7_id' => $team7_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team7_notification' => $team7_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team7' => $team7,
-                'team7_id' => $team7_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team7_notification' => $team7_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team7_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team7_id)]);
-        
-                return view('offence.offence7',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence7',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team7' => $team7,
+                    'team7_id' => $team7_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team7_notification' => $team7_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team7' => $team7,
+                    'team7_id' => $team7_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team7_notification' => $team7_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -744,68 +869,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team8_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team8' => $team8,
-                'team8_id' => $team8_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team8_notification' => $team8_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team8' => $team8,
+                    'team8_id' => $team8_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team8_notification' => $team8_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team8' => $team8,
-                'team8_id' => $team8_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team8_notification' => $team8_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team8_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team8_id)]);
-        
-                return view('offence.offence8',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence8',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team8' => $team8,
+                    'team8_id' => $team8_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team8_notification' => $team8_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team8' => $team8,
+                    'team8_id' => $team8_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team8_notification' => $team8_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -840,68 +986,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team9_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team9' => $team9,
-                'team9_id' => $team9_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team9_notification' => $team9_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team9' => $team9,
+                    'team9_id' => $team9_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team9_notification' => $team9_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team9' => $team9,
-                'team9_id' => $team9_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team9_notification' => $team9_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team9_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team9_id)]);
-        
-                return view('offence.offence9',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence9',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team9' => $team9,
+                    'team9_id' => $team9_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team9_notification' => $team9_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team9' => $team9,
+                    'team9_id' => $team9_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team9_notification' => $team9_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -936,68 +1103,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team10_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team10' => $team10,
-                'team10_id' => $team10_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team10_notification' => $team10_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team10' => $team10,
+                    'team10_id' => $team10_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team10_notification' => $team10_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team10' => $team10,
-                'team10_id' => $team10_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team10_notification' => $team10_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team10_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team10_id)]);
-        
-                return view('offence.offence10',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence10',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team10' => $team10,
+                    'team10_id' => $team10_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team10_notification' => $team10_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team10' => $team10,
+                    'team10_id' => $team10_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team10_notification' => $team10_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1032,68 +1220,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team11_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team11' => $team11,
-                'team11_id' => $team11_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team11_notification' => $team11_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team11' => $team11,
+                    'team11_id' => $team11_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team11_notification' => $team11_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team11' => $team11,
-                'team11_id' => $team11_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team11_notification' => $team11_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team11_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team11_id)]);
-        
-                return view('offence.offence11',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence11',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team11' => $team11,
+                    'team11_id' => $team11_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team11_notification' => $team11_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team11' => $team11,
+                    'team11_id' => $team11_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team11_notification' => $team11_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1128,68 +1337,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team12_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team12' => $team12,
-                'team12_id' => $team12_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team12_notification' => $team12_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team12' => $team12,
+                    'team12_id' => $team12_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team12_notification' => $team12_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team12' => $team12,
-                'team12_id' => $team12_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team12_notification' => $team12_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team12_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team12_id)]);
-        
-                return view('offence.offence12',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence12',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team12' => $team12,
+                    'team12_id' => $team12_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team12_notification' => $team12_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team12' => $team12,
+                    'team12_id' => $team12_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team12_notification' => $team12_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1224,68 +1454,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team13_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team13' => $team13,
-                'team13_id' => $team13_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team13_notification' => $team13_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team13' => $team13,
+                    'team13_id' => $team13_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team13_notification' => $team13_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team13' => $team13,
-                'team13_id' => $team13_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team13_notification' => $team13_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team13_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team13_id)]);
-        
-                return view('offence.offence13',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence13',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team13' => $team13,
+                    'team13_id' => $team13_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team13_notification' => $team13_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team13' => $team13,
+                    'team13_id' => $team13_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team13_notification' => $team13_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1320,68 +1571,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team14_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team14' => $team14,
-                'team14_id' => $team14_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team14_notification' => $team14_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team14' => $team14,
+                    'team14_id' => $team14_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team14_notification' => $team14_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team14' => $team14,
-                'team14_id' => $team14_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team14_notification' => $team14_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team14_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team14_id)]);
-        
-                return view('offence.offence14',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence14',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team14' => $team14,
+                    'team14_id' => $team14_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team14_notification' => $team14_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team14' => $team14,
+                    'team14_id' => $team14_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team14_notification' => $team14_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1416,68 +1688,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team15_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team15' => $team15,
-                'team15_id' => $team15_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team15_notification' => $team15_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team15' => $team15,
+                    'team15_id' => $team15_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team15_notification' => $team15_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team15' => $team15,
-                'team15_id' => $team15_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team15_notification' => $team15_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team15_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team15_id)]);
-        
-                return view('offence.offence15',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence15',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team15' => $team15,
+                    'team15_id' => $team15_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team15_notification' => $team15_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team15' => $team15,
+                    'team15_id' => $team15_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team15_notification' => $team15_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1512,68 +1805,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team16_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team16' => $team16,
-                'team16_id' => $team16_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team16_notification' => $team16_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team16' => $team16,
+                    'team16_id' => $team16_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team16_notification' => $team16_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team16' => $team16,
-                'team16_id' => $team16_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team16_notification' => $team16_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team16_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team16_id)]);
-        
-                return view('offence.offence16',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence16',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team16' => $team16,
+                    'team16_id' => $team16_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team16_notification' => $team16_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team16' => $team16,
+                    'team16_id' => $team16_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team16_notification' => $team16_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1608,68 +1922,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team17_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team17' => $team17,
-                'team17_id' => $team17_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team17_notification' => $team17_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team17' => $team17,
+                    'team17_id' => $team17_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team17_notification' => $team17_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team17' => $team17,
-                'team17_id' => $team17_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team17_notification' => $team17_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team17_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team17_id)]);
-        
-                return view('offence.offence17',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence17',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team17' => $team17,
+                    'team17_id' => $team17_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team17_notification' => $team17_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team17' => $team17,
+                    'team17_id' => $team17_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team17_notification' => $team17_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1704,68 +2039,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team18_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team18' => $team18,
-                'team18_id' => $team18_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team18_notification' => $team18_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team18' => $team18,
+                    'team18_id' => $team18_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team18_notification' => $team18_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team18' => $team18,
-                'team18_id' => $team18_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team18_notification' => $team18_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team18_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team18_id)]);
-        
-                return view('offence.offence18',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence18',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team18' => $team18,
+                    'team18_id' => $team18_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team18_notification' => $team18_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team18' => $team18,
+                    'team18_id' => $team18_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team18_notification' => $team18_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1800,68 +2156,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team19_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team19' => $team19,
-                'team19_id' => $team19_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team19_notification' => $team19_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team19' => $team19,
+                    'team19_id' => $team19_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team19_notification' => $team19_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team19' => $team19,
-                'team19_id' => $team19_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team19_notification' => $team19_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team19_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team19_id)]);
-        
-                return view('offence.offence19',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence19',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team19' => $team19,
+                    'team19_id' => $team19_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team19_notification' => $team19_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team19' => $team19,
+                    'team19_id' => $team19_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team19_notification' => $team19_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1897,68 +2274,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team20_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team20' => $team20,
-                'team20_id' => $team20_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team20_notification' => $team20_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team20' => $team20,
+                    'team20_id' => $team20_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team20_notification' => $team20_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team20' => $team20,
-                'team20_id' => $team20_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team20_notification' => $team20_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team20_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team20_id)]);
-        
-                return view('offence.offence20',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence20',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team20' => $team20,
+                    'team20_id' => $team20_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team20_notification' => $team20_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team20' => $team20,
+                    'team20_id' => $team20_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team20_notification' => $team20_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -1993,68 +2391,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team21_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team21' => $team21,
-                'team21_id' => $team21_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team21_notification' => $team21_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team21' => $team21,
+                    'team21_id' => $team21_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team21_notification' => $team21_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team21' => $team21,
-                'team21_id' => $team21_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team21_notification' => $team21_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team21_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team21_id)]);
-        
-                return view('offence.offence21',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence21',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team21' => $team21,
+                    'team21_id' => $team21_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team21_notification' => $team21_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team21' => $team21,
+                    'team21_id' => $team21_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team21_notification' => $team21_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2089,69 +2508,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team22_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team22' => $team22,
-                'team22_id' => $team22_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team22_notification' => $team22_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team22' => $team22,
+                    'team22_id' => $team22_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team22_notification' => $team22_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team22' => $team22,
-                'team22_id' => $team22_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team22_notification' => $team22_notification,
 
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team22_notification == 0) {
-            
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team22_id)]);
-        
-                return view('offence.offence22',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence22',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team22' => $team22,
+                    'team22_id' => $team22_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team22_notification' => $team22_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team22' => $team22,
+                    'team22_id' => $team22_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team22_notification' => $team22_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2186,68 +2625,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team23_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team23' => $team23,
-                'team23_id' => $team23_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team23_notification' => $team23_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team23' => $team23,
+                    'team23_id' => $team23_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team23_notification' => $team23_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team23' => $team23,
-                'team23_id' => $team23_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team23_notification' => $team23_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team23_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team23_id)]);
-        
-                return view('offence.offence23',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence23',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team23' => $team23,
+                    'team23_id' => $team23_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team23_notification' => $team23_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team23' => $team23,
+                    'team23_id' => $team23_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team23_notification' => $team23_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2282,68 +2742,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team24_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team24' => $team24,
-                'team24_id' => $team24_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team24_notification' => $team24_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team24' => $team24,
+                    'team24_id' => $team24_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team24_notification' => $team24_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team24' => $team24,
-                'team24_id' => $team24_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team24_notification' => $team24_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team24_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team24_id)]);
-        
-                return view('offence.offence24',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence24',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team24' => $team24,
+                    'team24_id' => $team24_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team24_notification' => $team24_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team24' => $team24,
+                    'team24_id' => $team24_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team24_notification' => $team24_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2378,68 +2859,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team25_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team25' => $team25,
-                'team25_id' => $team25_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team25_notification' => $team25_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team25' => $team25,
+                    'team25_id' => $team25_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team25_notification' => $team25_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team25' => $team25,
-                'team25_id' => $team25_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team25_notification' => $team25_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team25_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team25_id)]);
-        
-                return view('offence.offence25',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence25',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team25' => $team25,
+                    'team25_id' => $team25_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team25_notification' => $team25_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team25' => $team25,
+                    'team25_id' => $team25_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team25_notification' => $team25_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2474,68 +2976,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team26_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team26' => $team26,
-                'team26_id' => $team26_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team26_notification' => $team26_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team26' => $team26,
+                    'team26_id' => $team26_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team26_notification' => $team26_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team26' => $team26,
-                'team26_id' => $team26_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team26_notification' => $team26_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team26_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team26_id)]);
-        
-                return view('offence.offence26',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence26',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team26' => $team26,
+                    'team26_id' => $team26_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team26_notification' => $team26_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team26' => $team26,
+                    'team26_id' => $team26_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team26_notification' => $team26_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2570,68 +3093,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team27_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team27' => $team27,
-                'team27_id' => $team27_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team27_notification' => $team27_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team27' => $team27,
+                    'team27_id' => $team27_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team27_notification' => $team27_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team27' => $team27,
-                'team27_id' => $team27_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team27_notification' => $team27_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team27_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team27_id)]);
-        
-                return view('offence.offence27',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence27',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team27' => $team27,
+                    'team27_id' => $team27_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team27_notification' => $team27_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team27' => $team27,
+                    'team27_id' => $team27_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team27_notification' => $team27_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2666,68 +3210,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team28_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team28' => $team28,
-                'team28_id' => $team28_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team28_notification' => $team28_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team28' => $team28,
+                    'team28_id' => $team28_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team28_notification' => $team28_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team28' => $team28,
-                'team28_id' => $team28_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team28_notification' => $team28_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team28_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team28_id)]);
-        
-                return view('offence.offence28',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence28',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team28' => $team28,
+                    'team28_id' => $team28_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team28_notification' => $team28_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team28' => $team28,
+                    'team28_id' => $team28_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team28_notification' => $team28_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2762,68 +3327,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team29_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team29' => $team29,
-                'team29_id' => $team29_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team29_notification' => $team29_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team29' => $team29,
+                    'team29_id' => $team29_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team29_notification' => $team29_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team29' => $team29,
-                'team29_id' => $team29_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team29_notification' => $team29_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team29_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team29_id)]);
-        
-                return view('offence.offence29',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence29',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team29' => $team29,
+                    'team29_id' => $team29_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team29_notification' => $team29_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team29' => $team29,
+                    'team29_id' => $team29_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team29_notification' => $team29_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2858,68 +3444,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team30_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team30' => $team30,
-                'team30_id' => $team30_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team30_notification' => $team30_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team30' => $team30,
+                    'team30_id' => $team30_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team30_notification' => $team30_notification,
+                ];
             
-            }else{
-            
-             $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team30' => $team30,
-                'team30_id' => $team30_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team30_notification' => $team30_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team30_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team30_id)]);
-        
-                return view('offence.offence30',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence30',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team30' => $team30,
+                    'team30_id' => $team30_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team30_notification' => $team30_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team30' => $team30,
+                    'team30_id' => $team30_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team30_notification' => $team30_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -2954,68 +3561,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team31_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team31' => $team31,
-                'team31_id' => $team31_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team31_notification' => $team31_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team31' => $team31,
+                    'team31_id' => $team31_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team31_notification' => $team31_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team31' => $team31,
-                'team31_id' => $team31_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team31_notification' => $team31_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team31_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team31_id)]);
-        
-                return view('offence.offence31',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence31',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team31' => $team31,
+                    'team31_id' => $team31_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team31_notification' => $team31_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team31' => $team31,
+                    'team31_id' => $team31_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team31_notification' => $team31_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3050,68 +3678,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team32_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team32' => $team32,
-                'team32_id' => $team32_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team32_notification' => $team32_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team32' => $team32,
+                    'team32_id' => $team32_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team32_notification' => $team32_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team32' => $team32,
-                'team32_id' => $team32_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team32_notification' => $team32_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team32_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team32_id)]);
-        
-                return view('offence.offence32',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence32',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team32' => $team32,
+                    'team32_id' => $team32_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team32_notification' => $team32_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team32' => $team32,
+                    'team32_id' => $team32_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team32_notification' => $team32_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3146,68 +3795,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team33_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team33' => $team33,
-                'team33_id' => $team33_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team33_notification' => $team33_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team33' => $team33,
+                    'team33_id' => $team33_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team33_notification' => $team33_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team33' => $team33,
-                'team33_id' => $team33_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team33_notification' => $team33_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team33_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team33_id)]);
-        
-                return view('offence.offence33',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence33',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team33' => $team33,
+                    'team33_id' => $team33_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team33_notification' => $team33_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team33' => $team33,
+                    'team33_id' => $team33_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team33_notification' => $team33_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3242,68 +3912,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team34_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team34' => $team34,
-                'team34_id' => $team34_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team34_notification' => $team34_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team34' => $team34,
+                    'team34_id' => $team34_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team34_notification' => $team34_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team34' => $team34,
-                'team34_id' => $team34_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team34_notification' => $team34_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team34_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team34_id)]);
-        
-                return view('offence.offence34',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence34',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team34' => $team34,
+                    'team34_id' => $team34_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team34_notification' => $team34_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team34' => $team34,
+                    'team34_id' => $team34_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team34_notification' => $team34_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3338,68 +4029,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team35_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team35' => $team35,
-                'team35_id' => $team35_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team35_notification' => $team35_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team35' => $team35,
+                    'team35_id' => $team35_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team35_notification' => $team35_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team35' => $team35,
-                'team35_id' => $team35_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team35_notification' => $team35_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team35_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team35_id)]);
-        
-                return view('offence.offence35',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence35',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team35' => $team35,
+                    'team35_id' => $team35_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team35_notification' => $team35_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team35' => $team35,
+                    'team35_id' => $team35_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team35_notification' => $team35_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3434,68 +4146,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team36_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team36' => $team36,
-                'team36_id' => $team36_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team36_notification' => $team36_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team36' => $team36,
+                    'team36_id' => $team36_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team36_notification' => $team36_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team36' => $team36,
-                'team36_id' => $team36_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team36_notification' => $team36_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team36_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team36_id)]);
-        
-                return view('offence.offence36',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence36',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team36' => $team36,
+                    'team36_id' => $team36_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team36_notification' => $team36_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team36' => $team36,
+                    'team36_id' => $team36_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team36_notification' => $team36_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3530,68 +4263,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team37_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team37' => $team37,
-                'team37_id' => $team37_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team37_notification' => $team37_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team37' => $team37,
+                    'team37_id' => $team37_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team37_notification' => $team37_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team37' => $team37,
-                'team37_id' => $team37_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team37_notification' => $team37_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team37_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team37_id)]);
-        
-                return view('offence.offence37',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence37',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team37' => $team37,
+                    'team37_id' => $team37_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team37_notification' => $team37_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team37' => $team37,
+                    'team37_id' => $team37_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team37_notification' => $team37_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3626,68 +4380,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team38_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team38' => $team38,
-                'team38_id' => $team38_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team38_notification' => $team38_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team38' => $team38,
+                    'team38_id' => $team38_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team38_notification' => $team38_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team38' => $team38,
-                'team38_id' => $team38_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team38_notification' => $team38_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team38_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team38_id)]);
-        
-                return view('offence.offence38',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence38',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team38' => $team38,
+                    'team38_id' => $team38_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team38_notification' => $team38_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team38' => $team38,
+                    'team38_id' => $team38_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team38_notification' => $team38_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3722,68 +4497,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team39_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team39' => $team39,
-                'team39_id' => $team39_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team39_notification' => $team39_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team39' => $team39,
+                    'team39_id' => $team39_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team39_notification' => $team39_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team39' => $team39,
-                'team39_id' => $team39_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team39_notification' => $team39_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team39_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team39_id)]);
-        
-                return view('offence.offence39',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence39',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team39' => $team39,
+                    'team39_id' => $team39_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team39_notification' => $team39_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team39' => $team39,
+                    'team39_id' => $team39_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team39_notification' => $team39_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3818,68 +4614,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team40_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team40' => $team40,
-                'team40_id' => $team40_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team40_notification' => $team40_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team40' => $team40,
+                    'team40_id' => $team40_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team40_notification' => $team40_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team40' => $team40,
-                'team40_id' => $team40_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team40_notification' => $team40_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team40_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team40_id)]);
-        
-                return view('offence.offence40',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence40',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team40' => $team40,
+                    'team40_id' => $team40_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team40_notification' => $team40_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team40' => $team40,
+                    'team40_id' => $team40_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team40_notification' => $team40_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -3914,68 +4731,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team41_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team41' => $team41,
-                'team41_id' => $team41_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team41_notification' => $team41_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team41' => $team41,
+                    'team41_id' => $team41_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team41_notification' => $team41_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team41' => $team41,
-                'team41_id' => $team41_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team41_notification' => $team41_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team41_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team41_id)]);
-        
-                return view('offence.offence41',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence41',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team41' => $team41,
+                    'team41_id' => $team41_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team41_notification' => $team41_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team41' => $team41,
+                    'team41_id' => $team41_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team41_notification' => $team41_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -4010,68 +4848,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team42_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team42' => $team42,
-                'team42_id' => $team42_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team42_notification' => $team42_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team42' => $team42,
+                    'team42_id' => $team42_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team42_notification' => $team42_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team42' => $team42,
-                'team42_id' => $team42_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team42_notification' => $team42_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team42_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team42_id)]);
-        
-                return view('offence.offence42',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence42',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team42' => $team42,
+                    'team42_id' => $team42_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team42_notification' => $team42_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team42' => $team42,
+                    'team42_id' => $team42_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team42_notification' => $team42_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -4106,68 +4965,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team43_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team43' => $team43,
-                'team43_id' => $team43_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team43_notification' => $team43_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team43' => $team43,
+                    'team43_id' => $team43_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team43_notification' => $team43_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team43' => $team43,
-                'team43_id' => $team43_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team43_notification' => $team43_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team43_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team43_id)]);
-        
-                return view('offence.offence43',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence43',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team43' => $team43,
+                    'team43_id' => $team43_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team43_notification' => $team43_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team43' => $team43,
+                    'team43_id' => $team43_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team43_notification' => $team43_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -4202,68 +5082,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
+            if($user->id != $seating && $notification == 0 && $team44_notification == 0){
             
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
-          
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team44' => $team44,
-                'team44_id' => $team44_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team44_notification' => $team44_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team44' => $team44,
+                    'team44_id' => $team44_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team44_notification' => $team44_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team44' => $team44,
-                'team44_id' => $team44_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team44_notification' => $team44_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team44_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team44_id)]);
-        
-                return view('offence.offence44',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence44',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team44' => $team44,
+                    'team44_id' => $team44_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team44_notification' => $team44_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team44' => $team44,
+                    'team44_id' => $team44_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team44_notification' => $team44_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
@@ -4298,68 +5199,89 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($notification == 100) {
-                
-            $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
-            $team_id = $team_id->team_id;
-            $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
-            $team_name = $team_name->name;
+            if($user->id != $seating && $notification == 0 && $team45_notification == 0){
             
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team45' => $team45,
-                'team45_id' => $team45_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team45_notification' => $team45_notification,
-                'team_name' => $team_name,
-            ];
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team45' => $team45,
+                    'team45_id' => $team45_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team45_notification' => $team45_notification,
+                ];
             
-            }else{
-            
-            $data = [
-                'user' => $user,
-                'seats' => $seats,
-                'team45' => $team45,
-                'team45_id' => $team45_id,
-                'user_id' => $user_id,
-                'seating' => $seating,
-                'notification' => $notification,
-                'user_id_seat' => $user_id_seat,
-                'team45_notification' => $team45_notification,
-            ];
-            
-            }
-        
-            if($user->id != $seating && $notification == 0 && $team45_notification == 0) {
-            
+
                 DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team45_id)]);
-        
-                return view('offence.offence45',$data);
             
-            }elseif($notification = 99){
+                return view('offence.offence45',$data);
                 
+            }elseif($notification == 99){
+                    
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')->first();
                 $team_id = $team_id->team_id;
                 $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
                 $team_name = $team_name->name;
-                
+                    
                 $user_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.user_id')->first();
                 $user_id = $user_id->user_id;
                 $user_name = DB::table('users')->where('id', "=" , $user_id)->select('users.name')->first();
                 $user_name = $user_name->name;
-                
+                    
                 $data = [
                     'user' => $user,
                     'team_name' => $team_name,
                     'user_name' => $user_name,
                 ];
-                
+                    
                 return view('seat.timeline',$data);
+                    
+            }elseif($notification == 100){
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.user_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team45' => $team45,
+                    'team45_id' => $team45_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team45_notification' => $team45_notification,
+                    'team_name' => $team_name,
+                ];
                 
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
+                $team_id = $team_id->team_id;
+                $team_name = DB::table('users')->where('id', "=" , $team_id)->select('users.name')->first();
+                $team_name = $team_name->name;
+              
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team45' => $team45,
+                    'team45_id' => $team45_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team45_notification' => $team45_notification,
+                    'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
             }
         }
         else {
