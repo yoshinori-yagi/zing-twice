@@ -83,7 +83,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team1_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team1_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team1_id)]);
         
                 return view('offence.offence',$data);
             
@@ -180,7 +180,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team2_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team2_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team2_id)]);
         
                 return view('offence.offence2',$data);
             
@@ -279,7 +279,7 @@ class OffencesController extends Controller
             
             if($user->id != $seating && $notification == 0 && $team3_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team3_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team3_id)]);
         
                 return view('offence.offence3',$data);
             
@@ -376,7 +376,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team4_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team4_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team4_id)]);
         
                 return view('offence.offence4',$data);
             
@@ -473,7 +473,7 @@ class OffencesController extends Controller
             
             if($user->id != $seating && $notification == 0 && $team5_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team5_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team5_id)]);
         
                 return view('offence.offence5',$data);
             
@@ -569,7 +569,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team6_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team6_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team6_id)]);
         
                 return view('offence.offence6',$data);
             
@@ -665,7 +665,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team7_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team7_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team7_id)]);
         
                 return view('offence.offence7',$data);
             
@@ -761,7 +761,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team8_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team8_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team8_id)]);
         
                 return view('offence.offence8',$data);
             
@@ -857,7 +857,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team9_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team9_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team9_id)]);
         
                 return view('offence.offence9',$data);
             
@@ -953,7 +953,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team10_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team10_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team10_id)]);
         
                 return view('offence.offence10',$data);
             
@@ -1049,7 +1049,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team11_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team11_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team11_id)]);
         
                 return view('offence.offence11',$data);
             
@@ -1145,7 +1145,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team12_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team12_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team12_id)]);
         
                 return view('offence.offence12',$data);
             
@@ -1241,7 +1241,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team13_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team13_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team13_id)]);
         
                 return view('offence.offence13',$data);
             
@@ -1337,7 +1337,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team14_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team14_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team14_id)]);
         
                 return view('offence.offence14',$data);
             
@@ -1433,7 +1433,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team15_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team15_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team15_id)]);
         
                 return view('offence.offence15',$data);
             
@@ -1529,7 +1529,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team16_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team16_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team16_id)]);
         
                 return view('offence.offence16',$data);
             
@@ -1625,7 +1625,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team17_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team17_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team17_id)]);
         
                 return view('offence.offence17',$data);
             
@@ -1721,7 +1721,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team18_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team18_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team18_id)]);
         
                 return view('offence.offence18',$data);
             
@@ -1817,7 +1817,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team19_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team19_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team19_id)]);
         
                 return view('offence.offence19',$data);
             
@@ -1914,7 +1914,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team20_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team20_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team20_id)]);
         
                 return view('offence.offence20',$data);
             
@@ -2010,7 +2010,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team21_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team21_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team21_id)]);
         
                 return view('offence.offence21',$data);
             
@@ -2107,7 +2107,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team22_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team22_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team22_id)]);
         
                 return view('offence.offence22',$data);
             
@@ -2203,7 +2203,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team23_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team23_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team23_id)]);
         
                 return view('offence.offence23',$data);
             
@@ -2299,7 +2299,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team24_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team24_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team24_id)]);
         
                 return view('offence.offence24',$data);
             
@@ -2395,7 +2395,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team25_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team25_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team25_id)]);
         
                 return view('offence.offence25',$data);
             
@@ -2491,7 +2491,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team26_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team26_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team26_id)]);
         
                 return view('offence.offence26',$data);
             
@@ -2587,7 +2587,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team27_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team27_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team27_id)]);
         
                 return view('offence.offence27',$data);
             
@@ -2683,7 +2683,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team28_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team28_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team28_id)]);
         
                 return view('offence.offence28',$data);
             
@@ -2779,7 +2779,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team29_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team29_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team29_id)]);
         
                 return view('offence.offence29',$data);
             
@@ -2875,7 +2875,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team30_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team30_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team30_id)]);
         
                 return view('offence.offence30',$data);
             
@@ -2971,7 +2971,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team31_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team31_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team31_id)]);
         
                 return view('offence.offence31',$data);
             
@@ -3067,7 +3067,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team32_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team32_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team32_id)]);
         
                 return view('offence.offence32',$data);
             
@@ -3163,7 +3163,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team33_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team33_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team33_id)]);
         
                 return view('offence.offence33',$data);
             
@@ -3259,7 +3259,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team34_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team34_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team34_id)]);
         
                 return view('offence.offence34',$data);
             
@@ -3355,7 +3355,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team35_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team35_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team35_id)]);
         
                 return view('offence.offence35',$data);
             
@@ -3451,7 +3451,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team36_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team36_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team36_id)]);
         
                 return view('offence.offence36',$data);
             
@@ -3547,7 +3547,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team37_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team37_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team37_id)]);
         
                 return view('offence.offence37',$data);
             
@@ -3643,7 +3643,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team38_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team38_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team38_id)]);
         
                 return view('offence.offence38',$data);
             
@@ -3739,7 +3739,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team39_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team39_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team39_id)]);
         
                 return view('offence.offence39',$data);
             
@@ -3835,7 +3835,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team40_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team40_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team40_id)]);
         
                 return view('offence.offence40',$data);
             
@@ -3931,7 +3931,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team41_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team41_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team41_id)]);
         
                 return view('offence.offence41',$data);
             
@@ -4027,7 +4027,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team42_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team42_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team42_id)]);
         
                 return view('offence.offence42',$data);
             
@@ -4123,7 +4123,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team43_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team43_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team43_id)]);
         
                 return view('offence.offence43',$data);
             
@@ -4219,7 +4219,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team44_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team44_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team44_id)]);
         
                 return view('offence.offence44',$data);
             
@@ -4315,7 +4315,7 @@ class OffencesController extends Controller
         
             if($user->id != $seating && $notification == 0 && $team45_notification == 0) {
             
-                DB::insert('insert into zing.games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team45_id)]);
+                DB::insert('insert into games (user_id, team_id) values (?, ?)',[intval($user_id), intval($team45_id)]);
         
                 return view('offence.offence45',$data);
             
