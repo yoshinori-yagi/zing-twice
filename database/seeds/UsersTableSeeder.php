@@ -73,11 +73,6 @@ class UsersTableSeeder extends Seeder
           
         ],
         [
-          'name' => '',
-          'password' => bcrypt('123456'),
-          
-        ],
-        [
           'name' => 'kara-age',
           'password' => bcrypt('123456'),
           
