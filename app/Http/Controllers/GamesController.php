@@ -296,7 +296,7 @@ class GamesController extends Controller
         $tetoris_score = $request;
         $tetoris_score = $tetoris_score->point;
         
-        DB::insert('insert into zing.tetoris (tetoris) values (?)',[intval($tetoris_score)]);
+        DB::insert('insert into tetoris (tetoris) values (?)',[intval($tetoris_score)]);
 
         return $tetoris_score;
         
@@ -540,7 +540,7 @@ class GamesController extends Controller
         
         $block_score = $request->BlockScore;
         
-        DB::insert('insert into zing.block (block) values (?)',[intval($block_score)]);
+        DB::insert('insert into block (block) values (?)',[intval($block_score)]);
 
         return $block_score;
         
