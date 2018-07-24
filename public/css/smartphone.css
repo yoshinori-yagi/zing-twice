@@ -14,6 +14,10 @@
     .tetoris_down {
         display: none;
     }
+    
+    .tribe_index {
+        display: none;
+    }
 }
 
 @media (max-width: 670px) {
@@ -59,12 +63,34 @@
         width: 100%;
     }
     
+    .seat {
+        margin-top: 10%;
+    }
     
-    .seat{
-        font-size: 0px;
-        padding: 5px;
-        width: 15px;
-        height: 15px;
+    .tribe_index  {
+        font-size: 15px;
+        top: 50%;
+        
+    }
+    
+    .tribe_red {
+        margin-left: 20%;
+    }
+    
+    .tribe_yellow{
+        margin-left: 8%;
+    }
+    
+    .tribe_pink{
+        margin-left: 8%;
+    }
+    
+    .tribe_purple{
+        margin-left: 8%;
+    }
+    
+    .seat_slide {
+        display: none;
     }
     
     /* nav bar */

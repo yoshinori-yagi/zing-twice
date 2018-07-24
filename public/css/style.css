@@ -1,5 +1,5 @@
 /* commons */
-h1, h2, h3, a ,p {
+h1, h2, h3, a ,p ,li {
     font-family: "tornac", "vdl-terag", serif;
 }
 
@@ -164,6 +164,10 @@ ul {
 .seats_index {
     position: absolute;
     text-align: center;
+}
+
+.tribe {
+    float: left;
 }
 
 .seat{
