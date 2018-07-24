@@ -580,7 +580,29 @@ function keyDownFunc(e){
         }
     }
 }
+
+var myfunc1 = function () {
+    rotateBlock();
+}
+var myfunc2 = function () {
+      clearBlock();
+      sx = x; sy = y;
+      x--;
+    }
+var myfunc3 = function () {
+      clearBlock();
+      sx = x; sy = y;
+      x++;
+    }
+var myfunc4 = function () {
+      clearBlock();
+      sx = x; sy = y;
+      y++;
+    }
+
+
  
+
 /*
  * 起動処理
  */

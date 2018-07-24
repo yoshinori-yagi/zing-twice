@@ -10,6 +10,12 @@
             <div id = "speedup"></div>
             <canvas id="canvas"></canvas>
         </div>
+        <div class="tetoris_buttons">
+            <input class = "tetoris_btn tetoris_turn" type="button" value="turn" onclick="myfunc1()">
+            <input class = "tetoris_btn tetoris_left" type="button" value="left" onclick="myfunc2()">
+            <input class = "tetoris_btn tetoris_right" type="button" value="right" onclick="myfunc3()">
+            <input class = "tetoris_btn tetoris_down" type="button" value="down" onclick="myfunc4()">
+        </div>
         <script type = "text/javascript" src="/js/game.js">
         </script>
         <a href="{{ route('tetoris.wait', ['id' => $user->id]) }}" class="btn btn-ghost btn-lg game_finish tetoris_fininsh">Send this result</a>

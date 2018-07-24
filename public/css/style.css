@@ -371,6 +371,39 @@ ul {
     font-size: 80px;
 }
 
+.tetoris_buttons {
+
+}
+
+.tetoris_btn {
+    font-size: 20px;
+    font-family: "tornac", "vdl-terag", serif;
+    background-color: transparent;
+}
+
+.tetoris_left {
+    position: absolute;
+    right: 25%;
+    top: 30%;
+}
+
+.tetoris_right {
+    position: absolute;
+    right: 15%;
+    top: 30%;
+}
+
+.tetoris_turn {
+    position: absolute;
+    right: 20%;
+    top: 25%;
+}
+
+.tetoris_down {
+    position: absolute;
+    right: 20%;
+    top: 35%;
+}
 
 /*game index slide */
 .change-btn-wrapper {
