@@ -451,6 +451,8 @@ class GamesController extends Controller
         $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
         $user_id = $user_id->user_id;
         
+        DB::table('users')->update(['notification' => 0]);
+        
         DB::table('users')->where ('id',intval($user_id))->update(['notification' => 10]);
     
         $data = [
@@ -464,7 +466,10 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')->update(['notification' => 0]);
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 0]);
         
         $data = [
             'user' => $user,
