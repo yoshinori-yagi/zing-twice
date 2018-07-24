@@ -205,7 +205,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')->where ('id', "=", $id)->update(['notification' => 0]);
+        DB::table('users')->update(['notification' => 0]);
         
         
         $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();

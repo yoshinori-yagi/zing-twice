@@ -3,7 +3,7 @@
 @section('content')
 <div class="cover">
     <div class = "game_index">
-            <h1 class = "testt">Select games</h1>
+            <h1>Select games</h1>
             <div class="change-btn-wrapper">
                   <h3 class="change-btn prev-btn">← Previous</h3>
                   <h3 class="change-btn next-btn">Next →</h3>

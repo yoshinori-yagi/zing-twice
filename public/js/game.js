@@ -580,7 +580,29 @@ function keyDownFunc(e){
         }
     }
 }
+
+var myfunc1 = function () {
+    rotateBlock();
+}
+var myfunc2 = function () {
+      clearBlock();
+      sx = x; sy = y;
+      x--;
+    }
+var myfunc3 = function () {
+      clearBlock();
+      sx = x; sy = y;
+      x++;
+    }
+var myfunc4 = function () {
+      clearBlock();
+      sx = x; sy = y;
+      y++;
+    }
+
+
  
+
 /*
  * 起動処理
  */
@@ -956,6 +978,34 @@ function saveBlockScore() {
 /* Jquery */
 
 $(function() {
+    
+    $('tribe_index_red').click(function() {
+        $('tribe_red').show();
+        $('tribe_yellow').hide();
+        $('tribe_pink').hide();
+        $('tribe_purple').hide();
+    });
+    
+    $('tribe_index_yellow').click(function() {
+        $('tribe_yellow').fadeIn();
+        $('tribe_red').hide();
+        $('tribe_pink').hide();
+        $('tribe_purple').hide();
+    });
+    
+    $('tribe_index_pink').click(function() {
+        $('tribe_pink').show();
+        $('tribe_yellow').hide();
+        $('tribe_red').hide();
+        $('tribe_purple').hide();
+    });
+    
+    $('tribe_index_purple').click(function() {
+        $('tribe_purple').show();
+        $('tribe_yellow').hide();
+        $('tribe_pink').hide();
+        $('tribe_red').hide();
+    });
 
 /* Slide show*/
   function toggleChangeBtn() {
@@ -1935,6 +1985,8 @@ $(function() {
             $('.purple').css('background-color','white').css('box-shadow', '1px 2px MediumOrchid')
         }
     );
+    
+    
     
     
     $('.seats_mini').hover(
