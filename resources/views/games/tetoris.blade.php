@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="cover">
-        <div class = "aside">
+        <div class = "aside col-xs-2">
             <h2>Time:</h2><h2 id ="time"></h2>
             <h2>Score:</h2><h2 id="score"></h2>
         </div>
-        <div id="wrapper">
+        <div id="wrapper col-xs-10 tetoris">
             <div id = "speedup"></div>
             <canvas id="canvas"></canvas>
         </div>

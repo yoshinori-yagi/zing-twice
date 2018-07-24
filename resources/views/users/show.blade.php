@@ -6,7 +6,7 @@
 @section('content')
     <div class = "cover">
          <div class="row">
-            <aside class="col-xs-4">
+            <aside class="col-xs-12 col-md-4">
                 <div class="profile_box">
                     <div class="panel-heading">
                         <h3 class="profile_title">seat number</h3>
@@ -36,7 +36,7 @@
                 </div>
             </aside>
             
-            <div class="col-xs-8">
+            <div class="col-xs-12 col-md-8">
                 <div class="profile_box">
                     <div class="panel-heading">
                         <h3 class="profile_title">Team Name</h3>

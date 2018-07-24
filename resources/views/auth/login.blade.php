@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
+    <div class="col-md-offset-3 col-md-6 col-xs-12">
         <div class="profile_box">
             <div class="profile_title">Login Page</div>
             <div class="profile_body">
