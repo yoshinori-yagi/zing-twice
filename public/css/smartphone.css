@@ -53,6 +53,10 @@
       font-size: 15px;
     }
     
+    .game_confirm {
+        margin-top: 25%;
+    }
+    
     /* welcome page*/
     .cover h1 {
         font-size: 100px;
@@ -67,6 +71,11 @@
         margin-top: 10%;
     }
     
+    .tribe {
+        margin-top: 10%;
+        
+    }
+    
     .tribe_index  {
         font-size: 15px;
         top: 50%;
@@ -75,18 +84,25 @@
     
     .tribe_red {
         margin-left: 20%;
+        position: absolute;
     }
     
     .tribe_yellow{
         margin-left: 8%;
+        display: none;
+        position: absolute;
     }
     
     .tribe_pink{
         margin-left: 8%;
+        display:none;
+        position:absolute;
     }
     
     .tribe_purple{
         margin-left: 8%;
+        display:none;
+        position:absolute;
     }
     
     .seat_slide {

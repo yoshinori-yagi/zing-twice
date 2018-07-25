@@ -50,6 +50,12 @@
             <h2 class='team44'>{{ $team44->name }}</h2>
             <h2 class='team45'>{{ $team45->name }}</h2>
             <div class = "seats_index">
+                <ul class = "tribe_index">
+                    <li class = "btn btn-lg tribe_index_red">red</li>
+                    <li class = "btn btn-lg tribe_index_yellow">yellow</li>
+                    <li class = "btn btn-lg tribe_index_pink">pink</li>
+                    <li class = "btn btn-lg tribe_index_purple">purple</li>
+                </ul>
                 <table class="tribe tribe_red">
                     <tr>
                         <th><a href="{{ route('offence.select', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-md seat red seat1">1</a></th><th><a href="{{ route('offence.select4', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-md seat red seat4">4</a></th><th><a href="{{ route('offence.select7', ['id' => $user->id]) }}" class="btn btn-default btn-ghost btn-md seat red seat7">7</a></th> 

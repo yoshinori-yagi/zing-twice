@@ -975,37 +975,44 @@ function saveBlockScore() {
     }
 
 
+$(function() {
+    $('.tribe_index_red').click(function() {
+        $('.tribe_red').show();
+        $('.tribe_yellow').hide();
+        $('.tribe_pink').hide();
+        $('.tribe_purple').hide();
+    });
+    
+    $('.tribe_index_yellow').click(function() {
+        $('.tribe_yellow').fadeIn();
+        $('.tribe_red').hide();
+        $('.tribe_pink').hide();
+        $('.tribe_purple').hide();
+    });
+    
+    $('.tribe_index_pink').click(function() {
+        $('.tribe_pink').show();
+        $('.tribe_yellow').hide();
+        $('.tribe_red').hide();
+        $('.tribe_purple').hide();
+    });
+    
+    $('.tribe_index_purple').click(function() {
+        $('.tribe_purple').show();
+        $('.tribe_yellow').hide();
+        $('.tribe_pink').hide();
+        $('.tribe_red').hide();
+    });
+})
+
+
+
+
 /* Jquery */
 
 $(function() {
     
-    $('tribe_index_red').click(function() {
-        $('tribe_red').show();
-        $('tribe_yellow').hide();
-        $('tribe_pink').hide();
-        $('tribe_purple').hide();
-    });
     
-    $('tribe_index_yellow').click(function() {
-        $('tribe_yellow').fadeIn();
-        $('tribe_red').hide();
-        $('tribe_pink').hide();
-        $('tribe_purple').hide();
-    });
-    
-    $('tribe_index_pink').click(function() {
-        $('tribe_pink').show();
-        $('tribe_yellow').hide();
-        $('tribe_red').hide();
-        $('tribe_purple').hide();
-    });
-    
-    $('tribe_index_purple').click(function() {
-        $('tribe_purple').show();
-        $('tribe_yellow').hide();
-        $('tribe_pink').hide();
-        $('tribe_red').hide();
-    });
 
 /* Slide show*/
   function toggleChangeBtn() {
