@@ -57,6 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
           Route::get('games/game1/result/offence', 'GamesController@result_after')->name('game.result_after');
           Route::get('games/game2/result/offence', 'GamesController@tetoris_result_after')->name('tetoris.result_after');
           Route::get('games/game3/result/offence', 'GamesController@block_result_after')->name('block.result_after');
+          Route::get('practice', 'GamesController@practice')->name('practice');
           Route::get('refused', 'GamesController@refused')->name('refused');
 
           Route::get('seats/update', 'SeatsController@update')->name('seat.update');
