@@ -938,7 +938,7 @@ function main() {
        }
        // スコア描画
        game.ctx.fillStyle = game.score.color;
-       game.ctx.font = '30px "Arial Black"';
+       game.ctx.font = '30px "tornac"';
        game.ctx.fillText('score : ' + game.score.point, 10, game.cvs.height - 10);
        
        

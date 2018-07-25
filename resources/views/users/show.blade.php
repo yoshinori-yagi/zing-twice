@@ -83,7 +83,7 @@
                         </h3>
                         @elseif($notification == 99)
                         <h3>Game now. please wait. </h3>
-                        @else($notification == 100)
+                        @else
                         <h3>Game haven't finished. (vs {{ $team_name }})</h3>
                         <h3>Wait for a moment.</h3>
                         @endif
