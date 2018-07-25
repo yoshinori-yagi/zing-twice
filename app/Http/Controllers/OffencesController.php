@@ -3712,6 +3712,7 @@ class OffencesController extends Controller
     
             }else{
             
+                $data = [
                     'user' => $user,
                     'seats' => $seats,
                     'team28' => $team28,
