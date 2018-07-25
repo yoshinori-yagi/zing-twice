@@ -168,24 +168,24 @@
     }
     
     .tetoris_left {
-        right: 75%;
-        top: 80%;
+        right: 90%;
+        top: 65%;
     }
     
     .tetoris_right {
         position: absolute;
-        right: 55%;
-        top: 80%;
+        right: 80%;
+        top: 65%;
     }
     
     .tetoris_turn {
-        right: 15%;
+        right: 85%;
         top: 80%;
     }
     
     .tetoris_down {
-        right: 35%;
-        top: 80%;
+        right: 85%;
+        top: 70%;
     }
     
    .tetoris_fininsh {
