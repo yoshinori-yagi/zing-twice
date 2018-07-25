@@ -81,6 +81,8 @@
                         <h3>Your attack refused. 
                         <a href="{{ route('refused', ['id' => $user->id])}}" class="btn btn-ghost btn-lg profile_btn">Go</a>
                         </h3>
+                        @elseif($notification == 99)
+                        <h3>Game now. please wait. </h3>
                         @else($notification == 100)
                         <h3>Game haven't finished. (vs {{ $team_name }})</h3>
                         <h3>Wait for a moment.</h3>

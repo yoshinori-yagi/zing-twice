@@ -67,7 +67,7 @@ class GamesController extends Controller
         ];
         
 
-        DB::insert('insert into zing.numbers (number) values (?)',[intval($number)]);
+        DB::insert('insert into numbers (number) values (?)',[intval($number)]);
         
         $game_id = DB::table('games')->orderby('id', 'desc')->select('games.id')->first();
         $game_id =  $game_id->id;
