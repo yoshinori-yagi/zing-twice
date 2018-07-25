@@ -52,6 +52,7 @@
                         <div class="profile_body">
                             <p>マイページでは現在いる場所や戦いに関する通知、そしてポイントの確認・購入(50ポイント＝100円)ができる。</p>
                         </div>
+                        <a href="{{ route('login') }}" class="btn btn-ghost btn-lg">Log in</a>
                     </div>
                 </li>
             </ul>
