@@ -57,6 +57,12 @@
         margin-top: 25%;
     }
     
+    .information {
+        font-size: 10px;
+        right: 5%;
+        top: 0%;
+    }
+    
     /* welcome page*/
     .cover h1 {
         font-size: 100px;

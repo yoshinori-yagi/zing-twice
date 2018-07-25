@@ -707,3 +707,18 @@ button {
 .purple:hover{
    background-color:mediumorchid;
 }
+
+.blink {
+  animation: 1.5s linear infinite blink_effect;
+}
+@keyframes blink_effect {
+    0% {
+        visibility: hidden;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}

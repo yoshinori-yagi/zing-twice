@@ -4,7 +4,7 @@
         <div class="cover">
             <div class = "select_teams">
                 <h2>about Zing</h2>
-                <div class="change-btn-wrapper">
+                <div class="change-btn-wrapper blink">
                   <h3 class="change-btn prev-btn">← Previous</h3>
                   <h3 class="change-btn next-btn">Next →</h3>
             </div>
