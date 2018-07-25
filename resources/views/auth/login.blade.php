@@ -10,17 +10,17 @@
                     <div class="form-group">
                         {!! Form::label('name', 'Team name') !!}
                         {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+                        
                     </div>
 
                     <div class="form-group">
-                        {!! form::label('password', 'Password') !!}
+                        {!! form::label('password', 'Password(123456)') !!}
                         {!! form::password('password', ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="text-right">
                         {!! form::submit('Login', ['class' => 'btn-ghost btn-start']) !!}
                     </div>
-                    <div><a href="{{ route('signup.get') }}" class="register_confirm">you are not registered?</a></div>
                 {!! form::close() !!}
             </div>
         </div>

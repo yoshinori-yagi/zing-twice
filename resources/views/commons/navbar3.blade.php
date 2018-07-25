@@ -12,7 +12,6 @@
             <li><a href="{{ route('logout.get') }}"><span class="nav-text">Log out</span></a></li>
           @else
             <li><a href="/"><span class="nav-text">Home</span></a></li>
-            <li><a href="{{ route('signup.get') }}"><span class="nav-text">Sign Up</span></a></li>
             <li><a href="{{ route('login') }}"><span class="nav-text">Log in</span></a></li>
           @endif
       </ul>
