@@ -72,7 +72,7 @@
     }
     
     .seat:hover{
-       transform: rotateY(720deg) scale(1.4);
+       transform: rotateY(720deg) scale(1.2);
     }
     
     .tribe {
