@@ -13,7 +13,7 @@
                     <div class="profile_box">
                             <h3 class="profile_title">取りたい陣地を選択</h3>
                         <div class="profile_body">
-                            <p>このアプリの目的は行きたい場所にいるチームと席を合法的に入れ替わること。</p>
+                            <p>このアプリの目的は、ミニゲームを通して、行きたい場所にいるチームと席を合法的に入れ替わること。</p>
                             <p>まずは座席の一覧ページで入れ替わりたい場所を選択。</p>
                         </div>
                     </div>
@@ -52,6 +52,7 @@
                         <div class="profile_body">
                             <p>マイページでは現在いる場所や戦いに関する通知、そしてポイントの確認・購入(50ポイント＝100円)ができる。</p>
                         </div>
+                        <a href="{{ route('login') }}" class="btn btn-ghost btn-lg">Log in</a>
                     </div>
                 </li>
             </ul>
