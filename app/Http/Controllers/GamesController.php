@@ -715,5 +715,20 @@ class GamesController extends Controller
         
         return view ('games.block_bought', $data);
     }
+    
+    /*practice*/
+    
+    public function practice($id)
+    {
+        $user = User::find($id);
+    
+        $data = [
+            'user' => $user,
+        ];
+            
+        return view ('games.tetoris_practice',$data);  
+        
+    }
+    
 } 
    
