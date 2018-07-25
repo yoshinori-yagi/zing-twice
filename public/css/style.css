@@ -663,7 +663,7 @@ button {
    
 }
 .seat:hover{
-   transition: 1s ease-out;
+   transition: 0.65s ease-out;
    transform: rotateY(720deg) scale(2);
 }
 

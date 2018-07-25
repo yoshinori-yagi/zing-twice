@@ -107,7 +107,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -125,6 +125,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team1_notification' => $team1_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team1' => $team1,
+                    'team1_id' => $team1_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team1_notification' => $team1_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -224,7 +240,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -242,6 +258,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team2_notification' => $team2_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team2' => $team2,
+                    'team2_id' => $team2_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team2_notification' => $team2_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -344,7 +376,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -362,6 +394,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team3_notification' => $team3_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team3' => $team3,
+                    'team3_id' => $team3_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team3_notification' => $team3_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -462,7 +510,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -480,6 +528,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team4_notification' => $team4_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team4' => $team4,
+                    'team4_id' => $team4_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team4_notification' => $team4_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -579,7 +643,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -597,6 +661,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team5_notification' => $team5_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team5' => $team5,
+                    'team5_id' => $team5_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team5_notification' => $team5_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -696,7 +776,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -714,6 +794,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team6_notification' => $team6_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team6' => $team6,
+                    'team6_id' => $team6_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team6_notification' => $team6_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -813,7 +909,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -831,6 +927,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team7_notification' => $team7_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team7' => $team7,
+                    'team7_id' => $team7_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team7_notification' => $team7_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -930,7 +1042,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -948,6 +1060,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team8_notification' => $team8_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team8' => $team8,
+                    'team8_id' => $team8_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team8_notification' => $team8_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -1047,7 +1175,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -1065,6 +1193,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team9_notification' => $team9_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team9' => $team9,
+                    'team9_id' => $team9_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team9_notification' => $team9_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -1164,7 +1308,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -1182,6 +1326,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team10_notification' => $team10_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team10' => $team10,
+                    'team10_id' => $team10_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team10_notification' => $team10_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -1281,7 +1441,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -1299,6 +1459,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team11_notification' => $team11_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team11' => $team11,
+                    'team11_id' => $team11_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team11_notification' => $team11_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -1398,7 +1574,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -1416,6 +1592,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team12_notification' => $team12_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team12' => $team12,
+                    'team12_id' => $team12_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team12_notification' => $team12_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -1515,7 +1707,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -1533,6 +1725,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team13_notification' => $team13_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team13' => $team13,
+                    'team13_id' => $team13_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team13_notification' => $team13_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -1632,7 +1840,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -1650,6 +1858,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team14_notification' => $team14_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team14' => $team14,
+                    'team14_id' => $team14_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team14_notification' => $team14_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -1749,7 +1973,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -1767,6 +1991,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team15_notification' => $team15_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team15' => $team15,
+                    'team15_id' => $team15_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team15_notification' => $team15_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -1866,7 +2106,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -1884,6 +2124,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team16_notification' => $team16_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team16' => $team16,
+                    'team16_id' => $team16_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team16_notification' => $team16_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -1983,7 +2239,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -2001,6 +2257,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team17_notification' => $team17_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team17' => $team17,
+                    'team17_id' => $team17_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team17_notification' => $team17_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -2100,7 +2372,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -2118,6 +2390,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team18_notification' => $team18_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team18' => $team18,
+                    'team18_id' => $team18_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team18_notification' => $team18_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -2217,7 +2505,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -2235,6 +2523,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team19_notification' => $team19_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team19' => $team19,
+                    'team19_id' => $team19_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team19_notification' => $team19_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -2452,7 +2756,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -2470,6 +2774,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team21_notification' => $team21_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team21' => $team21,
+                    'team21_id' => $team21_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team21_notification' => $team21_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -2569,7 +2889,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -2587,6 +2907,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team22_notification' => $team22_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team22' => $team22,
+                    'team22_id' => $team22_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team22_notification' => $team22_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -2686,7 +3022,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -2704,6 +3040,23 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team23_notification' => $team23_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team23' => $team23,
+                    'team23_id' => $team23_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team23_notification' => $team23_notification,
+
                 ];
                 
                 return view ('users.show', $data);
@@ -2803,7 +3156,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -2821,6 +3174,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team24_notification' => $team24_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team24' => $team24,
+                    'team24_id' => $team24_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team24_notification' => $team24_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -2920,7 +3289,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -2938,6 +3307,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team25_notification' => $team25_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team25' => $team25,
+                    'team25_id' => $team25_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team25_notification' => $team25_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -3037,7 +3422,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -3055,6 +3440,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team26_notification' => $team26_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team26' => $team26,
+                    'team26_id' => $team26_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team26_notification' => $team26_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -3154,7 +3555,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -3172,6 +3573,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team27_notification' => $team27_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team27' => $team27,
+                    'team27_id' => $team27_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team27_notification' => $team27_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -3271,7 +3688,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -3289,6 +3706,21 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team28_notification' => $team28_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team28' => $team28,
+                    'team28_id' => $team28_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team28_notification' => $team28_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -3388,7 +3820,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -3406,6 +3838,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team29_notification' => $team29_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team29' => $team29,
+                    'team29_id' => $team29_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team29_notification' => $team29_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -3505,7 +3953,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -3523,6 +3971,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team30_notification' => $team30_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team30' => $team30,
+                    'team30_id' => $team30_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team30_notification' => $team30_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -3622,7 +4086,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -3640,6 +4104,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team31_notification' => $team31_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team31' => $team31,
+                    'team31_id' => $team31_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team31_notification' => $team31_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -3739,7 +4219,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -3757,6 +4237,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team32_notification' => $team32_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team32' => $team32,
+                    'team32_id' => $team32_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team32_notification' => $team32_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -3856,7 +4352,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -3874,6 +4370,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team33_notification' => $team33_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team33' => $team33,
+                    'team33_id' => $team33_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team33_notification' => $team33_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -3973,7 +4485,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -3991,6 +4503,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team34_notification' => $team34_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team34' => $team34,
+                    'team34_id' => $team34_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team34_notification' => $team34_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -4090,7 +4618,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -4108,6 +4636,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team35_notification' => $team35_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team35' => $team35,
+                    'team35_id' => $team35_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team35_notification' => $team35_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -4207,7 +4751,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -4225,6 +4769,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team36_notification' => $team36_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team36' => $team36,
+                    'team36_id' => $team36_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team36_notification' => $team36_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -4324,7 +4884,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -4342,6 +4902,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team37_notification' => $team37_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team37' => $team37,
+                    'team37_id' => $team37_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team37_notification' => $team37_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -4441,7 +5017,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -4459,6 +5035,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team38_notification' => $team38_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team38' => $team38,
+                    'team38_id' => $team38_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team38_notification' => $team38_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -4558,7 +5150,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -4576,6 +5168,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team39_notification' => $team39_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team39' => $team39,
+                    'team39_id' => $team39_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team39_notification' => $team39_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -4675,7 +5283,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -4693,6 +5301,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team40_notification' => $team40_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team40' => $team40,
+                    'team40_id' => $team40_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team40_notification' => $team40_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -4792,7 +5416,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -4810,6 +5434,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team41_notification' => $team41_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team41' => $team41,
+                    'team41_id' => $team41_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team41_notification' => $team41_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -4909,7 +5549,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -4927,6 +5567,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team42_notification' => $team42_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team42' => $team42,
+                    'team42_id' => $team42_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team42_notification' => $team42_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -5026,7 +5682,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -5044,6 +5700,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team43_notification' => $team43_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+            
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team43' => $team43,
+                    'team43_id' => $team43_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team43_notification' => $team43_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -5143,7 +5815,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -5161,6 +5833,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team44_notification' => $team44_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team44' => $team44,
+                    'team44_id' => $team44_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team44_notification' => $team44_notification,
                 ];
                 
                 return view ('users.show', $data);
@@ -5260,7 +5948,7 @@ class OffencesController extends Controller
                 
                 return view ('users.show', $data);
     
-            }else{
+            }elseif($notification = 1|| 3 || 5){
             
                 $team_id = DB::table('users')->join('games','users.id', '=', 'games.team_id')->orderby('games.id', 'desc')->select('games.team_id')-> where('users.id', '=', $id)->first();
                 $team_id = $team_id->team_id;
@@ -5278,6 +5966,22 @@ class OffencesController extends Controller
                     'user_id_seat' => $user_id_seat,
                     'team45_notification' => $team45_notification,
                     'team_name' => $team_name,
+                ];
+                
+                return view ('users.show', $data);
+    
+            }else{
+
+                $data = [
+                    'user' => $user,
+                    'seats' => $seats,
+                    'team45' => $team45,
+                    'team45_id' => $team45_id,
+                    'user_id' => $user_id,
+                    'seating' => $seating,
+                    'notification' => $notification,
+                    'user_id_seat' => $user_id_seat,
+                    'team45_notification' => $team45_notification,
                 ];
                 
                 return view ('users.show', $data);

@@ -71,6 +71,10 @@
         margin-top: 10%;
     }
     
+    .seat:hover{
+       transform: rotateY(720deg) scale(1.4);
+    }
+    
     .tribe {
         margin-top: 10%;
         
