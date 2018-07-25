@@ -167,11 +167,6 @@ class GamesController extends Controller
         
         DB::table('games')->where ('id',intval($game_id))->update(['team_id_score' => $number]);
         
-        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
-        $user_id = $user_id->user_id;
-        
-        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 2]);
-        
         return view('games.defence',$data);                                
         
     }
@@ -186,6 +181,12 @@ class GamesController extends Controller
         $team_id_score = DB::table('games')->orderby('id', 'desc')->select('games.team_id_score')->first();
         $team_id_score = $team_id_score->team_id_score;
         
+        DB::table('users')->update(['notification' => 0]);
+        
+        $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
+        $user_id = $user_id->user_id;
+        
+        DB::table('users')->where ('id',intval($user_id))->update(['notification' => 2]);
 
         $data = [
             'user' => $user,
@@ -206,7 +207,6 @@ class GamesController extends Controller
         $user = User::find($id);
         
         DB::table('users')->update(['notification' => 0]);
-        
         
         $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
         $user_id_score = $user_id_score->user_id_score;
@@ -385,6 +385,8 @@ class GamesController extends Controller
         $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
         $user_id = $user_id->user_id;
         
+        DB::table('users')->update(['notification' => 0]);
+        
         DB::table('users')->where ('id',intval($user_id))->update(['notification' => 4]);
         
         $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
@@ -412,8 +414,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')->update(['notification' => 0]);
-        
+        DB::table('users')->where ('id', $id)->update(['notification' => 0]);
         
         $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
         $user_id_score = $user_id_score->user_id_score;
@@ -634,6 +635,8 @@ class GamesController extends Controller
         $user_id = DB::table('games')->orderby('id', 'desc')->select('games.user_id')->first();
         $user_id = $user_id->user_id;
         
+        DB::table('users')->update(['notification' => 0]);
+        
         DB::table('users')->where ('id',intval($user_id))->update(['notification' => 6]);
         
         $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
@@ -661,8 +664,7 @@ class GamesController extends Controller
     {
         $user = User::find($id);
         
-        DB::table('users')->update(['notification' => 0]);
-        
+        DB::table('users')->where ('id', $id)->update(['notification' => 0]);
         
         $user_id_score = DB::table('games')->orderby('id', 'desc')->select('games.user_id_score')->first();
         $user_id_score = $user_id_score->user_id_score;

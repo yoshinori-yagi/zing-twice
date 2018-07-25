@@ -53,6 +53,10 @@
       font-size: 15px;
     }
     
+    .game_confirm {
+        margin-top: 25%;
+    }
+    
     /* welcome page*/
     .cover h1 {
         font-size: 100px;
@@ -67,6 +71,11 @@
         margin-top: 10%;
     }
     
+    .tribe {
+        margin-top: 10%;
+        
+    }
+    
     .tribe_index  {
         font-size: 15px;
         top: 50%;
@@ -75,18 +84,25 @@
     
     .tribe_red {
         margin-left: 20%;
+        position: absolute;
     }
     
     .tribe_yellow{
         margin-left: 8%;
+        display: none;
+        position: absolute;
     }
     
     .tribe_pink{
         margin-left: 8%;
+        display:none;
+        position:absolute;
     }
     
     .tribe_purple{
         margin-left: 8%;
+        display:none;
+        position:absolute;
     }
     
     .seat_slide {
@@ -152,24 +168,24 @@
     }
     
     .tetoris_left {
-        right: 75%;
-        top: 80%;
+        right: 90%;
+        top: 65%;
     }
     
     .tetoris_right {
         position: absolute;
-        right: 55%;
-        top: 80%;
+        right: 80%;
+        top: 65%;
     }
     
     .tetoris_turn {
-        right: 15%;
+        right: 85%;
         top: 80%;
     }
     
     .tetoris_down {
-        right: 35%;
-        top: 80%;
+        right: 85%;
+        top: 70%;
     }
     
    .tetoris_fininsh {

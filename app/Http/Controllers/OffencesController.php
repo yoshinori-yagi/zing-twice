@@ -46,7 +46,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
 
-            if($user->id != $seating && $notification == 0 && $team1_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -163,7 +163,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
 
-            if($user->id != $seating && $notification == 0 && $team2_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -283,7 +283,7 @@ class OffencesController extends Controller
             $user_id_seat = $user_id_seat->id;
 
             
-            if($user->id != $seating && $notification == 0 && $team3_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -401,7 +401,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team4_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -518,7 +518,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team5_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -635,7 +635,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team6_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -752,7 +752,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team7_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -869,7 +869,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team8_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -986,7 +986,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team9_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -1103,7 +1103,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team10_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -1220,7 +1220,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team11_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -1337,7 +1337,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team12_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -1454,7 +1454,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team13_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -1571,7 +1571,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team14_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -1688,7 +1688,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team15_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -1805,7 +1805,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team16_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -1922,7 +1922,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team17_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -2039,7 +2039,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team18_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -2156,7 +2156,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team19_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -2274,7 +2274,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team20_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -2391,7 +2391,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team21_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -2508,7 +2508,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team22_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -2625,7 +2625,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team23_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -2742,7 +2742,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team24_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -2859,7 +2859,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team25_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -2976,7 +2976,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team26_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -3093,7 +3093,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team27_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -3210,7 +3210,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team28_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -3327,7 +3327,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team29_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -3444,7 +3444,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team30_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -3561,7 +3561,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team31_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -3678,7 +3678,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team32_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -3795,7 +3795,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team33_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -3912,7 +3912,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team34_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -4029,7 +4029,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team35_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -4146,7 +4146,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team36_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -4263,7 +4263,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team37_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -4380,7 +4380,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team38_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -4497,7 +4497,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team39_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -4614,7 +4614,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team40_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -4731,7 +4731,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team41_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -4848,7 +4848,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team42_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -4965,7 +4965,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team43_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -5082,7 +5082,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team44_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
@@ -5199,7 +5199,7 @@ class OffencesController extends Controller
             $user_id_seat = DB::table('seats')->select('seats.id')->where('team_id', '=', $id)->first();
             $user_id_seat = $user_id_seat->id;
             
-            if($user->id != $seating && $notification == 0 && $team45_notification == 0){
+            if($user->id != $seating && $notification == 0){
             
                 $data = [
                     'user' => $user,
