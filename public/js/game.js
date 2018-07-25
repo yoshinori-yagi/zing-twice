@@ -1531,14 +1531,20 @@ $(function() {
                 $('.select-team').show()
           }
           );
-    $('.character').hover(
+          
+    $(function(){
+        setTimeout(function(){
+            $('.information').fadeIn();
+        }, 1200);
+    });
+    /*$('.character').hover(
           function(){
               $('.information').show()
           },
           function(){
               $('.information').hide()
           }
-    );   
+    );  
     
     
 /* seat color hover */
