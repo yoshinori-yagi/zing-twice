@@ -17,6 +17,7 @@
                             <p>まずは座席の一覧ページで入れ替わりたい場所を選択。</p>
                         </div>
                     </div>
+                    <a href="/" class="btn btn-ghost btn-lg">Back</a>
                 </li>
                 <li class= "slide">
                     <div class="profile_box">
@@ -27,6 +28,7 @@
                             <p>ゲームが終了したら、相手に通知が届くので双方がゲームを終了するのを待つ。</p>
                         </div>
                     </div>
+                    <a href="/" class="btn btn-ghost btn-lg">Back</a>
                 </li>
                 <li class= "slide">
                     <div class="profile_box">
@@ -36,6 +38,7 @@
                             <p>戦いを断る際にも、10ポイントを消費する。</p>
                         </div>
                     </div>
+                    <a href="/" class="btn btn-ghost btn-lg">Back</a>
                 </li>
                 <li class= "slide">
                     <div class="profile_box">
@@ -45,6 +48,7 @@
                             <p>嫌な席に来てしまったら、次の戦いを申し込もう。</p>
                         </div>
                     </div>
+                    <a href="/" class="btn btn-ghost btn-lg">Back</a>
                 </li>
                 <li class= "slide">
                     <div class="profile_box">
@@ -52,11 +56,11 @@
                         <div class="profile_body">
                             <p>マイページでは現在いる場所や戦いに関する通知、そしてポイントの確認・購入(50ポイント＝100円)ができる。</p>
                         </div>
-                        <a href="{{ route('login') }}" class="btn btn-ghost btn-lg">Log in</a>
                     </div>
+                    <a href="{{ route('login') }}" class="btn btn-ghost btn-lg">Log in</a>
                 </li>
             </ul>
-                <a href="/" class="btn btn-ghost btn-lg">Back</a>
+                
             </div>
         </div>
 @endsection
