@@ -103,7 +103,7 @@ function init(){
                 [0, 8, 8, 0],
                 [0, 0, 0, 0]],
                  
-            [   [0, 0, 0, 0],
+            [   [0, 7, 0, 0],
                 [0, 7, 0, 0],
                 [0, 7, 0, 0],
                 [0, 7, 0, 0]],
@@ -135,13 +135,13 @@ function init(){
                 
                 
             [   [0, 0, 0, 0],
-                [0, 0, 7, 0],
-                [0, 7, 0, 7],
-                [0, 0, 0, 0]],
+                [0, 7, 7, 0],
+                [7, 7, 0, 0],
+                [7, 0, 0, 0]],
                 
-             [  [6, 0, 0, 6],
-                [6, 0, 0, 6],
-                [6, 6, 6, 6],
+             [  [0, 0, 0, 0],
+                [6, 0, 6, 0],
+                [6, 6, 6, 0],
                 [0, 0, 0, 0]],
             ];
     // ステージを設定
@@ -491,7 +491,7 @@ function mainLoop(){
     // 落下スピードアップ
     if(clearLine >= NEXTLEVEL){
         clearLine = 0;
-        speed = speed - 2;
+        speed = speed - 1;
 
     }
     if(speed < 1) speed = 1;
@@ -835,6 +835,8 @@ function main() {
    // ブロック初期化
    blocks = initBlocks();
    // アニメーション
+   
+   
    setInterval(function () {
        var col = game.block.col; // ブロックの列数
        var row = game.block.row; // ブロックの行数
