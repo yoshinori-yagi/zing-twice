@@ -26,6 +26,8 @@ Route::get('seats', 'SeatsController@index')->name('seat');
 Route::get('about', 'SeatsController@zing')->name('about.zing');
 Route::get('timeline', 'SeatsController@timeline')->name('timeline');
 
+Route::get('practiced', 'GamesController@practiced')->name('practiced');
+
 Route::group(['middleware' => ['auth']], function () {
      Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'users']]);
      Route::group(['prefix' => 'users/{id}'], function () {
