@@ -730,12 +730,6 @@ class GamesController extends Controller
         
     }
     
-    public function practiced()
-    {
-            
-        return view ('games.tetoris_practice');  
-        
-    }
-    
+
 } 
    
