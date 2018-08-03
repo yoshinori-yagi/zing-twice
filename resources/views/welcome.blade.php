@@ -6,7 +6,7 @@
                     <div class="sign_up">
                         <h1>Zing</h1>
                         <a href="{{ route('about.zing') }}" class="btn btn-ghost btn-lg blink">What's Zing?</a>
-                        <a href="{{ route('practice', ['id' => \Auth::id()])}}">Game Practice</a>
+                        <a href="{{ route('practice', ['id' => \Auth::id()])}}" class="btn btn-ghost btn-lg blink">Game Practice</a>
                     </div>
                 @else
                     <div class = "game_confirm">
